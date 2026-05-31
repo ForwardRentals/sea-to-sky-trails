@@ -393,6 +393,55 @@
   }
   footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
 
+  /* ---------- TRAIL CARD DIRECTORY ---------- */
+  .trail-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  @media (max-width: 900px) { .trail-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .trail-grid { grid-template-columns: 1fr; } }
+  .trail-card {
+    border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
+    background: var(--paper); display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  a.trail-card { color: inherit; }
+  a.trail-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(28,25,23,0.09); border-color: var(--ink-mute); }
+  .trail-card.soon { opacity: 0.9; }
+  .tc-thumb {
+    aspect-ratio: 3/2; background: var(--paper-deep);
+    display: grid; place-items: center; color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule); position: relative;
+  }
+  .tc-thumb svg { width: 66%; height: auto; }
+  .tc-badge {
+    position: absolute; top: 0.8rem; right: 0.8rem;
+    font-family: "Inter", sans-serif; font-size: 0.58rem; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 600;
+    padding: 0.3rem 0.62rem; border-radius: 999px;
+    background: var(--moss); color: var(--paper);
+  }
+  .tc-badge.soon { background: var(--paper); color: var(--ink-mute); border: 1px solid var(--rule); }
+  .tc-body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+  .tc-region {
+    font-family: "Inter", sans-serif; font-size: 0.64rem; letter-spacing: 0.18em;
+    text-transform: uppercase; font-weight: 600; color: var(--ink-mute);
+    margin-bottom: 0.7rem;
+  }
+  .tc-body h3 { margin-bottom: 0.55rem; font-size: 1.4rem; }
+  .tc-body p { font-size: 0.95rem; margin: 0 0 1.2rem; }
+  .tc-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+  .tc-stats span {
+    font-family: "Inter", sans-serif; font-size: 0.67rem; letter-spacing: 0.03em;
+    color: var(--ink-soft); background: var(--paper-deep);
+    border: 1px solid var(--rule); border-radius: 4px; padding: 0.28rem 0.55rem;
+  }
+  .tc-go {
+    margin-top: 1.2rem;
+    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 600; color: var(--moss);
+  }
+  .tc-go.muted { color: var(--ink-mute); }
+
   /* ---------- ART STYLES ---------- */
   .line-art {
     stroke: currentColor;
@@ -451,7 +500,7 @@
       </div>
       <div class="item">
         <div class="label">Guides Available</div>
-        <div class="value">Six &mdash; growing</div>
+        <div class="value">Seven live &middot; more soon</div>
       </div>
       <div class="item">
         <div class="label">For</div>
@@ -548,36 +597,51 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">§ II &nbsp;·&nbsp; The Guides</span>
-      <h2>Six places to start.</h2>
-      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">Each guide is an honest, end-to-end account of how to plan, get there, what to bring, and what to expect &mdash; written by someone who has done it.</p>
+      <h2>Every paddle &amp; hike in the guide.</h2>
+      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">Pick a lake or a trail. Each card opens a full field guide &mdash; how to get there, what it costs, the river crossing or the road, and the honest truth about whether you should go. More added through the season.</p>
     </div>
 
-    <div class="guides-list">
+    <div class="trail-grid">
 
-      <a href="https://lakelovelywater.com/" class="guide linkable">
-        <span class="num">i.</span>
-        <div class="title">
-          <h3>Lake Lovely Water</h3>
-          <div class="sub">Tantalus Range &middot; alpine hut &middot; river crossing or jet boat</div>
-        </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
+      <a href="https://alicelakesquamish.com/" class="trail-card">
+        <div class="tc-thumb">
           <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <path d="M5 50 L25 25 L40 38 L55 18 L75 35 L92 22 L110 32 L135 28"/>
-            <path d="M5 55 L135 55"/>
-            <path d="M20 60 Q70 65 120 60" opacity="0.5"/>
+            <ellipse cx="35" cy="40" rx="20" ry="8"/>
+            <ellipse cx="75" cy="32" rx="18" ry="7"/>
+            <ellipse cx="110" cy="45" rx="18" ry="7"/>
+            <path d="M20 60 L130 60" opacity="0.4"/>
           </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Paddle &amp; Swim</div>
+          <h3>Alice Lake</h3>
+          <p>Four warm lakes, a sandy swim beach, and the easiest family canoe day on the Sea to Sky.</p>
+          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>Jun&ndash;Sep</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
         </div>
       </a>
 
-      <a href="https://echolakesquamish.com/" class="guide linkable">
-        <span class="num">ii.</span>
-        <div class="title">
-          <h3>Echo Falls &amp; Echo Lake</h3>
-          <div class="sub">Squamish River &middot; the waterfall is the point &middot; intertidal launch</div>
+      <a href="https://riverofgoldendreams.ca/" class="trail-card">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 38 Q35 28 60 38 T130 38"/>
+            <path d="M5 45 Q35 35 60 45 T130 45" opacity="0.55"/>
+            <path d="M5 52 Q35 42 60 52 T130 52" opacity="0.3"/>
+          </svg>
+          <span class="tc-badge">Guide live</span>
         </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
+        <div class="tc-body">
+          <div class="tc-region">Whistler &middot; River Paddle</div>
+          <h3>River of Golden Dreams</h3>
+          <p>A slow downstream drift from Alta Lake to Green Lake &mdash; the paddle the locals want you to do right.</p>
+          <div class="tc-stats"><span>Shuttle</span><span>Easy&ndash;Mod</span><span>Jul&ndash;Aug</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+
+      <a href="https://echolakesquamish.com/" class="trail-card">
+        <div class="tc-thumb">
           <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
             <path d="M10 12 Q60 8 130 12"/>
             <path d="M25 12 C22 30 30 50 25 65" opacity="0.6"/>
@@ -586,80 +650,190 @@
             <path d="M100 12 C97 32 105 52 100 65" opacity="0.6"/>
             <path d="M125 12 C122 28 130 48 125 62" opacity="0.4"/>
           </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Paddle + Hike</div>
+          <h3>Echo Falls &amp; Echo Lake</h3>
+          <p>Cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.</p>
+          <div class="tc-stats"><span>River crossing</span><span>Hard</span><span>Jun&ndash;Sep</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
         </div>
       </a>
 
-      <a href="https://alicelakesquamish.com/" class="guide linkable">
-        <span class="num">iii.</span>
-        <div class="title">
-          <h3>Alice Lake</h3>
-          <div class="sub">Four lakes, family campground &middot; rental hut closed April &amp; May</div>
-        </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
-          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <ellipse cx="35" cy="40" rx="20" ry="8"/>
-            <ellipse cx="75" cy="32" rx="18" ry="7"/>
-            <ellipse cx="110" cy="45" rx="18" ry="7"/>
-            <path d="M20 60 L130 60" opacity="0.4"/>
-          </svg>
-        </div>
-      </a>
-
-      <a href="https://callaghanlake.com/" class="guide linkable">
-        <span class="num">iv.</span>
-        <div class="title">
-          <h3>Callaghan Lake</h3>
-          <div class="sub">Callaghan Valley &middot; AWD only &middot; paddle across for the Hanging Lake hike</div>
-        </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
+      <a href="https://callaghanlake.com/" class="trail-card">
+        <div class="tc-thumb">
           <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
             <path d="M5 45 L30 18 L48 35 L62 15 L80 32 L100 20 L120 35 L135 28"/>
             <path d="M5 50 L135 50"/>
             <path d="M40 55 Q70 60 110 55" opacity="0.5"/>
-            <!-- Bear silhouette -->
             <g transform="translate(95 42)">
               <circle cx="0" cy="0" r="3"/>
               <circle cx="-2" cy="-3" r="1"/>
               <circle cx="2" cy="-3" r="1"/>
             </g>
           </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Whistler &middot; Paddle + Hike</div>
+          <h3>Callaghan Lake</h3>
+          <p>Paddle the length of a high alpine lake, then hike the far shore up to Hanging Lake.</p>
+          <div class="tc-stats"><span>AWD road</span><span>Moderate</span><span>Jun&ndash;Oct</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
         </div>
       </a>
 
-      <a href="https://levettelake.com/" class="guide linkable">
-        <span class="num">v.</span>
-        <div class="title">
-          <h3>Levette Lake</h3>
-          <div class="sub">One of the most beautiful in the world &middot; 4&times;4 only &middot; quiet by 11 p.m.</div>
-        </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
+      <a href="https://levettelake.com/" class="trail-card">
+        <div class="tc-thumb">
           <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
             <path d="M5 48 L28 22 L45 38 L60 15 L78 35 L98 20 L118 32 L135 28"/>
             <path d="M5 52 L135 52"/>
-            <!-- Reflected line -->
             <path d="M5 56 L28 60 L45 58 L60 62 L78 58 L98 61 L118 58 L135 60" opacity="0.35"/>
           </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Tantalus &middot; Paddle &amp; Swim</div>
+          <h3>Levette Lake</h3>
+          <p>A mirror lake under the Tantalus &mdash; clear water, a swim-to island, and a 4&times;4 road that keeps it quiet.</p>
+          <div class="tc-stats"><span>4&times;4 road</span><span>Easy</span><span>Jun&ndash;Oct</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
         </div>
       </a>
 
-      <a href="https://riverofgoldendreams.ca/" class="guide linkable">
-        <span class="num">vi.</span>
-        <div class="title">
-          <h3>River of Golden Dreams</h3>
-          <div class="sub">Alta Lake to Green Lake &middot; the paddle the locals want you to do right</div>
-        </div>
-        <span class="status live">Field guide live</span>
-        <div class="art">
+      <a href="https://lakelovelywater.com/" class="trail-card">
+        <div class="tc-thumb">
           <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <path d="M5 38 Q35 28 60 38 T130 38"/>
-            <path d="M5 45 Q35 35 60 45 T130 45" opacity="0.55"/>
-            <path d="M5 52 Q35 42 60 52 T130 52" opacity="0.3"/>
+            <path d="M5 50 L25 25 L40 38 L55 18 L75 35 L92 22 L110 32 L135 28"/>
+            <path d="M5 55 L135 55"/>
+            <path d="M20 60 Q70 65 120 60" opacity="0.5"/>
           </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Tantalus &middot; Hut + Hike</div>
+          <h3>Lake Lovely Water</h3>
+          <p>A granite cirque you can&rsquo;t drive to &mdash; cross the Squamish, climb 1,300 m, and sleep at the alpine hut under Tantalus.</p>
+          <div class="tc-stats"><span>River / jet boat</span><span>Hard</span><span>Late Jul&ndash;Sep</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
         </div>
       </a>
+
+      <a href="https://squamishestuary.ca/" class="trail-card">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 28 L30 16 L48 27 L68 12 L88 25 L108 16 L130 27" opacity="0.4"/>
+            <path d="M5 46 Q40 40 70 47 T135 45"/>
+            <path d="M5 56 Q45 50 80 57 T135 55" opacity="0.55"/>
+            <g transform="translate(74 40)">
+              <path d="M0 14 L0 2"/>
+              <path d="M0 2 Q-1 -3 5 -4"/>
+              <path d="M5 -4 L11 -2"/>
+              <path d="M0 14 L-2 17 M0 14 L2 17"/>
+            </g>
+            <g opacity="0.7"><path d="M28 47 l-2 -8 M31 47 l0 -9 M34 47 l2 -7"/></g>
+          </svg>
+          <span class="tc-badge">Guide live</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Estuary Paddle</div>
+          <h3>The Squamish Estuary</h3>
+          <p>Skwelwil&rsquo;em &mdash; a tidal bird refuge right in town, herons and wintering eagles, and the gentlest paddle in the corridor.</p>
+          <div class="tc-stats"><span>In town</span><span>Easy</span><span>Year-round</span></div>
+          <span class="tc-go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+
+      <div class="trail-card soon">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
+            <ellipse cx="70" cy="50" rx="48" ry="9"/>
+            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
+          </svg>
+          <span class="tc-badge soon">Guide coming</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
+          <h3>Lucille Lake</h3>
+          <p>A clear little lake with a sandy beach off the Chance Creek road &mdash; a quiet locals&rsquo; swim spot.</p>
+          <div class="tc-stats"><span>AWD</span><span>Easy</span></div>
+          <span class="tc-go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+
+      <div class="trail-card soon">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
+            <ellipse cx="70" cy="50" rx="48" ry="9"/>
+            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
+          </svg>
+          <span class="tc-badge soon">Guide coming</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
+          <h3>Cat Lake</h3>
+          <p>An easy north-Squamish oasis: a warm beach, walk-in campsites, and calm water for a board.</p>
+          <div class="tc-stats"><span>Drive-up</span><span>Easy</span></div>
+          <span class="tc-go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+
+      <div class="trail-card soon">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
+            <ellipse cx="70" cy="50" rx="48" ry="9"/>
+            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
+          </svg>
+          <span class="tc-badge soon">Guide coming</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
+          <h3>Brohm Lake</h3>
+          <p>Rope swings, rock ledges, and a trail network right off the Sea to Sky Highway.</p>
+          <div class="tc-stats"><span>Drive-up</span><span>Easy</span></div>
+          <span class="tc-go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+
+      <div class="trail-card soon">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
+            <ellipse cx="70" cy="50" rx="48" ry="9"/>
+            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
+          </svg>
+          <span class="tc-badge soon">Guide coming</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Squamish &middot; Swim</div>
+          <h3>Browning Lake</h3>
+          <p>Warm, roadside, and ringed by a short walking trail in Murrin Provincial Park.</p>
+          <div class="tc-stats"><span>Drive-up</span><span>Easy</span></div>
+          <span class="tc-go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+
+      <div class="trail-card soon">
+        <div class="tc-thumb">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M10 55 L45 16 L70 40 L95 12 L130 55" />
+            <path d="M5 58 L135 58" opacity="0.5"/>
+            <path d="M20 64 Q70 69 120 64" opacity="0.35"/>
+          </svg>
+          <span class="tc-badge soon">Guide coming</span>
+        </div>
+        <div class="tc-body">
+          <div class="tc-region">Howe Sound &middot; Island Hike</div>
+          <h3>Anvil Island</h3>
+          <p>Leading Peak rises straight out of Howe Sound &mdash; a steep summit reached by boat only.</p>
+          <div class="tc-stats"><span>Boat access</span><span>Hard</span></div>
+          <span class="tc-go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
 
     </div>
   </div>
