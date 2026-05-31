@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sea to Sky Trails — Trip Notes from the Coast Mountains</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A field guide to the lakes, hikes, and quiet places of the Sea to Sky Corridor. Trip notes, route logistics, and the operators who can get you there.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f1ea;
+    --paper-deep: #ece6db;
+    --ink: #1c1917;
+    --ink-soft: #3f3a33;
+    --ink-mute: #7a7268;
+    --rule: #cdc6b8;
+    --moss: #2b3a2b;
+    --rust: #8a4a2c;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper); color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 17.5px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Subtle paper texture */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(28,25,23,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    opacity: 0.6;
+  }
+  ::selection { background: var(--ink); color: var(--paper); }
+
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s; }
+  a:hover { border-bottom-color: var(--ink); }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Fraunces", "Times New Roman", serif;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  h1 { font-size: clamp(3.5rem, 9.5vw, 7.5rem); font-weight: 400; letter-spacing: -0.028em; }
+  h2 { font-size: clamp(2.15rem, 4.8vw, 3.5rem); font-weight: 400; letter-spacing: -0.025em; }
+  h3 { font-size: 1.55rem; font-weight: 500; line-height: 1.22; letter-spacing: -0.012em; }
+
+  em, .italic { font-style: italic; font-weight: 400; }
+
+  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.075rem; line-height: 1.72; }
+  p.lead {
+    font-family: "Fraunces", serif;
+    font-size: clamp(1.4rem, 2.3vw, 1.8rem);
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.25rem; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; }
+
+  /* ---------- LINE LABELS ---------- */
+  .eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-mute);
+    display: inline-flex; align-items: center; gap: 0.8rem;
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink-mute);
+  }
+  .roman {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-mute);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,241,234,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.top .inner {
+    max-width: 1240px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 2.25rem;
+  }
+  .mark {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem; font-weight: 500;
+    color: var(--ink);
+    border: none;
+  }
+  .mark svg { color: var(--ink); }
+  .mark-text { line-height: 1; }
+  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.15rem; }
+  nav.top .links { display: flex; gap: 2rem; }
+  nav.top .links a {
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    color: var(--ink-soft);
+  }
+  nav.top .links a:hover { color: var(--ink); }
+  @media (max-width: 680px) {
+    nav.top .links { display: none; }
+  }
+
+  /* ---------- COORD RIBBON ---------- */
+  .coords {
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule);
+    font-family: "Inter", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-mute);
+    padding: 0.55rem 0;
+  }
+  .coords .inner {
+    max-width: 1240px; margin: 0 auto;
+    display: flex; justify-content: space-between; gap: 2rem;
+    padding: 0 2.25rem; flex-wrap: wrap;
+  }
+  .coords span + span { color: var(--ink-soft); }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 7rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero .wrap { position: relative; z-index: 2; }
+  header.hero .eyebrow { margin-bottom: 3rem; }
+  /* Faint topographic contour pattern behind hero */
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      radial-gradient(ellipse 800px 240px at 50% 60%, transparent 30%, rgba(28,25,23,0.04) 31%, transparent 32%),
+      radial-gradient(ellipse 1000px 300px at 50% 60%, transparent 35%, rgba(28,25,23,0.03) 36%, transparent 37%),
+      radial-gradient(ellipse 1200px 360px at 50% 60%, transparent 40%, rgba(28,25,23,0.025) 41%, transparent 42%),
+      radial-gradient(ellipse 1400px 420px at 50% 60%, transparent 45%, rgba(28,25,23,0.02) 46%, transparent 47%);
+    pointer-events: none;
+  }
+  header.hero h1 {
+    max-width: 14ch;
+    margin-bottom: 2rem;
+  }
+  header.hero h1 em { color: var(--moss); }
+  header.hero .deck {
+    max-width: 56ch;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 4rem;
+  }
+  header.hero .meta {
+    display: flex; flex-wrap: wrap; gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  header.hero .meta .item .label {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  header.hero .meta .item .value {
+    font-family: "Fraunces", serif; font-weight: 400; font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  /* ---------- HERO ART ---------- */
+  .ridge {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 280px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.85;
+  }
+  .ridge svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 7rem 0; position: relative; }
+  section.tight { padding: 5rem 0; }
+  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+
+  .section-head { max-width: 720px; margin-bottom: 4rem; }
+  .section-head .eyebrow { margin-bottom: 1.5rem; }
+  .section-head h2 { margin-bottom: 1.25rem; }
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
+  }
+  @media (max-width: 900px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .manifesto-art {
+    aspect-ratio: 4/5;
+    background: var(--paper-deep);
+    display: grid; place-items: center;
+    color: var(--ink-soft);
+    border-radius: 2px;
+  }
+  .manifesto-art svg { width: 70%; max-width: 280px; height: auto; }
+  .manifesto p:first-of-type::first-letter {
+    font-family: "Fraunces", serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 0.85;
+    float: left;
+    padding: 0.4rem 0.7rem 0 0;
+    color: var(--ink);
+  }
+  blockquote.pull {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 300;
+  }
+  blockquote.pull cite {
+    display: block; margin-top: 1rem;
+    font-style: normal;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+  }
+
+  /* ---------- GUIDES ---------- */
+  .guides { background: var(--paper-deep); }
+  .guides-list { display: flex; flex-direction: column; }
+  .guide {
+    display: grid; grid-template-columns: 80px 1fr auto 200px;
+    align-items: center; gap: 2.5rem;
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--rule);
+    transition: padding 0.25s ease;
+    border-bottom: none;
+  }
+  .guide:last-child { border-bottom: 1px solid var(--rule); }
+  .guide:hover { padding-left: 1rem; padding-right: 1rem; }
+  .guide .num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-mute);
+  }
+  .guide .title h3 { margin-bottom: 0.45rem; }
+  .guide .title .sub {
+    font-size: 0.95rem; color: var(--ink-soft); font-weight: 400;
+    font-family: "Inter", sans-serif;
+    line-height: 1.5;
+  }
+  .guide .status {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    white-space: nowrap;
+  }
+  .guide .status.live { color: var(--moss); }
+  .guide .status.soon { color: var(--ink-mute); }
+  .guide .art {
+    height: 70px;
+    display: grid; place-items: center;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  .guide .art svg { max-height: 70px; width: auto; }
+  .guide.linkable { cursor: pointer; }
+  .guide a.guide-link {
+    border: none; color: inherit;
+    display: contents;
+  }
+  @media (max-width: 900px) {
+    .guide {
+      grid-template-columns: 40px 1fr;
+      gap: 1.5rem;
+    }
+    .guide .status, .guide .art { display: none; }
+  }
+
+  /* ---------- OPERATORS ---------- */
+  .operators-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  @media (max-width: 900px) { .operators-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .ops-art {
+    aspect-ratio: 1/1;
+    background: var(--paper);
+    display: grid; place-items: center;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+  .ops-art svg { width: 60%; max-width: 280px; }
+  .operators ul.tenets {
+    list-style: none; padding: 0; margin: 2rem 0 0;
+  }
+  .operators ul.tenets li {
+    padding: 1rem 0;
+    border-top: 1px solid var(--rule);
+    display: grid; grid-template-columns: 32px 1fr; gap: 1rem;
+    align-items: baseline;
+  }
+  .operators ul.tenets li:last-child { border-bottom: 1px solid var(--rule); }
+  .operators ul.tenets li .n {
+    font-family: "Fraunces", serif; font-style: italic;
+    color: var(--ink-mute); font-size: 0.95rem;
+  }
+  .operators ul.tenets li .t {
+    font-family: "Inter", sans-serif; font-size: 1rem; color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .operators ul.tenets li .t small {
+    display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55;
+  }
+
+  .pillish {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--ink);
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 500; color: var(--ink);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pillish:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  /* ---------- COLOPHON ---------- */
+  .colophon-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3rem;
+  }
+  @media (max-width: 900px) { .colophon-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .colophon h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .colophon ul { list-style: none; padding: 0; margin: 0; }
+  .colophon ul li { margin-bottom: 0.5rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .colophon ul li a { border: none; }
+  .colophon ul li a:hover { color: var(--ink); }
+
+  footer.foot {
+    padding: 3rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+  }
+  footer.foot .inner {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+  }
+  footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
+
+  /* ---------- ART STYLES ---------- */
+  .line-art {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="top">
+  <div class="inner">
+    <a href="#" class="mark">
+      <svg width="36" height="28" viewBox="0 0 36 28" class="line-art" aria-hidden="true">
+        <path d="M2 24 L8 14 L13 19 L19 8 L25 17 L30 12 L34 22"/>
+        <path d="M2 26 L34 26"/>
+      </svg>
+      <span class="mark-text">
+        Sea to Sky Trails
+        <small>est. 2026</small>
+      </span>
+    </a>
+    <div class="links">
+      <a href="#guides">Guides</a>
+      <a href="#operators">Operators</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== COORD RIBBON ===================== -->
+<div class="coords">
+  <div class="inner">
+    <span>49° 42′ N &nbsp;·&nbsp; 123° 09′ W</span>
+    <span>Volume I &nbsp;·&nbsp; No. 01</span>
+    <span>Spring &mdash; Summer 2026</span>
+    <span>Ed. by hand, Squamish BC</span>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Volume I &nbsp;·&nbsp; Coast Mountains, British Columbia</span>
+    <h1>A field guide<br>to the <em>quiet</em><br>places.</h1>
+    <p class="deck">Lakes that take a paddle to reach. Trails the locals don&rsquo;t share. The honest logistics, the right operators, and the truth about whether you should actually do it. From Howe Sound to Pemberton, and the Tantalus in between.</p>
+
+    <div class="meta">
+      <div class="item">
+        <div class="label">Region</div>
+        <div class="value">Sea to Sky, BC</div>
+      </div>
+      <div class="item">
+        <div class="label">Guides Available</div>
+        <div class="value">Six &mdash; growing</div>
+      </div>
+      <div class="item">
+        <div class="label">For</div>
+        <div class="value">Trip planners &amp; the curious</div>
+      </div>
+      <div class="item">
+        <div class="label">Independence</div>
+        <div class="value">Reader-funded, partner-supported</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero ridgeline single-line illustration -->
+  <div class="ridge" aria-hidden="true">
+    <svg viewBox="0 0 1400 280" preserveAspectRatio="xMidYEnd slice">
+      <g class="line-art" stroke-width="1.1">
+        <!-- Distant ridge -->
+        <path opacity="0.35" d="M0 200 L80 150 L130 175 L200 110 L280 165 L360 130 L440 185 L520 145 L600 175 L680 120 L760 165 L840 140 L920 180 L1000 130 L1080 170 L1160 145 L1240 180 L1320 150 L1400 175"/>
+        <!-- Mid ridge -->
+        <path opacity="0.6" d="M0 235 L60 195 L120 215 L180 165 L260 210 L340 180 L420 220 L500 175 L580 215 L660 170 L740 210 L820 185 L920 225 L1020 180 L1100 220 L1200 195 L1300 225 L1400 200"/>
+        <!-- Near ridge -->
+        <path d="M0 268 L70 235 L140 260 L220 215 L310 255 L400 225 L490 260 L580 220 L680 255 L780 225 L880 260 L980 230 L1080 260 L1180 235 L1280 260 L1400 240"/>
+        <!-- Waterline -->
+        <path d="M0 278 L1400 278"/>
+        <!-- Single canoe on the water -->
+        <g transform="translate(640 268)">
+          <path d="M-22 0 Q0 6 22 0" />
+          <path d="M-22 0 Q0 3 22 0" />
+          <line x1="0" y1="-4" x2="0" y2="-12"/>
+          <circle cx="0" cy="-15" r="1.8"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<hr class="rule" />
+
+<!-- ===================== MANIFESTO ===================== -->
+<section id="about" class="manifesto">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ I &nbsp;·&nbsp; The Idea</span>
+      <h2>For the trip you can&rsquo;t Google in one tab.</h2>
+    </div>
+
+    <div class="manifesto-grid">
+      <div class="manifesto-art">
+        <!-- Single-line waterfall illustration -->
+        <svg viewBox="0 0 200 280" class="line-art" aria-hidden="true">
+          <!-- Cliff edge -->
+          <path d="M0 50 Q60 45 100 52 Q140 60 200 50"/>
+          <!-- Water streams -->
+          <path d="M30 50 C25 100 35 140 28 200" opacity="0.7"/>
+          <path d="M55 52 C50 110 62 150 55 210" opacity="0.85"/>
+          <path d="M80 52 C75 100 85 145 78 215"/>
+          <path d="M105 52 C100 110 110 150 105 215"/>
+          <path d="M130 51 C125 100 135 140 128 210" opacity="0.85"/>
+          <path d="M155 50 C150 105 162 145 155 200" opacity="0.7"/>
+          <path d="M180 50 C175 100 185 135 180 195" opacity="0.55"/>
+          <!-- Pool ripples -->
+          <path d="M20 235 Q90 245 170 235" opacity="0.7"/>
+          <path d="M40 250 Q90 257 150 250" opacity="0.5"/>
+          <!-- Tree on cliff -->
+          <g transform="translate(160 12)">
+            <path d="M0 38 L0 12"/>
+            <path d="M-8 30 L0 18 L8 30"/>
+            <path d="M-6 22 L0 12 L6 22"/>
+          </g>
+          <g transform="translate(38 18)">
+            <path d="M0 32 L0 8"/>
+            <path d="M-6 24 L0 14 L6 24"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="manifesto">
+        <p>The Sea to Sky Corridor is two hours of highway and a thousand quiet detours. Most of what&rsquo;s good here cannot be found on a single tidy webpage. The trail report is on a forum from 2014. The launch coordinates are buried in a Reddit thread. The tide window is a fact you have to learn three trips in. The float plane operator is somebody&rsquo;s cousin.</p>
+        <p>This guide is the page we wished existed. It is a long-form field guide to the lakes, hikes, and outposts of the Coast Mountains between Vancouver and Pemberton &mdash; written by people who actually go, edited honestly, and quietly supported by the operators we trust to get you there.</p>
+        <blockquote class="pull">
+          &ldquo;The mountains don&rsquo;t care how you arrived &mdash; only that you packed properly and left the place better than you found it.&rdquo;
+          <cite>House style, vol. I</cite>
+        </blockquote>
+        <p>Read a guide. Go for the weekend. Come back with a story we couldn&rsquo;t have told you ourselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== GUIDES ===================== -->
+<section id="guides" class="guides">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ II &nbsp;·&nbsp; The Guides</span>
+      <h2>Six places to start.</h2>
+      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">Each guide is an honest, end-to-end account of how to plan, get there, what to bring, and what to expect &mdash; written by someone who has done it.</p>
+    </div>
+
+    <div class="guides-list">
+
+      <a href="https://lakelovelywater.com/" class="guide linkable">
+        <span class="num">i.</span>
+        <div class="title">
+          <h3>Lake Lovely Water</h3>
+          <div class="sub">Tantalus Range &middot; alpine hut &middot; river crossing or jet boat</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 50 L25 25 L40 38 L55 18 L75 35 L92 22 L110 32 L135 28"/>
+            <path d="M5 55 L135 55"/>
+            <path d="M20 60 Q70 65 120 60" opacity="0.5"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://echolakesquamish.com/" class="guide linkable">
+        <span class="num">ii.</span>
+        <div class="title">
+          <h3>Echo Falls &amp; Echo Lake</h3>
+          <div class="sub">Squamish River &middot; the waterfall is the point &middot; intertidal launch</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M10 12 Q60 8 130 12"/>
+            <path d="M25 12 C22 30 30 50 25 65" opacity="0.6"/>
+            <path d="M50 12 C47 32 55 52 50 65"/>
+            <path d="M75 12 C72 30 80 50 75 65"/>
+            <path d="M100 12 C97 32 105 52 100 65" opacity="0.6"/>
+            <path d="M125 12 C122 28 130 48 125 62" opacity="0.4"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://alicelakesquamish.com/" class="guide linkable">
+        <span class="num">iii.</span>
+        <div class="title">
+          <h3>Alice Lake</h3>
+          <div class="sub">Four lakes, family campground &middot; rental hut closed April &amp; May</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <ellipse cx="35" cy="40" rx="20" ry="8"/>
+            <ellipse cx="75" cy="32" rx="18" ry="7"/>
+            <ellipse cx="110" cy="45" rx="18" ry="7"/>
+            <path d="M20 60 L130 60" opacity="0.4"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://callaghanlake.com/" class="guide linkable">
+        <span class="num">iv.</span>
+        <div class="title">
+          <h3>Callaghan Lake</h3>
+          <div class="sub">Callaghan Valley &middot; AWD only &middot; paddle across for the Hanging Lake hike</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 45 L30 18 L48 35 L62 15 L80 32 L100 20 L120 35 L135 28"/>
+            <path d="M5 50 L135 50"/>
+            <path d="M40 55 Q70 60 110 55" opacity="0.5"/>
+            <!-- Bear silhouette -->
+            <g transform="translate(95 42)">
+              <circle cx="0" cy="0" r="3"/>
+              <circle cx="-2" cy="-3" r="1"/>
+              <circle cx="2" cy="-3" r="1"/>
+            </g>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://levettelake.com/" class="guide linkable">
+        <span class="num">v.</span>
+        <div class="title">
+          <h3>Levette Lake</h3>
+          <div class="sub">One of the most beautiful in the world &middot; 4&times;4 only &middot; quiet by 11 p.m.</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 48 L28 22 L45 38 L60 15 L78 35 L98 20 L118 32 L135 28"/>
+            <path d="M5 52 L135 52"/>
+            <!-- Reflected line -->
+            <path d="M5 56 L28 60 L45 58 L60 62 L78 58 L98 61 L118 58 L135 60" opacity="0.35"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="https://riverofgoldendreams.ca/" class="guide linkable">
+        <span class="num">vi.</span>
+        <div class="title">
+          <h3>River of Golden Dreams</h3>
+          <div class="sub">Alta Lake to Green Lake &middot; the paddle the locals want you to do right</div>
+        </div>
+        <span class="status live">Field guide live</span>
+        <div class="art">
+          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
+            <path d="M5 38 Q35 28 60 38 T130 38"/>
+            <path d="M5 45 Q35 35 60 45 T130 45" opacity="0.55"/>
+            <path d="M5 52 Q35 42 60 52 T130 52" opacity="0.3"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== OPERATORS ===================== -->
+<section id="operators" class="operators">
+  <div class="wrap">
+    <div class="operators-grid">
+
+      <div class="ops-art">
+        <!-- Single-line illustration: canoe + paddler -->
+        <svg viewBox="0 0 320 320" class="line-art" aria-hidden="true">
+          <!-- Mountain framing -->
+          <path d="M30 100 L80 50 L120 90 L160 35 L210 80 L250 55 L290 95" opacity="0.4"/>
+          <!-- Water -->
+          <path d="M0 200 Q160 215 320 200" opacity="0.5"/>
+          <path d="M0 220 Q160 232 320 220" opacity="0.35"/>
+          <!-- Canoe -->
+          <path d="M90 195 Q160 220 230 195"/>
+          <path d="M90 195 Q160 207 230 195"/>
+          <!-- Paddler -->
+          <circle cx="160" cy="155" r="9"/>
+          <path d="M160 164 L160 195"/>
+          <!-- Paddle -->
+          <line x1="130" y1="142" x2="195" y2="210"/>
+          <path d="M198 207 L208 222 L213 213 Z"/>
+          <!-- Sun -->
+          <circle cx="245" cy="80" r="12" opacity="0.5"/>
+          <path d="M245 60 L245 55 M261 80 L266 80 M229 80 L224 80 M245 100 L245 105" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div>
+        <span class="eyebrow">§ III &nbsp;·&nbsp; The Operators</span>
+        <h2 style="margin-top:1.5rem;">The right boat. The right shuttle. The right guide.</h2>
+        <p style="margin-top:1.5rem;">Most of the destinations in this guide are not drive-up. We work with a small, vetted bench of Sea to Sky operators &mdash; canoe rentals, water taxis, jet boat shuttles, trailhead drivers &mdash; who can get you there safely and back home for dinner. They pay us only when you book through this page. We refuse to list operators we wouldn&rsquo;t use ourselves.</p>
+
+        <ul class="tenets">
+          <li>
+            <span class="n">i.</span>
+            <span class="t">
+              Local first.
+              <small>Operators must live and work in the corridor. No call centres in other provinces.</small>
+            </span>
+          </li>
+          <li>
+            <span class="n">ii.</span>
+            <span class="t">
+              Safety on the record.
+              <small>Insurance, permits, and a real safety brief, or we don&rsquo;t list them.</small>
+            </span>
+          </li>
+          <li>
+            <span class="n">iii.</span>
+            <span class="t">
+              No paid features dressed as advice.
+              <small>Sponsored slots are clearly marked. The advice in the body of each guide stays our own.</small>
+            </span>
+          </li>
+          <li>
+            <span class="n">iv.</span>
+            <span class="t">
+              Free until it works.
+              <small>Operators pay nothing to be listed. We take a small fee only after a booking comes through.</small>
+            </span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="pillish">Apply to be listed</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== COLOPHON ===================== -->
+<section id="contact" class="colophon tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ IV &nbsp;·&nbsp; Colophon</span>
+      <h2>Letters, leads, &amp; corrections.</h2>
+    </div>
+
+    <div class="colophon-grid">
+      <div>
+        <h4>The Guide</h4>
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.05rem;color:var(--ink);max-width:36ch;line-height:1.5;">
+          Published quarterly from the head of Howe Sound. Edited and maintained by an independent team based in Squamish, British Columbia.
+        </p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="#guides">Field guides</a></li>
+          <li><a href="#about">About the guide</a></li>
+          <li><a href="#operators">Operator standards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Submit</h4>
+        <ul>
+          <li><a href="mailto:hello@seatoskytrails.com">Pitch a guide</a></li>
+          <li><a href="mailto:hello@seatoskytrails.com">Correct a fact</a></li>
+          <li><a href="mailto:hello@seatoskytrails.com">Apply as operator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://squamishcanoerental.com/">Squamish Canoe Rental</a></li>
+          <li><a href="https://squamishwatertaxi.com/">Squamish Water Taxi</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap inner">
+    <div>
+      <em>Sea to Sky Trails</em> &middot; Volume I, 2026 &middot; Published in Sḵwx̱wú7mesh territory.
+    </div>
+    <div>
+      &copy; 2026. Set in Fraunces &amp; Inter. Reader-funded.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
