@@ -108,14 +108,40 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.1rem 2.25rem;
   }
+  /* ---------- BRAND SCENE (Howe Sound, the Chief, Atwell at dawn) ---------- */
+  .scene {
+    --sky-top: oklch(0.73 0.105 300);
+    --sky-mid: oklch(0.84 0.075 8);
+    --sky-low: oklch(0.91 0.06 70);
+    --moon: oklch(0.985 0.018 90);
+    --l1: oklch(0.47 0.045 287);
+    --l2: oklch(0.70 0.032 286);
+    --l2sh: oklch(0.60 0.04 287);
+    --l3: oklch(0.51 0.062 236);
+    --snow: oklch(0.985 0.005 300);
+    --edge: oklch(0.93 0.03 60);
+    --wave: oklch(0.68 0.05 236);
+    --rib: oklch(0.35 0.04 287);
+    display: block;
+  }
+  .scene .l1 { fill: var(--l1); }
+  .scene .l2 { fill: var(--l2); }
+  .scene .l2sh { fill: var(--l2sh); }
+  .scene .l3 { fill: var(--l3); }
+  .scene .snow { fill: var(--snow); }
+  .scene .moon { fill: var(--moon); }
+  .scene .wave { fill: none; stroke: var(--wave); stroke-width: 2.4; stroke-linecap: round; }
+  .scene .rib { fill: none; stroke: var(--rib); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+  .scene .edge { fill: none; stroke: var(--edge); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
   .mark {
-    display: flex; align-items: center; gap: 0.75rem;
+    display: flex; align-items: center; gap: 0.85rem;
     font-family: "Fraunces", serif;
     font-size: 1.05rem; font-weight: 500;
     color: var(--ink);
     border: none;
   }
-  .mark svg { color: var(--ink); }
+  .mark .scene { width: 64px; height: 40px; border-radius: 5px; flex-shrink: 0; }
   .mark-text { line-height: 1; }
   .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.15rem; }
   nav.top .links { display: flex; gap: 2rem; }
@@ -459,9 +485,49 @@
 <nav class="top">
   <div class="inner">
     <a href="#" class="mark">
-      <svg width="36" height="28" viewBox="0 0 36 28" class="line-art" aria-hidden="true">
-        <path d="M2 24 L8 14 L13 19 L19 8 L25 17 L30 12 L34 22"/>
-        <path d="M2 26 L34 26"/>
+      <svg class="scene" viewBox="0 0 320 200" role="img" aria-label="Sea to Sky Trails — Howe Sound, the Stawamus Chief, and Atwell at dawn">
+        <defs>
+          <clipPath id="clip-stsk-nav"><rect x="0" y="0" width="320" height="200" rx="22"/></clipPath>
+          <linearGradient id="sky-stsk-nav" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="oklch(0.73 0.105 300)"/>
+            <stop offset="0.52" stop-color="oklch(0.84 0.075 8)"/>
+            <stop offset="1" stop-color="oklch(0.91 0.06 70)"/>
+          </linearGradient>
+        </defs>
+        <g clip-path="url(#clip-stsk-nav)">
+          <rect x="0" y="0" width="320" height="200" fill="url(#sky-stsk-nav)"/>
+          <circle class="moon" cx="252" cy="42" r="14"/>
+          <path class="l1" d="M0 112 L52 96 L92 86 L122 70 L150 46 L170 56 L190 26 L210 60 L238 76 L286 92 L320 100 L320 200 L0 200 Z"/>
+          <path class="snow" d="M190 28 L207 56 L201 69 L210 80 L196 73 L190 88 L183 72 L172 80 L178 63 L168 58 Z"/>
+          <path class="snow" d="M157 62 L161 92 L165 62 Z"/>
+          <path class="snow" d="M214 62 L218 90 L222 62 Z"/>
+          <path class="snow" d="M147 70 L150 86 L153 70 Z"/>
+          <g class="rib">
+            <path d="M190 31 L153 68"/>
+            <path d="M190 31 L223 70"/>
+            <path d="M171 56 L159 94"/>
+            <path d="M209 60 L231 84"/>
+          </g>
+          <path class="edge" d="M-2 152 C24 150 44 148 60 147 L62 146 C63 126 67 108 80 100 C99 90 132 88 162 95 C196 103 240 128 322 132"/>
+          <path class="l2" d="M0 154 C24 152 44 150 60 149 L62 148 C63 128 67 110 80 102 C99 92 132 90 162 97 C196 105 240 130 320 134 L320 200 L0 200 Z"/>
+          <path class="l2sh" d="M0 154 C24 152 44 150 60 149 L62 148 C63 128 67 110 80 102 C90 96 100 95 108 96 L112 200 L0 200 Z"/>
+          <g class="rib">
+            <path d="M70 124 C100 118 140 119 174 127"/>
+            <path d="M64 138 C100 132 146 132 196 141"/>
+            <path d="M70 152 C70 132 72 116 80 104"/>
+            <path d="M84 153 C84 128 86 112 92 101"/>
+            <path d="M99 153 C99 122 101 106 105 96"/>
+            <path d="M118 153 C118 122 119 104 122 95"/>
+            <path d="M138 153 C138 124 139 106 141 95"/>
+            <path d="M158 153 C158 128 159 112 163 99"/>
+            <path d="M178 153 C178 132 180 118 185 106"/>
+          </g>
+          <path class="edge" d="M-2 167 q32 -9 64 0 t64 0 t64 0 t64 0 t64 0"/>
+          <path class="l3" d="M0 169 q32 -9 64 0 t64 0 t64 0 t64 0 t64 0 L320 200 L0 200 Z"/>
+          <path class="wave" d="M-8 180 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.95"/>
+          <path class="wave" d="M4 188 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.7"/>
+          <path class="wave" d="M-8 196 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.5"/>
+        </g>
       </svg>
       <span class="mark-text">
         Sea to Sky Trails
