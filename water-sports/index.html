@@ -27,14 +27,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f5f1ea;
-    --paper-deep: #ece6db;
-    --ink: #1c1917;
-    --ink-soft: #3f3a33;
-    --ink-mute: #7a7268;
-    --rule: #cdc6b8;
-    --moss: #2b3a2b;
-    --rust: #8a4a2c;
+    --paper: #fbfaf7;
+    --paper-deep: #eef1ea;
+    --ink: #22261f;
+    --ink-soft: #4c5245;
+    --ink-mute: #8b9083;
+    --rule: #e3e1d8;
+    --moss: #3d5a3f;
+    --rust: #c98f2d;
   }
   * { box-sizing: border-box; }
   html, body {
@@ -46,16 +46,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  body::before {
-    content: "";
-    position: fixed; inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(28,25,23,0.025) 1px, transparent 1px);
-    background-size: 3px 3px;
-    z-index: 1;
-    opacity: 0.6;
-  }
-  ::selection { background: var(--ink); color: var(--paper); }
+  ::selection { background: var(--moss); color: #fff; }
   a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s; }
   a:hover { border-bottom-color: var(--ink); }
   h1, h2, h3, h4 {
@@ -82,21 +73,21 @@
   .eyebrow {
     font-family: "Inter", sans-serif;
     font-size: 0.72rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink-mute);
+    font-weight: 600;
+    color: var(--moss);
     display: inline-flex; align-items: center; gap: 0.8rem;
   }
-  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--ink-mute); }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--rust); border-radius: 2px; }
   .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; position: relative; z-index: 2; }
   header.article { padding: 5rem 0 3.5rem; }
   section { padding: 3rem 0; }
   hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   nav.top {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(245,241,234,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(251,250,247,0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
   }
   nav.top .inner {
@@ -105,7 +96,10 @@
     padding: 1.1rem 2.25rem;
     font-size: 0.85rem;
   }
-  nav.top .brand { font-family: "Fraunces", serif; font-style: italic; font-size: 1.05rem; border: 0; }
+  nav.top .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.05rem; border: 0; display: inline-flex; align-items: center; gap: 0.65rem; }
+  nav.top .brand .peak { width: 34px; height: 34px; background: var(--moss); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  nav.top .brand .peak svg { width: 20px; height: 20px; }
+  nav.top .brand .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   blockquote.pull {
     font-family: "Fraunces", serif;
     font-style: italic;
@@ -122,6 +116,7 @@
   .note {
     background: var(--paper-deep);
     border: 1px solid var(--rule);
+    border-radius: 12px;
     padding: 1.4rem 1.6rem;
     font-size: 0.98rem;
     margin: 2rem 0;
@@ -134,7 +129,7 @@
 
 <nav class="top">
   <div class="inner">
-    <a href="/" class="brand">Sea to Sky Trails</a>
+    <a href="/" class="brand"><span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>Sea to Sky Trails</a>
     <a href="/#guides">All field guides &rarr;</a>
   </div>
 </nav>
