@@ -2,1171 +2,704 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sea to Sky Trails — Trip Notes from the Coast Mountains</title>
+<title>Sea to Sky Trails &mdash; Trip Notes from the Coast Mountains</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A field guide to the lakes, hikes, and quiet places of the Sea to Sky Corridor. Trip notes, route logistics, and the operators who can get you there.">
+<meta property="og:title" content="Sea to Sky Trails — Trip Notes from the Coast Mountains">
+<meta property="og:description" content="A field guide to the lakes, hikes, and quiet places of the Sea to Sky Corridor.">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg">
+<meta property="og:url" content="https://seatoskytrails.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f5f1ea;
-    --paper-deep: #ece6db;
-    --ink: #1c1917;
-    --ink-soft: #3f3a33;
-    --ink-mute: #7a7268;
-    --rule: #cdc6b8;
-    --moss: #2b3a2b;
-    --rust: #8a4a2c;
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --sage: #eef1ea;
+    --line: #e3e1d8;
+    --ink: #22261f;
+    --ink-soft: #4c5245;
+    --mute: #8b9083;
+    --pine: #3d5a3f;
+    --pine-deep: #2c4230;
+    --sun: #c98f2d;
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--paper); color: var(--ink);
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-    font-size: 17.5px;
-    line-height: 1.7;
+    background: var(--bg); color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
   }
-  /* Subtle paper texture */
-  body::before {
-    content: "";
-    position: fixed; inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(28,25,23,0.025) 1px, transparent 1px);
-    background-size: 3px 3px;
-    z-index: 1;
-    opacity: 0.6;
-  }
-  ::selection { background: var(--ink); color: var(--paper); }
+  ::selection { background: var(--pine); color: #fff; }
+  a { color: inherit; text-decoration: none; }
 
-  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s; }
-  a:hover { border-bottom-color: var(--ink); }
-
-  h1, h2, h3, h4, .display {
-    font-family: "Fraunces", "Times New Roman", serif;
-    color: var(--ink);
-    font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    margin: 0;
-    font-variation-settings: "opsz" 144, "SOFT" 30;
-  }
-  h1 { font-size: clamp(3.5rem, 9.5vw, 7.5rem); font-weight: 400; letter-spacing: -0.028em; }
-  h2 { font-size: clamp(2.15rem, 4.8vw, 3.5rem); font-weight: 400; letter-spacing: -0.025em; }
-  h3 { font-size: 1.55rem; font-weight: 500; line-height: 1.22; letter-spacing: -0.012em; }
-
-  em, .italic { font-style: italic; font-weight: 400; }
-
-  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.075rem; line-height: 1.72; }
-  p.lead {
+  h1, h2, h3 {
     font-family: "Fraunces", serif;
-    font-size: clamp(1.4rem, 2.3vw, 1.8rem);
-    line-height: 1.45;
-    color: var(--ink);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 2rem;
+    font-weight: 500; line-height: 1.05; letter-spacing: -0.02em;
+    margin: 0; color: var(--ink);
+    font-variation-settings: "opsz" 144;
   }
+  h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); }
+  h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+  h3 { font-size: 1.3rem; font-weight: 600; }
+  p { color: var(--ink-soft); margin: 0 0 1.1rem; }
 
-  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.25rem; }
-  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
 
-  /* ---------- LINE LABELS ---------- */
   .eyebrow {
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink-mute);
-    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
+    font-weight: 600; color: var(--pine);
+    display: inline-flex; align-items: center; gap: 0.7rem;
   }
-  .eyebrow::before {
-    content: ""; width: 28px; height: 1px; background: var(--ink-mute);
-  }
-  .roman {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--ink-mute);
-    font-size: 0.95rem;
-    letter-spacing: 0.05em;
-  }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; }
 
   /* ---------- NAV ---------- */
   nav.top {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(245,241,234,0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
+    background: rgba(251,250,247,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
   }
   nav.top .inner {
-    max-width: 1240px; margin: 0 auto;
+    max-width: 1280px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 2.25rem;
+    padding: 0.95rem 2rem;
   }
-  /* ---------- BRAND SCENE (Howe Sound, the Chief, Atwell at dawn) ---------- */
-  .scene {
-    --sky-top: oklch(0.73 0.105 300);
-    --sky-mid: oklch(0.84 0.075 8);
-    --sky-low: oklch(0.91 0.06 70);
-    --moon: oklch(0.985 0.018 90);
-    --l1: oklch(0.47 0.045 287);
-    --l2: oklch(0.70 0.032 286);
-    --l2sh: oklch(0.60 0.04 287);
-    --l3: oklch(0.51 0.062 236);
-    --snow: oklch(0.985 0.005 300);
-    --edge: oklch(0.93 0.03 60);
-    --wave: oklch(0.68 0.05 236);
-    --rib: oklch(0.35 0.04 287);
-    display: block;
-  }
-  .scene .l1 { fill: var(--l1); }
-  .scene .l2 { fill: var(--l2); }
-  .scene .l2sh { fill: var(--l2sh); }
-  .scene .l3 { fill: var(--l3); }
-  .scene .snow { fill: var(--snow); }
-  .scene .moon { fill: var(--moon); }
-  .scene .wave { fill: none; stroke: var(--wave); stroke-width: 2.4; stroke-linecap: round; }
-  .scene .rib { fill: none; stroke: var(--rib); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
-  .scene .edge { fill: none; stroke: var(--edge); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-
   .mark {
-    display: flex; align-items: center; gap: 0.85rem;
-    font-family: "Fraunces", serif;
-    font-size: 1.05rem; font-weight: 500;
-    color: var(--ink);
-    border: none;
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: "Fraunces", serif; font-weight: 600; font-size: 1.1rem;
   }
-  .mark .scene { width: 64px; height: 40px; border-radius: 5px; flex-shrink: 0; }
-  .mark-text { line-height: 1; }
-  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.15rem; }
-  nav.top .links { display: flex; gap: 2rem; }
+  .mark .peak { width: 38px; height: 38px; background: var(--pine); border-radius: 50%; display: grid; place-items: center; }
+  .mark .peak svg { width: 22px; height: 22px; }
+  .mark .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .mark small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--mute); }
+  nav.top .links { display: flex; gap: 1.8rem; align-items: center; }
   nav.top .links a {
-    font-family: "Inter", sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 500;
-    border: none;
-    color: var(--ink-soft);
+    font-size: 0.82rem; font-weight: 500; color: var(--ink-soft); transition: color 0.2s;
   }
-  nav.top .links a:hover { color: var(--ink); }
-  /* Highlighted "Trails" box — jumps to the full trail directory */
-  nav.top .links a.nav-trails {
-    background: var(--moss);
-    color: var(--paper);
-    padding: 0.5rem 1.1rem;
-    border-radius: 999px;
-    margin: -0.5rem 0;
-    transition: background 0.2s, color 0.2s;
+  nav.top .links a:hover { color: var(--pine); }
+  nav.top .links a.cta {
+    background: var(--pine); color: #fff;
+    padding: 0.6rem 1.3rem; border-radius: 999px; font-weight: 600;
+    transition: background 0.2s;
   }
-  nav.top .links a.nav-trails:hover { background: var(--ink); color: var(--paper); }
-  @media (max-width: 680px) {
-    nav.top .links { display: none; }
-  }
-
-  /* ---------- COORD RIBBON ---------- */
-  .coords {
-    background: var(--paper-deep);
-    border-bottom: 1px solid var(--rule);
-    font-family: "Inter", monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink-mute);
-    padding: 0.55rem 0;
-  }
-  .coords .inner {
-    max-width: 1240px; margin: 0 auto;
-    display: flex; justify-content: space-between; gap: 2rem;
-    padding: 0 2.25rem; flex-wrap: wrap;
-  }
-  .coords span + span { color: var(--ink-soft); }
+  nav.top .links a.cta:hover { background: var(--pine-deep); }
+  @media (max-width: 720px) { nav.top .links a:not(.cta) { display: none; } }
 
   /* ---------- HERO ---------- */
-  header.hero {
-    padding: 7rem 0 5rem;
-    position: relative;
-    overflow: hidden;
+  header.hero { padding: 4.5rem 0 3.5rem; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
   }
-  header.hero .wrap { position: relative; z-index: 2; }
-  header.hero .eyebrow { margin-bottom: 3rem; }
-  /* Faint topographic contour pattern behind hero */
-  header.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image:
-      radial-gradient(ellipse 800px 240px at 50% 60%, transparent 30%, rgba(28,25,23,0.04) 31%, transparent 32%),
-      radial-gradient(ellipse 1000px 300px at 50% 60%, transparent 35%, rgba(28,25,23,0.03) 36%, transparent 37%),
-      radial-gradient(ellipse 1200px 360px at 50% 60%, transparent 40%, rgba(28,25,23,0.025) 41%, transparent 42%),
-      radial-gradient(ellipse 1400px 420px at 50% 60%, transparent 45%, rgba(28,25,23,0.02) 46%, transparent 47%);
-    pointer-events: none;
-  }
-  header.hero h1 {
-    max-width: 14ch;
-    margin-bottom: 2rem;
-  }
-  header.hero h1 em { color: var(--moss); }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  header.hero h1 em { font-style: italic; color: var(--pine); }
   header.hero .deck {
-    max-width: 56ch;
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
-    line-height: 1.5;
-    color: var(--ink);
-    margin-bottom: 4rem;
+    font-size: clamp(1.02rem, 1.4vw, 1.18rem); max-width: 50ch;
+    margin: 1.4rem 0 2.2rem;
   }
-  header.hero .meta {
-    display: flex; flex-wrap: wrap; gap: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
+  .btn-row { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+  .btn {
+    font-size: 0.84rem; font-weight: 600;
+    padding: 0.9rem 1.7rem; border-radius: 999px; transition: all 0.2s;
   }
-  header.hero .meta .item .label {
-    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-mute); font-weight: 500;
-    margin-bottom: 0.4rem;
-  }
-  header.hero .meta .item .value {
-    font-family: "Fraunces", serif; font-weight: 400; font-size: 1.05rem;
-    color: var(--ink);
-  }
+  .btn.solid { background: var(--pine); color: #fff; }
+  .btn.solid:hover { background: var(--pine-deep); }
+  .btn.ghost { border: 1.5px solid var(--line); color: var(--ink); background: var(--surface); }
+  .btn.ghost:hover { border-color: var(--pine); color: var(--pine); }
 
-  /* ---------- HERO ART ---------- */
-  .ridge {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 280px;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.85;
+  .hero-photos {
+    display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.9rem;
+    min-height: 480px;
   }
-  .ridge svg { width: 100%; height: 100%; display: block; }
-
-  /* ---------- SECTIONS ---------- */
-  section { padding: 7rem 0; position: relative; }
-  section.tight { padding: 5rem 0; }
-  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
-
-  .section-head { max-width: 720px; margin-bottom: 4rem; }
-  .section-head .eyebrow { margin-bottom: 1.5rem; }
-  .section-head h2 { margin-bottom: 1.25rem; }
-
-  /* ---------- MANIFESTO ---------- */
-  .manifesto-grid {
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
+  .hp {
+    border-radius: 14px; background-size: cover; background-position: center;
+    position: relative; overflow: hidden;
   }
-  @media (max-width: 900px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-  .manifesto-art {
-    aspect-ratio: 4/5;
-    background: var(--paper-deep);
+  .hp.big { grid-row: 1 / 3; }
+  .hp .tag {
+    position: absolute; bottom: 0.8rem; left: 0.8rem;
+    font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(255,255,255,0.92); color: var(--ink);
+    padding: 0.38rem 0.75rem; border-radius: 999px;
+  }
+  @media (max-width: 900px) { .hero-photos { min-height: 340px; } }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .trust .inner {
+    max-width: 1280px; margin: 0 auto; padding: 1.4rem 2rem;
+    display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .trust .item { display: flex; align-items: center; gap: 0.65rem; font-size: 0.86rem; color: var(--ink-soft); font-weight: 500; }
+  .trust .item svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .trust .item svg path, .trust .item svg circle { stroke: var(--sun); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  section { padding: 5.5rem 0; }
+  .section-head { max-width: 720px; margin-bottom: 2.6rem; }
+  .section-head h2 { margin: 1rem 0 0.9rem; }
+
+  /* ---------- DIRECTORY ---------- */
+  .directory { background: var(--sage); }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.2rem; }
+  .chip {
+    font-family: "Inter", sans-serif; font-size: 0.8rem; font-weight: 500;
+    padding: 0.55rem 1.15rem; border-radius: 999px;
+    border: 1.5px solid var(--line); color: var(--ink-soft);
+    background: var(--surface); cursor: pointer; transition: all 0.18s;
+  }
+  .chip:hover { border-color: var(--pine); color: var(--pine); }
+  .chip.on { background: var(--pine); border-color: var(--pine); color: #fff; font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border-radius: 16px;
+    overflow: hidden; display: flex; flex-direction: column;
+    box-shadow: 0 1px 3px rgba(34,38,31,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  a.card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(34,38,31,0.13); }
+  .thumb {
+    aspect-ratio: 3/2; position: relative;
+    background: linear-gradient(150deg, #dfe6da 0%, #cdd8c8 100%);
     display: grid; place-items: center;
-    color: var(--ink-soft);
-    border-radius: 2px;
   }
-  .manifesto-art svg { width: 70%; max-width: 280px; height: auto; }
-  .manifesto p:first-of-type::first-letter {
-    font-family: "Fraunces", serif;
-    font-size: 4.5rem;
-    font-weight: 300;
-    line-height: 0.85;
-    float: left;
-    padding: 0.4rem 0.7rem 0 0;
-    color: var(--ink);
+  .thumb.photo { background-size: cover; background-position: center; }
+  .thumb svg { width: 55%; opacity: 0.6; }
+  .thumb svg path, .thumb svg ellipse { stroke: var(--pine); fill: none; stroke-width: 1.4; stroke-linecap: round; }
+  .badge {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+    padding: 0.34rem 0.75rem; border-radius: 999px;
+    background: rgba(255,255,255,0.94); color: var(--pine); z-index: 2;
+  }
+  .badge.soon { color: var(--mute); }
+  .diff {
+    position: absolute; top: 0.8rem; right: 0.8rem; z-index: 2;
+    font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+    padding: 0.34rem 0.75rem; border-radius: 999px;
+    background: rgba(255,255,255,0.94);
+  }
+  .diff.easy { color: #38735d; }
+  .diff.mod { color: var(--sun); }
+  .diff.hard { color: #b0512f; }
+  .card-body { padding: 1.25rem 1.35rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+  .region {
+    font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; color: var(--mute); margin-bottom: 0.5rem;
+  }
+  .card-body h3 { margin-bottom: 0.45rem; }
+  .card-body p { font-size: 0.9rem; line-height: 1.55; margin-bottom: 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+  .tags span {
+    font-size: 0.68rem; color: var(--ink-soft); background: var(--sage);
+    border-radius: 999px; padding: 0.28rem 0.7rem; font-weight: 500;
+  }
+  .go {
+    margin-top: 1.05rem; font-size: 0.8rem; font-weight: 600; color: var(--pine);
+  }
+  .go.muted { color: var(--mute); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
+  .about-photo {
+    aspect-ratio: 4/5; border-radius: 16px;
+    background: url('https://images.unsplash.com/photo-1762207194168-7d412dc78f45?w=1200&q=80') center/cover;
   }
   blockquote.pull {
-    margin: 3rem 0;
-    padding: 2rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-size: 1.45rem;
-    line-height: 1.5;
-    color: var(--ink);
-    font-weight: 300;
+    margin: 2rem 0 0; padding: 1.4rem 1.6rem;
+    background: var(--sage); border-radius: 12px;
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: 1.15rem; line-height: 1.55; color: var(--ink);
   }
   blockquote.pull cite {
-    display: block; margin-top: 1rem;
-    font-style: normal;
+    display: block; margin-top: 0.7rem; font-style: normal;
     font-family: "Inter", sans-serif;
-    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-mute); font-weight: 500;
-  }
-
-  /* ---------- GUIDES ---------- */
-  .guides { background: var(--paper-deep); }
-  .guides-list { display: flex; flex-direction: column; }
-  .guide {
-    display: grid; grid-template-columns: 80px 1fr auto 200px;
-    align-items: center; gap: 2.5rem;
-    padding: 2.25rem 0;
-    border-top: 1px solid var(--rule);
-    transition: padding 0.25s ease;
-    border-bottom: none;
-  }
-  .guide:last-child { border-bottom: 1px solid var(--rule); }
-  .guide:hover { padding-left: 1rem; padding-right: 1rem; }
-  .guide .num {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--ink-mute);
-  }
-  .guide .title h3 { margin-bottom: 0.45rem; }
-  .guide .title .sub {
-    font-size: 0.95rem; color: var(--ink-soft); font-weight: 400;
-    font-family: "Inter", sans-serif;
-    line-height: 1.5;
-  }
-  .guide .status {
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--ink-mute); font-weight: 600;
-    white-space: nowrap;
-  }
-  .guide .status.live { color: var(--moss); }
-  .guide .status.soon { color: var(--ink-mute); }
-  .guide .art {
-    height: 70px;
-    display: grid; place-items: center;
-    color: var(--ink-soft);
-    opacity: 0.7;
-  }
-  .guide .art svg { max-height: 70px; width: auto; }
-  .guide.linkable { cursor: pointer; }
-  .guide a.guide-link {
-    border: none; color: inherit;
-    display: contents;
-  }
-  @media (max-width: 900px) {
-    .guide {
-      grid-template-columns: 40px 1fr;
-      gap: 1.5rem;
-    }
-    .guide .status, .guide .art { display: none; }
+    font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600;
   }
 
   /* ---------- OPERATORS ---------- */
-  .operators-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  .operators { background: var(--pine-deep); color: #f2f1ea; }
+  .operators h2, .operators h3 { color: #fff; }
+  .operators p { color: #cfd4c6; }
+  .operators .eyebrow { color: var(--sun); }
+  .ops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  @media (max-width: 900px) { .ops-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
+  .tenets { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  .tenets li {
+    padding: 1.15rem 0; border-top: 1px solid rgba(255,255,255,0.14);
+    display: grid; grid-template-columns: 40px 1fr; gap: 1rem; align-items: baseline;
   }
-  @media (max-width: 900px) { .operators-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-  .ops-art {
-    aspect-ratio: 1/1;
-    background: var(--paper);
-    display: grid; place-items: center;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-  }
-  .ops-art svg { width: 60%; max-width: 280px; }
-  .operators ul.tenets {
-    list-style: none; padding: 0; margin: 2rem 0 0;
-  }
-  .operators ul.tenets li {
-    padding: 1rem 0;
-    border-top: 1px solid var(--rule);
-    display: grid; grid-template-columns: 32px 1fr; gap: 1rem;
-    align-items: baseline;
-  }
-  .operators ul.tenets li:last-child { border-bottom: 1px solid var(--rule); }
-  .operators ul.tenets li .n {
-    font-family: "Fraunces", serif; font-style: italic;
-    color: var(--ink-mute); font-size: 0.95rem;
-  }
-  .operators ul.tenets li .t {
-    font-family: "Inter", sans-serif; font-size: 1rem; color: var(--ink);
-    font-weight: 600;
-    letter-spacing: -0.005em;
-  }
-  .operators ul.tenets li .t small {
-    display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55;
-  }
+  .tenets li:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .tenets .n { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1.05rem; }
+  .tenets .t { font-weight: 600; color: #fff; font-size: 0.98rem; }
+  .tenets .t small { display: block; font-weight: 400; color: #cfd4c6; margin-top: 0.3rem; font-size: 0.9rem; line-height: 1.55; }
+  .operators .btn.solid { background: var(--sun); color: var(--pine-deep); }
+  .operators .btn.solid:hover { background: #fff; }
 
-  .pillish {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.7rem 1.4rem;
-    border: 1px solid var(--ink);
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
-    font-weight: 500; color: var(--ink);
-    border-radius: 999px;
-    transition: background 0.2s, color 0.2s;
+  /* ---------- FOOTER ---------- */
+  footer { padding: 4rem 0 2.5rem; background: var(--bg); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+  @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  footer h4 {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--mute); font-weight: 700; margin: 0 0 1rem;
   }
-  .pillish:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-  /* ---------- COLOPHON ---------- */
-  .colophon-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3rem;
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 0.55rem; font-size: 0.88rem; }
+  footer ul li a { color: var(--ink-soft); }
+  footer ul li a:hover { color: var(--pine); }
+  .foot-base {
+    border-top: 1px solid var(--line); padding-top: 1.8rem;
+    font-size: 0.76rem; color: var(--mute);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
   }
-  @media (max-width: 900px) { .colophon-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-  .colophon h4 {
-    font-family: "Inter", sans-serif;
-    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-mute); font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  .colophon ul { list-style: none; padding: 0; margin: 0; }
-  .colophon ul li { margin-bottom: 0.5rem; font-size: 0.92rem; color: var(--ink-soft); }
-  .colophon ul li a { border: none; }
-  .colophon ul li a:hover { color: var(--ink); }
-
-  footer.foot {
-    padding: 3rem 0;
-    border-top: 1px solid var(--rule);
-    font-size: 0.78rem;
-    color: var(--ink-mute);
-  }
-  footer.foot .inner {
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
-  }
-  footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
-
-  /* ---------- TRAIL CARD DIRECTORY ---------- */
-  .trail-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-  }
-  @media (max-width: 900px) { .trail-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .trail-grid { grid-template-columns: 1fr; } }
-  .trail-card {
-    border: 1px solid var(--rule); border-radius: 4px; overflow: hidden;
-    background: var(--paper); display: flex; flex-direction: column;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  }
-  a.trail-card { color: inherit; }
-  a.trail-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(28,25,23,0.09); border-color: var(--ink-mute); }
-  .trail-card.soon { opacity: 0.9; }
-  .tc-thumb {
-    aspect-ratio: 3/2; background: var(--paper-deep);
-    display: grid; place-items: center; color: var(--ink-soft);
-    border-bottom: 1px solid var(--rule); position: relative;
-  }
-  .tc-thumb svg { width: 66%; height: auto; }
-  .tc-badge {
-    position: absolute; top: 0.8rem; right: 0.8rem;
-    font-family: "Inter", sans-serif; font-size: 0.58rem; letter-spacing: 0.16em;
-    text-transform: uppercase; font-weight: 600;
-    padding: 0.3rem 0.62rem; border-radius: 999px;
-    background: var(--moss); color: var(--paper);
-  }
-  .tc-badge.soon { background: var(--paper); color: var(--ink-mute); border: 1px solid var(--rule); }
-  .tc-body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
-  .tc-region {
-    font-family: "Inter", sans-serif; font-size: 0.64rem; letter-spacing: 0.18em;
-    text-transform: uppercase; font-weight: 600; color: var(--ink-mute);
-    margin-bottom: 0.7rem;
-  }
-  .tc-body h3 { margin-bottom: 0.55rem; font-size: 1.4rem; }
-  .tc-body p { font-size: 0.95rem; margin: 0 0 1.2rem; }
-  .tc-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
-  .tc-stats span {
-    font-family: "Inter", sans-serif; font-size: 0.67rem; letter-spacing: 0.03em;
-    color: var(--ink-soft); background: var(--paper-deep);
-    border: 1px solid var(--rule); border-radius: 4px; padding: 0.28rem 0.55rem;
-  }
-  .tc-go {
-    margin-top: 1.2rem;
-    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.16em;
-    text-transform: uppercase; font-weight: 600; color: var(--moss);
-  }
-  .tc-go.muted { color: var(--ink-mute); }
-
-  /* ---------- ART STYLES ---------- */
-  .line-art {
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 1.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  /* ---------- REAL PHOTOGRAPHY ---------- */
-  /* Trail-card thumbs, manifesto art, and operators art that carry a real photo */
-  .tc-thumb.has-photo,
-  .manifesto-art.has-photo,
-  .ops-art.has-photo {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .manifesto-art.has-photo,
-  .ops-art.has-photo { color: transparent; }
-  /* Gentle wash so the "Guide live" badge stays legible over any photo */
-  .tc-thumb.has-photo::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(28,25,23,0.18) 0%, transparent 38%);
-    pointer-events: none;
-  }
+  .credits { font-size: 0.62rem; line-height: 1.7; color: var(--mute); margin-top: 1.2rem; }
 </style>
 </head>
 <body>
 
-<!-- ===================== NAV ===================== -->
 <nav class="top">
   <div class="inner">
     <a href="#" class="mark">
-      <svg class="scene" viewBox="0 0 320 200" role="img" aria-label="Sea to Sky Trails — Howe Sound, the Stawamus Chief, and Atwell at dawn">
-        <defs>
-          <clipPath id="clip-stsk-nav"><rect x="0" y="0" width="320" height="200" rx="22"/></clipPath>
-          <linearGradient id="sky-stsk-nav" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="oklch(0.73 0.105 300)"/>
-            <stop offset="0.52" stop-color="oklch(0.84 0.075 8)"/>
-            <stop offset="1" stop-color="oklch(0.91 0.06 70)"/>
-          </linearGradient>
-        </defs>
-        <g clip-path="url(#clip-stsk-nav)">
-          <rect x="0" y="0" width="320" height="200" fill="url(#sky-stsk-nav)"/>
-          <circle class="moon" cx="252" cy="42" r="14"/>
-          <path class="l1" d="M0 112 L52 96 L92 86 L122 70 L150 46 L170 56 L190 26 L210 60 L238 76 L286 92 L320 100 L320 200 L0 200 Z"/>
-          <path class="snow" d="M190 28 L207 56 L201 69 L210 80 L196 73 L190 88 L183 72 L172 80 L178 63 L168 58 Z"/>
-          <path class="snow" d="M157 62 L161 92 L165 62 Z"/>
-          <path class="snow" d="M214 62 L218 90 L222 62 Z"/>
-          <path class="snow" d="M147 70 L150 86 L153 70 Z"/>
-          <g class="rib">
-            <path d="M190 31 L153 68"/>
-            <path d="M190 31 L223 70"/>
-            <path d="M171 56 L159 94"/>
-            <path d="M209 60 L231 84"/>
-          </g>
-          <path class="edge" d="M-2 152 C24 150 44 148 60 147 L62 146 C63 126 67 108 80 100 C99 90 132 88 162 95 C196 103 240 128 322 132"/>
-          <path class="l2" d="M0 154 C24 152 44 150 60 149 L62 148 C63 128 67 110 80 102 C99 92 132 90 162 97 C196 105 240 130 320 134 L320 200 L0 200 Z"/>
-          <path class="l2sh" d="M0 154 C24 152 44 150 60 149 L62 148 C63 128 67 110 80 102 C90 96 100 95 108 96 L112 200 L0 200 Z"/>
-          <g class="rib">
-            <path d="M70 124 C100 118 140 119 174 127"/>
-            <path d="M64 138 C100 132 146 132 196 141"/>
-            <path d="M70 152 C70 132 72 116 80 104"/>
-            <path d="M84 153 C84 128 86 112 92 101"/>
-            <path d="M99 153 C99 122 101 106 105 96"/>
-            <path d="M118 153 C118 122 119 104 122 95"/>
-            <path d="M138 153 C138 124 139 106 141 95"/>
-            <path d="M158 153 C158 128 159 112 163 99"/>
-            <path d="M178 153 C178 132 180 118 185 106"/>
-          </g>
-          <path class="edge" d="M-2 167 q32 -9 64 0 t64 0 t64 0 t64 0 t64 0"/>
-          <path class="l3" d="M0 169 q32 -9 64 0 t64 0 t64 0 t64 0 t64 0 L320 200 L0 200 Z"/>
-          <path class="wave" d="M-8 180 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.95"/>
-          <path class="wave" d="M4 188 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.7"/>
-          <path class="wave" d="M-8 196 q12 -5 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" opacity="0.5"/>
-        </g>
-      </svg>
-      <span class="mark-text">
-        Sea to Sky Trails
-        <small>est. 2026</small>
-      </span>
+      <span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>
+      <span>Sea to Sky Trails<small>Coast Mountains · BC</small></span>
     </a>
     <div class="links">
-      <a href="#guides" class="nav-trails">Trails</a>
-      <a href="#guides">Guides</a>
-      <a href="#operators">Operators</a>
       <a href="#about">About</a>
+      <a href="#operators">Operators</a>
       <a href="#contact">Contact</a>
+      <a href="#trails" class="cta">Find a trail</a>
     </div>
   </div>
 </nav>
 
-<!-- ===================== COORD RIBBON ===================== -->
-<div class="coords">
-  <div class="inner">
-    <span>49° 42′ N &nbsp;·&nbsp; 123° 09′ W</span>
-    <span>Volume I &nbsp;·&nbsp; No. 01</span>
-    <span>Spring &mdash; Summer 2026</span>
-    <span>Ed. by hand, Squamish BC</span>
-  </div>
-</div>
-
-<!-- ===================== HERO ===================== -->
 <header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Volume I &nbsp;·&nbsp; Coast Mountains, British Columbia</span>
-    <h1>A field guide<br>to the <em>quiet</em><br>places.</h1>
-    <p class="deck">Lakes that take a paddle to reach. Trails the locals don&rsquo;t share. The honest logistics, the right operators, and the truth about whether you should actually do it. From Howe Sound to Pemberton, and the Tantalus in between.</p>
-
-    <div class="meta">
-      <div class="item">
-        <div class="label">Region</div>
-        <div class="value">Sea to Sky, BC</div>
-      </div>
-      <div class="item">
-        <div class="label">Guides Available</div>
-        <div class="value">Seven live &middot; more soon</div>
-      </div>
-      <div class="item">
-        <div class="label">For</div>
-        <div class="value">Trip planners &amp; the curious</div>
-      </div>
-      <div class="item">
-        <div class="label">Independence</div>
-        <div class="value">Reader-funded, partner-supported</div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">31 field guides · Howe Sound to Pemberton</span>
+      <h1 style="margin-top:1.1rem;">A field guide to the <em>quiet</em> places.</h1>
+      <p class="deck">Lakes that take a paddle to reach. Trails the locals don&rsquo;t share. The honest logistics, the right operators, and the truth about whether you should actually do it.</p>
+      <div class="btn-row">
+        <a href="#trails" class="btn solid">Browse the guides</a>
+        <a href="#about" class="btn ghost">How it works</a>
       </div>
     </div>
-  </div>
-
-  <!-- Hero ridgeline single-line illustration -->
-  <div class="ridge" aria-hidden="true">
-    <svg viewBox="0 0 1400 280" preserveAspectRatio="xMidYEnd slice">
-      <g class="line-art" stroke-width="1.1">
-        <!-- Distant ridge -->
-        <path opacity="0.35" d="M0 200 L80 150 L130 175 L200 110 L280 165 L360 130 L440 185 L520 145 L600 175 L680 120 L760 165 L840 140 L920 180 L1000 130 L1080 170 L1160 145 L1240 180 L1320 150 L1400 175"/>
-        <!-- Mid ridge -->
-        <path opacity="0.6" d="M0 235 L60 195 L120 215 L180 165 L260 210 L340 180 L420 220 L500 175 L580 215 L660 170 L740 210 L820 185 L920 225 L1020 180 L1100 220 L1200 195 L1300 225 L1400 200"/>
-        <!-- Near ridge -->
-        <path d="M0 268 L70 235 L140 260 L220 215 L310 255 L400 225 L490 260 L580 220 L680 255 L780 225 L880 260 L980 230 L1080 260 L1180 235 L1280 260 L1400 240"/>
-        <!-- Waterline -->
-        <path d="M0 278 L1400 278"/>
-        <!-- Single canoe on the water -->
-        <g transform="translate(640 268)">
-          <path d="M-22 0 Q0 6 22 0" />
-          <path d="M-22 0 Q0 3 22 0" />
-          <line x1="0" y1="-4" x2="0" y2="-12"/>
-          <circle cx="0" cy="-15" r="1.8"/>
-        </g>
-      </g>
-    </svg>
+    <div class="hero-photos">
+      <div class="hp big" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg');"><span class="tag">Panorama Ridge</span></div>
+      <div class="hp" style="background-image:url('https://echolakesquamish.com/squamish-river-crossing.jpg');"><span class="tag">Echo Lake crossing</span></div>
+      <div class="hp" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wedgemount_Glacier.jpg/1280px-Wedgemount_Glacier.jpg');"><span class="tag">Wedgemount</span></div>
+    </div>
   </div>
 </header>
 
-<hr class="rule" />
+<div class="trust">
+  <div class="inner">
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M20 6 L9 17 L4 12"/></svg>Every guide walked, paddled, or climbed by us</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 2 L12 22 M2 12 L22 12"/></svg>Honest logistics — roads, tides, passes</div>
+    <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></svg>Updated through the season</div>
+    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 21 C7 16 3 12.5 3 8.5 C3 5.5 5.5 3 8.5 3 C10 3 11.3 3.8 12 5 C12.7 3.8 14 3 15.5 3 C18.5 3 21 5.5 21 8.5 C21 12.5 17 16 12 21 Z"/></svg>Reader-funded, operator-supported</div>
+  </div>
+</div>
 
-<!-- ===================== MANIFESTO ===================== -->
-<section id="about" class="manifesto">
+<!-- ===================== DIRECTORY ===================== -->
+<section id="trails" class="directory">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">§ I &nbsp;·&nbsp; The Idea</span>
-      <h2>For the trip you can&rsquo;t Google in one tab.</h2>
+      <span class="eyebrow">The guides</span>
+      <h2>Every paddle &amp; hike in the guide.</h2>
+      <p>Pick a lake or a trail. Each card opens a full field guide &mdash; how to get there, what it costs, and the honest truth about whether you should go. Planning around an activity instead of a place? Start with the <a href="/water-sports/" style="color:var(--pine);font-weight:600;">water sports field guide</a>.</p>
     </div>
+    <div class="filters">
+      <button class="chip on" data-region="All">All</button>
+      <button class="chip" data-region="Squamish">Squamish</button>
+      <button class="chip" data-region="Whistler">Whistler</button>
+      <button class="chip" data-region="Garibaldi">Garibaldi</button>
+      <button class="chip" data-region="Tantalus">Tantalus</button>
+      <button class="chip" data-region="Pemberton">Pemberton</button>
+      <button class="chip" data-region="Howe Sound">Howe Sound</button>
+    </div>
+    <div class="grid" id="grid">
+      <a class="card" data-region="Squamish" href="https://alicelakesquamish.com/">
+        <div class="thumb photo" role="img" aria-label="Alice Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alice_Lake%2C_British_Columbia_176.jpg/1280px-Alice_Lake%2C_British_Columbia_176.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Paddle & Swim</div>
+          <h3>Alice Lake</h3>
+          <p>Four warm lakes, a sandy swim beach, and the easiest family canoe day on the Sea to Sky.</p>
+          <div class="tags"><span>Drive-up</span><span>Jun–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Whistler" href="https://riverofgoldendreams.ca/">
+        <div class="thumb photo" role="img" aria-label="River of Golden Dreams" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/River_of_Golden_Dreams.jpg/1280px-River_of_Golden_Dreams.jpg')"><span class="badge">Guide live</span><span class="diff mod">Easy–Mod</span></div>
+        <div class="card-body">
+          <div class="region">Whistler &middot; River Paddle</div>
+          <h3>River of Golden Dreams</h3>
+          <p>A slow downstream drift from Alta Lake to Green Lake — the paddle the locals want you to do right.</p>
+          <div class="tags"><span>Shuttle</span><span>Jul–Aug</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://echolakesquamish.com/">
+        <div class="thumb photo" role="img" aria-label="Echo Falls & Echo Lake" style="background-image:url('https://echolakesquamish.com/squamish-river-crossing.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Paddle + Hike</div>
+          <h3>Echo Falls & Echo Lake</h3>
+          <p>Cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.</p>
+          <div class="tags"><span>River crossing</span><span>Jun–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Whistler" href="https://callaghanlake.com/">
+        <div class="thumb photo" role="img" aria-label="Callaghan Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Andrew_takes_in_the_view_%2849695597381%29.jpg/1280px-Andrew_takes_in_the_view_%2849695597381%29.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
+        <div class="card-body">
+          <div class="region">Whistler &middot; Paddle + Hike</div>
+          <h3>Callaghan Lake</h3>
+          <p>Paddle the length of a high alpine lake, then hike the far shore up to Hanging Lake.</p>
+          <div class="tags"><span>AWD road</span><span>Jun–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Tantalus" href="https://levettelake.com/">
+        <div class="thumb photo" role="img" aria-label="Levette Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Levette_Lk_-_panoramio.jpg/1280px-Levette_Lk_-_panoramio.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Tantalus &middot; Paddle & Swim</div>
+          <h3>Levette Lake</h3>
+          <p>A mirror lake under the Tantalus — clear water, a swim-to island, and a 4×4 road that keeps it quiet.</p>
+          <div class="tags"><span>4×4 road</span><span>Jun–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Tantalus" href="https://lakelovelywater.com/">
+        <div class="thumb photo" role="img" aria-label="Lake Lovely Water" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mount_Niobe_and_Lake_Lovely_Water.jpg/1280px-Mount_Niobe_and_Lake_Lovely_Water.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Tantalus &middot; Hut + Hike</div>
+          <h3>Lake Lovely Water</h3>
+          <p>A granite cirque you can't drive to — cross the Squamish, climb 1,300 m, and sleep at the alpine hut under Tantalus.</p>
+          <div class="tags"><span>River / jet boat</span><span>Late Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://squamishestuary.ca/">
+        <div class="thumb photo" role="img" aria-label="The Squamish Estuary" style="background-image:url('https://live.staticflickr.com/8032/7917479494_5da8ed9c2b_b.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Estuary Paddle</div>
+          <h3>The Squamish Estuary</h3>
+          <p>Skwelwil'em — a tidal bird refuge right in town, herons and wintering eagles, and the gentlest paddle in the corridor.</p>
+          <div class="tags"><span>In town</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Pemberton" href="https://joffrelake.com/">
+        <div class="thumb photo" role="img" aria-label="Joffre Lakes" style="background-image:url('https://images.pexels.com/photos/17826351/pexels-photo-17826351.jpeg?auto=compress&cs=tinysrgb&w=1600')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
+        <div class="card-body">
+          <div class="region">Pemberton &middot; Alpine Hike</div>
+          <h3>Joffre Lakes</h3>
+          <p>Three turquoise lakes stacked under the Matier Glacier — book the day pass, beat the bus crowds.</p>
+          <div class="tags"><span>Day pass</span><span>Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Whistler" href="https://cirquelake.com/">
+        <div class="thumb photo" role="img" aria-label="Cirque Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg/1280px-Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg')"><span class="badge">Guide live</span><span class="diff hard">Mod–Hard</span></div>
+        <div class="card-body">
+          <div class="region">Whistler &middot; Paddle + Hike</div>
+          <h3>Cirque Lake</h3>
+          <p>Paddle across Callaghan Lake, then climb the outflow creek to a granite bowl you'll likely have to yourself.</p>
+          <div class="tags"><span>Canoe required</span><span>Jul–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://waterspritelake.com/">
+        <div class="thumb photo" role="img" aria-label="Watersprite Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mamquam_Mountain%2C_sw.jpg/1280px-Mamquam_Mountain%2C_sw.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Hut + Hike</div>
+          <h3>Watersprite Lake</h3>
+          <p>A turquoise pocket in the granite east of town, with a BCMC hut you have to book months out.</p>
+          <div class="tags"><span>FSR drive</span><span>Jul–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://elfin-lake.com/">
+        <div class="thumb photo" role="img" aria-label="Elfin Lakes" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Elfin_Lakes%2C_Opal_Cone.jpg/1280px-Elfin_Lakes%2C_Opal_Cone.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Hut + Hike</div>
+          <h3>Elfin Lakes</h3>
+          <p>The classic Diamond Head shelter walk — heather meadows in August, ski tracks in February.</p>
+          <div class="tags"><span>22 km</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Whistler" href="https://cheakamuslake.com/">
+        <div class="thumb photo" role="img" aria-label="Cheakamus Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cheakamus_Lake_BC_Canada.jpg/1280px-Cheakamus_Lake_BC_Canada.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Whistler &middot; Lakeside Hike</div>
+          <h3>Cheakamus Lake</h3>
+          <p>Old-growth forest and glacier-green water for barely any climbing — the corridor's easiest big payoff.</p>
+          <div class="tags"><span>Gravel road</span><span>Jun–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://mamquam.com/">
+        <div class="thumb photo" role="img" aria-label="The Mamquam" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mamquam_River.jpg/1280px-Mamquam_River.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; River Valley</div>
+          <h3>The Mamquam</h3>
+          <p>Falls, salmon runs, dike walks, and the gravel road that unlocks the whole east-side alpine.</p>
+          <div class="tags"><span>In town</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://edithlake.com/">
+        <div class="thumb photo" role="img" aria-label="Edith Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Alice_Lake_Provincial_Park_Trail.jpg/1280px-Alice_Lake_Provincial_Park_Trail.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Pond Walk</div>
+          <h3>Edith Lake</h3>
+          <p>The quiet one on the Four Lakes Trail — lily pads and dragonflies while the crowds pack Alice.</p>
+          <div class="tags"><span>6 km loop</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://petgilllake.com/">
+        <div class="thumb photo" role="img" aria-label="Petgill Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Murrin_provincial_park_quercus_point.jpg/1280px-Murrin_provincial_park_quercus_point.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Forest Hike</div>
+          <h3>Petgill Lake</h3>
+          <p>Mossy bluffs over Howe Sound and a genuinely warm swim lake at the end — check trailhead status first.</p>
+          <div class="tags"><span>~11 km</span><span>May–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://lucillelake.com/">
+        <div class="thumb photo" role="img" aria-label="Lucille Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg/1280px-Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Swim & Paddle</div>
+          <h3>Lucille Lake</h3>
+          <p>A clear, quiet swim lake a short walk off Chance Creek — if you can find the right pullout.</p>
+          <div class="tags"><span>AWD road</span><span>Jun–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Pemberton" href="https://duffeylake.com/">
+        <div class="thumb photo" role="img" aria-label="Duffey Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Joffre_Peak.jpg/1280px-Joffre_Peak.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Pemberton &middot; Roadside Paddle</div>
+          <h3>Duffey Lake</h3>
+          <p>Mirror water under big glaciated peaks, right off Highway 99 — the pull-over-and-gasp lake.</p>
+          <div class="tags"><span>Drive-up</span><span>Jun–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Pemberton" href="https://lillooetlake.com/">
+        <div class="thumb photo" role="img" aria-label="Lillooet Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Winter_beach_time_%2850825961033%29.jpg/1280px-Winter_beach_time_%2850825961033%29.jpg')"><span class="badge">Guide live</span><span class="diff mod">Easy–Mod</span></div>
+        <div class="card-body">
+          <div class="region">Pemberton &middot; Lake & Rec Sites</div>
+          <h3>Lillooet Lake</h3>
+          <p>Jade water, rustic forestry campsites, and a washboard road that keeps the crowds away.</p>
+          <div class="tags"><span>Gravel road</span><span>May–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Pemberton" href="https://birkenheadlake.com/">
+        <div class="thumb photo" role="img" aria-label="Birkenhead Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Birkenhead_lake.JPG/1280px-Birkenhead_lake.JPG')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Pemberton &middot; Camp & Paddle</div>
+          <h3>Birkenhead Lake</h3>
+          <p>The end-of-the-road provincial park: campground on the water, morning glass, deer in the sites.</p>
+          <div class="tags"><span>Gravel road</span><span>Jun–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Howe Sound" href="https://porteau-cove.ca/">
+        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Howe Sound &middot; Dive & Camp</div>
+          <h3>Porteau Cove</h3>
+          <p>Sunken ships, night dives, and the only oceanside campground on the Sea to Sky.</p>
+          <div class="tags"><span>Drive-up</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Garibaldi" href="https://panoramaridgewhistler.com/">
+        <div class="thumb photo" role="img" aria-label="Panorama Ridge" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Garibaldi &middot; Alpine Hike</div>
+          <h3>Panorama Ridge</h3>
+          <p>The postcard view over Garibaldi Lake — a 30 km day most people should turn into a camp trip.</p>
+          <div class="tags"><span>Day pass</span><span>Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Garibaldi" href="https://wedgemountlake.com/">
+        <div class="thumb photo" role="img" aria-label="Wedgemount Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wedgemount_Glacier.jpg/1280px-Wedgemount_Glacier.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Garibaldi &middot; Hut + Hike</div>
+          <h3>Wedgemount Lake</h3>
+          <p>The steepest worthwhile trail in the corridor, and a front-row seat to a retreating glacier.</p>
+          <div class="tags"><span>1,200 m gain</span><span>Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Garibaldi" href="https://russetlake.com/">
+        <div class="thumb photo" role="img" aria-label="Russet Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Fissile_Peak.jpg/1280px-Fissile_Peak.jpg')"><span class="badge">Guide live</span><span class="diff hard">Mod–Hard</span></div>
+        <div class="card-body">
+          <div class="region">Garibaldi &middot; Hut + Hike</div>
+          <h3>Russet Lake</h3>
+          <p>A rust-red tarn under Fissile Peak — ride the gondola and walk the Musical Bumps to the Kees and Claire Hut.</p>
+          <div class="tags"><span>Lift or valley</span><span>Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Whistler" href="https://trainwreckwhistler.com/">
+        <div class="thumb photo" role="img" aria-label="The Train Wreck" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg/1280px-Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Whistler &middot; Forest Walk</div>
+          <h3>The Train Wreck</h3>
+          <p>Graffiti boxcars in the moss beside the Cheakamus — the corridor's easiest cool walk.</p>
+          <div class="tags"><span>Suspension bridge</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Pemberton" href="https://nairnfalls.com/">
+        <div class="thumb photo" role="img" aria-label="Nairn Falls" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Autumn_in_Nairn_Falls.jpg/1280px-Autumn_in_Nairn_Falls.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Pemberton &middot; Falls Walk</div>
+          <h3>Nairn Falls</h3>
+          <p>The Green River punches through a granite gorge minutes from Pemberton — the pull-over that's worth it.</p>
+          <div class="tags"><span>Drive-up</span><span>May–Oct</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://skypilotmountain.com/">
+        <div class="thumb photo" role="img" aria-label="Sky Pilot" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Sky_Pilot_Mountain%2C_north.jpg/1280px-Sky_Pilot_Mountain%2C_north.jpg')"><span class="badge">Guide live</span><span class="diff hard">Serious</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Mountaineering</div>
+          <h3>Sky Pilot</h3>
+          <p>The peak on the town's skyline — a gondola-served glacier day that is emphatically not a hike.</p>
+          <div class="tags"><span>Glacier gear</span><span>Jul–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://mountgaribaldi.com/">
+        <div class="thumb photo" role="img" aria-label="Mount Garibaldi" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg/1280px-Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Look up</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Mountain Portrait</div>
+          <h3>Mount Garibaldi</h3>
+          <p>Nch'ḵay̓ — the volcano over Squamish: where to see it, its story, and why most of us never climb it.</p>
+          <div class="tags"><span>Five vantages</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <div class="card" data-region="Squamish">
+        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge soon">Coming</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Swim & Paddle</div>
+          <h3>Cat Lake</h3>
+          <p>An easy north-Squamish oasis: a warm beach, walk-in campsites, and calm water for a board.</p>
+          <div class="tags"><span>Drive-up</span></div>
+          <span class="go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+      <a class="card" data-region="Squamish" href="https://brohmlake.ca/">
+        <div class="thumb photo" role="img" aria-label="Brohm Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cannonball_%28Unsplash%29.jpg/1280px-Cannonball_%28Unsplash%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Swim & Paddle</div>
+          <h3>Brohm Lake</h3>
+          <p>Rope swings, rock ledges, and a trail network right off the Sea to Sky Highway.</p>
+          <div class="tags"><span>Drive-up</span><span>May–Sep</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <a class="card" data-region="Squamish" href="https://murrinpark.com/">
+        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
+        <div class="card-body">
+          <div class="region">Squamish &middot; Swim</div>
+          <h3>Browning Lake</h3>
+          <p>Warm, roadside, and ringed by a short walking trail in Murrin Provincial Park.</p>
+          <div class="tags"><span>Drive-up</span><span>Year-round</span></div>
+          <span class="go">Read the field guide &rarr;</span>
+        </div>
+      </a>
+      <div class="card" data-region="Howe Sound">
+        <div class="thumb photo" role="img" aria-label="Anvil Island" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Anvil_Island.jpg/1280px-Anvil_Island.jpg')"><span class="badge soon">Coming</span><span class="diff hard">Hard</span></div>
+        <div class="card-body">
+          <div class="region">Howe Sound &middot; Island Hike</div>
+          <h3>Anvil Island</h3>
+          <p>Leading Peak rises straight out of Howe Sound — a steep summit reached by boat only.</p>
+          <div class="tags"><span>Boat access</span></div>
+          <span class="go muted">In the field &mdash; soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="manifesto-grid">
-      <div class="manifesto-art has-photo" role="img" aria-label="A quiet glacier-fed lake in the British Columbia Coast Mountains" style="background-image:url('https://images.unsplash.com/photo-1663961982797-d99985a0874c?w=1200');"></div>
-
-      <div class="manifesto">
-        <p>The Sea to Sky Corridor is two hours of highway and a thousand quiet detours. Most of what&rsquo;s good here cannot be found on a single tidy webpage. The trail report is on a forum from 2014. The launch coordinates are buried in a Reddit thread. The tide window is a fact you have to learn three trips in. The float plane operator is somebody&rsquo;s cousin.</p>
-        <p>This guide is the page we wished existed. It is a long-form field guide to the lakes, hikes, and outposts of the Coast Mountains between Vancouver and Pemberton &mdash; written by people who actually go, edited honestly, and quietly supported by the operators we trust to get you there.</p>
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo" role="img" aria-label="A paddler in a canoe on a calm mountain lake"></div>
+      <div>
+        <span class="eyebrow">The idea</span>
+        <h2 style="margin:1rem 0 1.2rem;">For the trip you can&rsquo;t Google in one tab.</h2>
+        <p>The Sea to Sky Corridor is two hours of highway and a thousand quiet detours. Most of what&rsquo;s good here cannot be found on a single tidy webpage. The trail report is on a forum from 2014. The launch coordinates are buried in a Reddit thread. The tide window is a fact you have to learn three trips in.</p>
+        <p>This guide is the page we wished existed &mdash; written by people who actually go, edited honestly, and quietly supported by the operators we trust to get you there.</p>
         <blockquote class="pull">
           &ldquo;The mountains don&rsquo;t care how you arrived &mdash; only that you packed properly and left the place better than you found it.&rdquo;
           <cite>House style, vol. I</cite>
         </blockquote>
-        <p>Read a guide. Go for the weekend. Come back with a story we couldn&rsquo;t have told you ourselves.</p>
       </div>
     </div>
   </div>
 </section>
-
-<hr class="rule" />
-
-<!-- ===================== GUIDES ===================== -->
-<section id="guides" class="guides">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">§ II &nbsp;·&nbsp; The Guides</span>
-      <h2>Every paddle &amp; hike in the guide.</h2>
-      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">Pick a lake or a trail. Each card opens a full field guide &mdash; how to get there, what it costs, the river crossing or the road, and the honest truth about whether you should go. More added through the season. Planning around an activity instead of a place? Start with the <a href="/water-sports/">water sports field guide</a>.</p>
-    </div>
-
-    <div class="trail-grid">
-
-      <a href="https://alicelakesquamish.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Alice Lake, Squamish BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alice_Lake%2C_British_Columbia_176.jpg/1280px-Alice_Lake%2C_British_Columbia_176.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Paddle &amp; Swim</div>
-          <h3>Alice Lake</h3>
-          <p>Four warm lakes, a sandy swim beach, and the easiest family canoe day on the Sea to Sky.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>Jun&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://riverofgoldendreams.ca/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="River of Golden Dreams, Whistler BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/River_of_Golden_Dreams.jpg/1280px-River_of_Golden_Dreams.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Whistler &middot; River Paddle</div>
-          <h3>River of Golden Dreams</h3>
-          <p>A slow downstream drift from Alta Lake to Green Lake &mdash; the paddle the locals want you to do right.</p>
-          <div class="tc-stats"><span>Shuttle</span><span>Easy&ndash;Mod</span><span>Jul&ndash;Aug</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://echolakesquamish.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Canoeists crossing the Squamish River beneath the Tantalus Range — the approach to Echo Lake" style="background-image:url('https://echolakesquamish.com/squamish-river-crossing.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Paddle + Hike</div>
-          <h3>Echo Falls &amp; Echo Lake</h3>
-          <p>Cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.</p>
-          <div class="tc-stats"><span>River crossing</span><span>Hard</span><span>Jun&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://callaghanlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="A hiker overlooking an alpine tarn in the Callaghan backcountry" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Andrew_takes_in_the_view_%2849695597381%29.jpg/1280px-Andrew_takes_in_the_view_%2849695597381%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Whistler &middot; Paddle + Hike</div>
-          <h3>Callaghan Lake</h3>
-          <p>Paddle the length of a high alpine lake, then hike the far shore up to Hanging Lake.</p>
-          <div class="tc-stats"><span>AWD road</span><span>Moderate</span><span>Jun&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://levettelake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Levette Lake in winter beneath the Tantalus Range, Squamish BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Levette_Lk_-_panoramio.jpg/1280px-Levette_Lk_-_panoramio.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Tantalus &middot; Paddle &amp; Swim</div>
-          <h3>Levette Lake</h3>
-          <p>A mirror lake under the Tantalus &mdash; clear water, a swim-to island, and a 4&times;4 road that keeps it quiet.</p>
-          <div class="tc-stats"><span>4&times;4 road</span><span>Easy</span><span>Jun&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://lakelovelywater.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Lake Lovely Water under Mount Niobe, Tantalus Provincial Park BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mount_Niobe_and_Lake_Lovely_Water.jpg/1280px-Mount_Niobe_and_Lake_Lovely_Water.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Tantalus &middot; Hut + Hike</div>
-          <h3>Lake Lovely Water</h3>
-          <p>A granite cirque you can&rsquo;t drive to &mdash; cross the Squamish, climb 1,300 m, and sleep at the alpine hut under Tantalus.</p>
-          <div class="tc-stats"><span>River / jet boat</span><span>Hard</span><span>Late Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://squamishestuary.ca/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Squamish Estuary from the Blue Heron Trail, Squamish BC" style="background-image:url('https://live.staticflickr.com/8032/7917479494_5da8ed9c2b_b.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Estuary Paddle</div>
-          <h3>The Squamish Estuary</h3>
-          <p>Skwelwil&rsquo;em &mdash; a tidal bird refuge right in town, herons and wintering eagles, and the gentlest paddle in the corridor.</p>
-          <div class="tc-stats"><span>In town</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://joffrelake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Middle Joffre Lake with the Matier Glacier, Joffre Lakes Provincial Park BC" style="background-image:url('https://images.pexels.com/photos/17826351/pexels-photo-17826351.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Pemberton &middot; Alpine Hike</div>
-          <h3>Joffre Lakes</h3>
-          <p>Three turquoise lakes stacked under the Matier Glacier &mdash; book the day pass, beat the bus crowds.</p>
-          <div class="tc-stats"><span>Day pass</span><span>Moderate</span><span>Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://cirquelake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Mist drifting through forested slopes in the Callaghan Valley, home of Cirque Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg/1280px-Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Callaghan &middot; Paddle + Hike</div>
-          <h3>Cirque Lake</h3>
-          <p>Paddle across Callaghan Lake, then climb the outflow creek to a granite bowl you&rsquo;ll likely have to yourself.</p>
-          <div class="tc-stats"><span>Canoe required</span><span>Mod&ndash;Hard</span><span>Jul&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://waterspritelake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Mamquam Mountain, the glaciated massif near Watersprite Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mamquam_Mountain%2C_sw.jpg/1280px-Mamquam_Mountain%2C_sw.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Hut + Hike</div>
-          <h3>Watersprite Lake</h3>
-          <p>A turquoise pocket in the granite east of town, with a BCMC hut you have to book months out.</p>
-          <div class="tc-stats"><span>FSR drive</span><span>Hard</span><span>Jul&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://elfin-lake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="The Elfin Lakes and shelter beneath the Garibaldi massif" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Elfin_Lakes%2C_Opal_Cone.jpg/1280px-Elfin_Lakes%2C_Opal_Cone.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Hut + Hike</div>
-          <h3>Elfin Lakes</h3>
-          <p>The classic Diamond Head shelter walk &mdash; heather meadows in August, ski tracks in February.</p>
-          <div class="tc-stats"><span>22 km</span><span>Moderate</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://cheakamuslake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Cheakamus Lake's turquoise water between forested ridges, Garibaldi Provincial Park" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cheakamus_Lake_BC_Canada.jpg/1280px-Cheakamus_Lake_BC_Canada.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Whistler &middot; Lakeside Hike</div>
-          <h3>Cheakamus Lake</h3>
-          <p>Old-growth forest and glacier-green water for barely any climbing &mdash; the corridor&rsquo;s easiest big payoff.</p>
-          <div class="tc-stats"><span>Gravel road</span><span>Easy</span><span>Jun&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://mamquam.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="The Mamquam River near Squamish in evening light" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mamquam_River.jpg/1280px-Mamquam_River.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; River Valley</div>
-          <h3>The Mamquam</h3>
-          <p>Falls, salmon runs, dike walks, and the gravel road that unlocks the whole east-side alpine.</p>
-          <div class="tc-stats"><span>In town</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://edithlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Mossy forest trail in Alice Lake Provincial Park on the way to Edith Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Alice_Lake_Provincial_Park_Trail.jpg/1280px-Alice_Lake_Provincial_Park_Trail.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Pond Walk</div>
-          <h3>Edith Lake</h3>
-          <p>The quiet one on the Four Lakes Trail &mdash; lily pads and dragonflies while the crowds pack Alice.</p>
-          <div class="tc-stats"><span>6 km loop</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://petgilllake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Howe Sound from the Murrin Park bluffs near the Petgill Lake trailhead" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Murrin_provincial_park_quercus_point.jpg/1280px-Murrin_provincial_park_quercus_point.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Forest Hike</div>
-          <h3>Petgill Lake</h3>
-          <p>Mossy bluffs over Howe Sound and a genuinely warm swim lake at the end &mdash; check trailhead status first.</p>
-          <div class="tc-stats"><span>~11 km</span><span>Moderate</span><span>May&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://lucillelake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Quiet forest-lake country off Highway 99 near Lucille Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg/1280px-Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
-          <h3>Lucille Lake</h3>
-          <p>A clear, quiet swim lake a short walk off Chance Creek &mdash; if you can find the right pullout.</p>
-          <div class="tc-stats"><span>AWD road</span><span>Easy</span><span>Jun&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://duffeylake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Duffey Lake with the Joffre group behind, BC Highway 99" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Joffre_Peak.jpg/1280px-Joffre_Peak.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Pemberton &middot; Roadside Paddle</div>
-          <h3>Duffey Lake</h3>
-          <p>Mirror water under big glaciated peaks, right off Highway 99 &mdash; the pull-over-and-gasp lake.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>Jun&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://lillooetlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Driftwood beach at the head of Lillooet Lake, Pemberton BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Winter_beach_time_%2850825961033%29.jpg/1280px-Winter_beach_time_%2850825961033%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Pemberton &middot; Lake &amp; Rec Sites</div>
-          <h3>Lillooet Lake</h3>
-          <p>Jade water, rustic forestry campsites, and a washboard road that keeps the crowds away.</p>
-          <div class="tc-stats"><span>Gravel road</span><span>Easy&ndash;Mod</span><span>May&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://birkenheadlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Birkenhead Lake from the campground dock, Birkenhead Lake Provincial Park BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Birkenhead_lake.JPG/1280px-Birkenhead_lake.JPG');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Pemberton &middot; Camp &amp; Paddle</div>
-          <h3>Birkenhead Lake</h3>
-          <p>The end-of-the-road provincial park: campground on the water, morning glass, deer in the sites.</p>
-          <div class="tc-stats"><span>Gravel road</span><span>Easy</span><span>Jun&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://porteau-cove.ca/" class="trail-card">
-        <div class="tc-thumb">
-          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
-            <ellipse cx="70" cy="50" rx="48" ry="9"/>
-            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
-          </svg>
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Howe Sound &middot; Dive &amp; Camp</div>
-          <h3>Porteau Cove</h3>
-          <p>Sunken ships, night dives, and the only oceanside campground on the Sea to Sky.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://panoramaridgewhistler.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Garibaldi Lake from Panorama Ridge, Garibaldi Provincial Park BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Garibaldi &middot; Alpine Hike</div>
-          <h3>Panorama Ridge</h3>
-          <p>The postcard view over Garibaldi Lake &mdash; a 30 km day most people should turn into a camp trip.</p>
-          <div class="tc-stats"><span>Day pass</span><span>Hard</span><span>Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://wedgemountlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Wedgemount Glacier above the milky turquoise lake, Garibaldi Provincial Park BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wedgemount_Glacier.jpg/1280px-Wedgemount_Glacier.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Garibaldi &middot; Hut + Hike</div>
-          <h3>Wedgemount Lake</h3>
-          <p>The steepest worthwhile trail in the corridor, and a front-row seat to a retreating glacier.</p>
-          <div class="tc-stats"><span>1,200 m gain</span><span>Hard</span><span>Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://russetlake.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Fissile Peak above Russet Lake, Garibaldi Provincial Park BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Fissile_Peak.jpg/1280px-Fissile_Peak.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Garibaldi &middot; Hut + Hike</div>
-          <h3>Russet Lake</h3>
-          <p>A rust-red tarn under Fissile Peak &mdash; ride the gondola and walk the Musical Bumps to the Kees and Claire Hut.</p>
-          <div class="tc-stats"><span>Lift or valley</span><span>Mod&ndash;Hard</span><span>Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://trainwreckwhistler.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Graffiti-covered boxcar at the Whistler Train Wreck" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg/1280px-Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Whistler &middot; Forest Walk</div>
-          <h3>The Train Wreck</h3>
-          <p>Graffiti boxcars in the moss beside the Cheakamus &mdash; the corridor&rsquo;s easiest cool walk.</p>
-          <div class="tc-stats"><span>Suspension bridge</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://nairnfalls.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Nairn Falls pouring through its granite gorge in autumn, Pemberton BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Autumn_in_Nairn_Falls.jpg/1280px-Autumn_in_Nairn_Falls.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Pemberton &middot; Falls Walk</div>
-          <h3>Nairn Falls</h3>
-          <p>The Green River punches through a granite gorge minutes from Pemberton &mdash; the pull-over that&rsquo;s worth it.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>May&ndash;Oct</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://skypilotmountain.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Sky Pilot Mountain on the Squamish skyline" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Sky_Pilot_Mountain%2C_north.jpg/1280px-Sky_Pilot_Mountain%2C_north.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Mountaineering</div>
-          <h3>Sky Pilot</h3>
-          <p>The peak on the town&rsquo;s skyline &mdash; a gondola-served glacier day that is emphatically not a hike.</p>
-          <div class="tc-stats"><span>Glacier gear</span><span>Serious</span><span>Jul&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://mountgaribaldi.com/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="Mount Garibaldi in pink alpenglow above Squamish BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg/1280px-Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Mountain Portrait</div>
-          <h3>Mount Garibaldi</h3>
-          <p>Nch&rsquo;ḵay̓ &mdash; the volcano over Squamish: where to see it, its story, and why most of us never climb it.</p>
-          <div class="tc-stats"><span>Five vantages</span><span>Look up</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <div class="trail-card soon">
-        <div class="tc-thumb">
-          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
-            <ellipse cx="70" cy="50" rx="48" ry="9"/>
-            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
-          </svg>
-          <span class="tc-badge soon">Guide coming</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
-          <h3>Cat Lake</h3>
-          <p>An easy north-Squamish oasis: a warm beach, walk-in campsites, and calm water for a board.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span></div>
-          <span class="tc-go muted">In the field &mdash; soon</span>
-        </div>
-      </div>
-
-      <a href="https://brohmlake.ca/" class="trail-card">
-        <div class="tc-thumb has-photo" role="img" aria-label="A swimmer mid-cannonball at Brohm Lake, Squamish BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cannonball_%28Unsplash%29.jpg/1280px-Cannonball_%28Unsplash%29.jpg');">
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Swim &amp; Paddle</div>
-          <h3>Brohm Lake</h3>
-          <p>Rope swings, rock ledges, and a trail network right off the Sea to Sky Highway.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>May&ndash;Sep</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <a href="https://murrinpark.com/" class="trail-card">
-        <div class="tc-thumb">
-          <svg viewBox="0 0 140 70" class="line-art" aria-hidden="true">
-            <path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/>
-            <ellipse cx="70" cy="50" rx="48" ry="9"/>
-            <path d="M30 54 Q70 60 110 54" opacity="0.4"/>
-          </svg>
-          <span class="tc-badge">Guide live</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Squamish &middot; Swim</div>
-          <h3>Browning Lake</h3>
-          <p>Warm, roadside, and ringed by a short walking trail in Murrin Provincial Park.</p>
-          <div class="tc-stats"><span>Drive-up</span><span>Easy</span><span>Year-round</span></div>
-          <span class="tc-go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-
-      <div class="trail-card soon">
-        <div class="tc-thumb has-photo" role="img" aria-label="Anvil Island and Leading Peak, Howe Sound BC" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Anvil_Island.jpg/1280px-Anvil_Island.jpg');">
-          <span class="tc-badge soon">Guide coming</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-region">Howe Sound &middot; Island Hike</div>
-          <h3>Anvil Island</h3>
-          <p>Leading Peak rises straight out of Howe Sound &mdash; a steep summit reached by boat only.</p>
-          <div class="tc-stats"><span>Boat access</span><span>Hard</span></div>
-          <span class="tc-go muted">In the field &mdash; soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
 
 <!-- ===================== OPERATORS ===================== -->
 <section id="operators" class="operators">
   <div class="wrap">
-    <div class="operators-grid">
-
-      <div class="ops-art has-photo" role="img" aria-label="A paddler in a canoe on a calm mountain lake" style="background-image:url('https://images.unsplash.com/photo-1762207194168-7d412dc78f45?w=1200');"></div>
-
+    <div class="ops-grid">
       <div>
-        <span class="eyebrow">§ III &nbsp;·&nbsp; The Operators</span>
-        <h2 style="margin-top:1.5rem;">The right boat. The right shuttle. The right guide.</h2>
-        <p style="margin-top:1.5rem;">Most of the destinations in this guide are not drive-up. We work with a small, vetted bench of Sea to Sky operators &mdash; canoe rentals, water taxis, jet boat shuttles, trailhead drivers &mdash; who can get you there safely and back home for dinner. They pay us only when you book through this page. We refuse to list operators we wouldn&rsquo;t use ourselves.</p>
-
+        <span class="eyebrow">The operators</span>
+        <h2 style="margin:1rem 0 1.2rem;">The right boat. The right shuttle. The right guide.</h2>
+        <p>Most of the destinations in this guide are not drive-up. We work with a small, vetted bench of Sea to Sky operators &mdash; canoe rentals, water taxis, jet boat shuttles, trailhead drivers &mdash; who can get you there safely and back home for dinner. They pay us only when you book through this page.</p>
+        <a href="mailto:hello@seatoskytrails.com?subject=Operator%20listing%20application&body=Hi%20%E2%80%94%20I%27d%20like%20to%20apply%20to%20be%20listed%20as%20a%20Sea%20to%20Sky%20Trails%20operator.%0A%0ABusiness%20name%3A%0AService%20type%20(canoe%20rental%2C%20jet%20boat%2C%20shuttle%2C%20guide%2C%20gear%2C%20etc.)%3A%0AService%20area%3A%0AWebsite%3A%0ALiability%20insurance%20%2B%20permits%20on%20file%3F%3A%0AAnything%20else%20we%20should%20know%3A%0A%0AThanks!" class="btn solid" style="display:inline-block;margin-top:0.8rem;">Apply to be listed</a>
+      </div>
+      <div>
         <ul class="tenets">
-          <li>
-            <span class="n">i.</span>
-            <span class="t">
-              Local first.
-              <small>Operators must live and work in the corridor. No call centres in other provinces.</small>
-            </span>
-          </li>
-          <li>
-            <span class="n">ii.</span>
-            <span class="t">
-              Safety on the record.
-              <small>Insurance, permits, and a real safety brief, or we don&rsquo;t list them.</small>
-            </span>
-          </li>
-          <li>
-            <span class="n">iii.</span>
-            <span class="t">
-              No paid features dressed as advice.
-              <small>Sponsored slots are clearly marked. The advice in the body of each guide stays our own.</small>
-            </span>
-          </li>
-          <li>
-            <span class="n">iv.</span>
-            <span class="t">
-              Free until it works.
-              <small>Operators pay nothing to be listed. We take a small fee only after a booking comes through.</small>
-            </span>
-          </li>
+          <li><span class="n">i.</span><span class="t">Local first.<small>Operators must live and work in the corridor. No call centres in other provinces.</small></span></li>
+          <li><span class="n">ii.</span><span class="t">Safety on the record.<small>Insurance, permits, and a real safety brief, or we don&rsquo;t list them.</small></span></li>
+          <li><span class="n">iii.</span><span class="t">No paid features dressed as advice.<small>Sponsored slots are clearly marked. The advice in the body of each guide stays our own.</small></span></li>
+          <li><span class="n">iv.</span><span class="t">Free until it works.<small>Operators pay nothing to be listed. We take a small fee only after a booking comes through.</small></span></li>
         </ul>
-
-        <a href="mailto:hello@seatoskytrails.com?subject=Operator%20listing%20application&body=Hi%20%E2%80%94%20I%27d%20like%20to%20apply%20to%20be%20listed%20as%20a%20Sea%20to%20Sky%20Trails%20operator.%0A%0ABusiness%20name%3A%0AService%20type%20(canoe%20rental%2C%20jet%20boat%2C%20shuttle%2C%20guide%2C%20gear%2C%20etc.)%3A%0AService%20area%3A%0AWebsite%3A%0ALiability%20insurance%20%2B%20permits%20on%20file%3F%3A%0AAnything%20else%20we%20should%20know%3A%0A%0AThanks!" class="pillish">Apply to be listed</a>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- ===================== COLOPHON ===================== -->
-<section id="contact" class="colophon tight">
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">§ IV &nbsp;·&nbsp; Colophon</span>
-      <h2>Letters, leads, &amp; corrections.</h2>
-    </div>
-
-    <div class="colophon-grid">
+    <div class="foot-grid">
       <div>
-        <h4>The Guide</h4>
-        <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.05rem;color:var(--ink);max-width:36ch;line-height:1.5;">
-          Published quarterly from the head of Howe Sound. Edited and maintained by an independent team based in Squamish, British Columbia.
-        </p>
+        <div class="mark" style="margin-bottom:1rem;">
+          <span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>
+          <span>Sea to Sky Trails<small>Coast Mountains · BC</small></span>
+        </div>
+        <p style="font-size:0.85rem;max-width:34ch;">Published quarterly from the head of Howe Sound. Edited and maintained by an independent team based in Squamish, British Columbia.</p>
       </div>
       <div>
         <h4>Read</h4>
         <ul>
-          <li><a href="#guides">Field guides</a></li>
+          <li><a href="#trails">Field guides</a></li>
           <li><a href="/water-sports/">Water sports in Squamish</a></li>
           <li><a href="#about">About the guide</a></li>
           <li><a href="#operators">Operator standards</a></li>
@@ -1187,24 +720,15 @@
           <li><a href="https://squamishwatertaxi.com/">Squamish Water Taxi</a></li>
           <li><a href="https://squamishwatertaxi.com/tours.html">Boat Tours on Howe Sound</a></li>
           <li><a href="https://squamishwatertaxi.com/boat-rentals.html">Rent a Boat in Squamish</a></li>
-          <li><a href="#">Instagram</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="wrap inner">
-    <div>
-      <em>Sea to Sky Trails</em> &middot; Volume I, 2026 &middot; Published in Sḵwx̱wú7mesh territory.
+    <div class="foot-base">
+      <div>Sea to Sky Trails &middot; Volume I, 2026 &middot; Published in Sḵwx̱wú7mesh territory.</div>
+      <div>&copy; 2026 &middot; Reader-funded.</div>
     </div>
-    <div>
-      &copy; 2026. Set in Fraunces &amp; Inter. Reader-funded.
-    </div>
-  </div>
-  <div class="wrap" style="margin-top:1.25rem;font-size:0.66rem;line-height:1.6;color:var(--ink-mute);">
-    Photography &mdash;
+    <div class="credits">
+      Photography &mdash;
     Alice Lake by Jennifer C. (CC&nbsp;BY&nbsp;2.0);
     River of Golden Dreams by LittleT889 (CC&nbsp;BY&nbsp;4.0);
     Levette Lake by Juraj Tatár (CC&nbsp;BY-SA&nbsp;3.0);
@@ -1229,8 +753,22 @@
     Duffey Lake by Murray Foubister (CC&nbsp;BY-SA&nbsp;2.0);
     Lillooet Lake by VinceTraveller (CC&nbsp;BY&nbsp;2.0);
     via Wikimedia Commons &amp; Flickr. Scenic photos via Unsplash.
+    </div>
   </div>
 </footer>
+
+<script>
+document.querySelectorAll(".chip").forEach(function (chip) {
+  chip.addEventListener("click", function () {
+    document.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("on"); });
+    chip.classList.add("on");
+    var region = chip.dataset.region;
+    document.querySelectorAll("#grid .card").forEach(function (card) {
+      card.style.display = (region === "All" || card.dataset.region === region) ? "" : "none";
+    });
+  });
+});
+</script>
 
 </body>
 </html>
