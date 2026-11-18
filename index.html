@@ -2,777 +2,235 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sea to Sky Trails &mdash; Trip Notes from the Coast Mountains</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="A field guide to the lakes, hikes, and quiet places of the Sea to Sky Corridor. Trip notes, route logistics, and the operators who can get you there.">
-<meta property="og:title" content="Sea to Sky Trails — Trip Notes from the Coast Mountains">
-<meta property="og:description" content="A field guide to the lakes, hikes, and quiet places of the Sea to Sky Corridor.">
-<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg">
-<meta property="og:url" content="https://seatoskytrails.com/">
-<meta name="twitter:card" content="summary_large_image">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fbfaf7;
-    --surface: #ffffff;
-    --sage: #eef1ea;
-    --line: #e3e1d8;
-    --ink: #22261f;
-    --ink-soft: #4c5245;
-    --mute: #8b9083;
-    --pine: #3d5a3f;
-    --pine-deep: #2c4230;
-    --sun: #c98f2d;
-  }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0; padding: 0;
-    background: var(--bg); color: var(--ink);
-    font-family: "Inter", system-ui, sans-serif;
-    font-size: 17px; line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: var(--pine); color: #fff; }
-  a { color: inherit; text-decoration: none; }
-
-  h1, h2, h3 {
-    font-family: "Fraunces", serif;
-    font-weight: 500; line-height: 1.05; letter-spacing: -0.02em;
-    margin: 0; color: var(--ink);
-    font-variation-settings: "opsz" 144;
-  }
-  h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); }
-  h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
-  h3 { font-size: 1.3rem; font-weight: 600; }
-  p { color: var(--ink-soft); margin: 0 0 1.1rem; }
-
-  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-
-  .eyebrow {
-    font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase;
-    font-weight: 600; color: var(--pine);
-    display: inline-flex; align-items: center; gap: 0.7rem;
-  }
-  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; }
-
-  /* ---------- NAV ---------- */
-  nav.top {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(251,250,247,0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav.top .inner {
-    max-width: 1280px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.95rem 2rem;
-  }
-  .mark {
-    display: flex; align-items: center; gap: 0.75rem;
-    font-family: "Fraunces", serif; font-weight: 600; font-size: 1.1rem;
-  }
-  .mark .peak { width: 38px; height: 38px; background: var(--pine); border-radius: 50%; display: grid; place-items: center; }
-  .mark .peak svg { width: 22px; height: 22px; }
-  .mark .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .mark small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--mute); }
-  nav.top .links { display: flex; gap: 1.8rem; align-items: center; }
-  nav.top .links a {
-    font-size: 0.82rem; font-weight: 500; color: var(--ink-soft); transition: color 0.2s;
-  }
-  nav.top .links a:hover { color: var(--pine); }
-  nav.top .links a.cta {
-    background: var(--pine); color: #fff;
-    padding: 0.6rem 1.3rem; border-radius: 999px; font-weight: 600;
-    transition: background 0.2s;
-  }
-  nav.top .links a.cta:hover { background: var(--pine-deep); }
-  @media (max-width: 720px) { nav.top .links a:not(.cta) { display: none; } }
-
-  /* ---------- HERO ---------- */
-  header.hero { padding: 4.5rem 0 3.5rem; }
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
-  }
-  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 2rem; } }
-  header.hero h1 em { font-style: italic; color: var(--pine); }
-  header.hero .deck {
-    font-size: clamp(1.02rem, 1.4vw, 1.18rem); max-width: 50ch;
-    margin: 1.4rem 0 2.2rem;
-  }
-  .btn-row { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
-  .btn {
-    font-size: 0.84rem; font-weight: 600;
-    padding: 0.9rem 1.7rem; border-radius: 999px; transition: all 0.2s;
-  }
-  .btn.solid { background: var(--pine); color: #fff; }
-  .btn.solid:hover { background: var(--pine-deep); }
-  .btn.ghost { border: 1.5px solid var(--line); color: var(--ink); background: var(--surface); }
-  .btn.ghost:hover { border-color: var(--pine); color: var(--pine); }
-
-  .hero-photos {
-    display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.9rem;
-    min-height: 480px;
-  }
-  .hp {
-    border-radius: 14px; background-size: cover; background-position: center;
-    position: relative; overflow: hidden;
-  }
-  .hp.big { grid-row: 1 / 3; }
-  .hp .tag {
-    position: absolute; bottom: 0.8rem; left: 0.8rem;
-    font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    background: rgba(255,255,255,0.92); color: var(--ink);
-    padding: 0.38rem 0.75rem; border-radius: 999px;
-  }
-  @media (max-width: 900px) { .hero-photos { min-height: 340px; } }
-
-  /* ---------- TRUST BAR ---------- */
-  .trust {
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    background: var(--surface);
-  }
-  .trust .inner {
-    max-width: 1280px; margin: 0 auto; padding: 1.4rem 2rem;
-    display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
-  }
-  .trust .item { display: flex; align-items: center; gap: 0.65rem; font-size: 0.86rem; color: var(--ink-soft); font-weight: 500; }
-  .trust .item svg { width: 20px; height: 20px; flex-shrink: 0; }
-  .trust .item svg path, .trust .item svg circle { stroke: var(--sun); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-  section { padding: 5.5rem 0; }
-  .section-head { max-width: 720px; margin-bottom: 2.6rem; }
-  .section-head h2 { margin: 1rem 0 0.9rem; }
-
-  /* ---------- DIRECTORY ---------- */
-  .directory { background: var(--sage); }
-  .filters { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.2rem; }
-  .chip {
-    font-family: "Inter", sans-serif; font-size: 0.8rem; font-weight: 500;
-    padding: 0.55rem 1.15rem; border-radius: 999px;
-    border: 1.5px solid var(--line); color: var(--ink-soft);
-    background: var(--surface); cursor: pointer; transition: all 0.18s;
-  }
-  .chip:hover { border-color: var(--pine); color: var(--pine); }
-  .chip.on { background: var(--pine); border-color: var(--pine); color: #fff; font-weight: 600; }
-
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
-  .card {
-    background: var(--surface); border-radius: 16px;
-    overflow: hidden; display: flex; flex-direction: column;
-    box-shadow: 0 1px 3px rgba(34,38,31,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  a.card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(34,38,31,0.13); }
-  .thumb {
-    aspect-ratio: 3/2; position: relative;
-    background: linear-gradient(150deg, #dfe6da 0%, #cdd8c8 100%);
-    display: grid; place-items: center;
-  }
-  .thumb.photo { background-size: cover; background-position: center; }
-  .thumb svg { width: 55%; opacity: 0.6; }
-  .thumb svg path, .thumb svg ellipse { stroke: var(--pine); fill: none; stroke-width: 1.4; stroke-linecap: round; }
-  .badge {
-    position: absolute; top: 0.8rem; left: 0.8rem;
-    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
-    padding: 0.34rem 0.75rem; border-radius: 999px;
-    background: rgba(255,255,255,0.94); color: var(--pine); z-index: 2;
-  }
-  .badge.soon { color: var(--mute); }
-  .diff {
-    position: absolute; top: 0.8rem; right: 0.8rem; z-index: 2;
-    font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
-    padding: 0.34rem 0.75rem; border-radius: 999px;
-    background: rgba(255,255,255,0.94);
-  }
-  .diff.easy { color: #38735d; }
-  .diff.mod { color: var(--sun); }
-  .diff.hard { color: #b0512f; }
-  .card-body { padding: 1.25rem 1.35rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
-  .region {
-    font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 700; color: var(--mute); margin-bottom: 0.5rem;
-  }
-  .card-body h3 { margin-bottom: 0.45rem; }
-  .card-body p { font-size: 0.9rem; line-height: 1.55; margin-bottom: 1rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
-  .tags span {
-    font-size: 0.68rem; color: var(--ink-soft); background: var(--sage);
-    border-radius: 999px; padding: 0.28rem 0.7rem; font-weight: 500;
-  }
-  .go {
-    margin-top: 1.05rem; font-size: 0.8rem; font-weight: 600; color: var(--pine);
-  }
-  .go.muted { color: var(--mute); }
-
-  /* ---------- ABOUT ---------- */
-  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
-  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
-  .about-photo {
-    aspect-ratio: 4/5; border-radius: 16px;
-    background: url('https://images.unsplash.com/photo-1762207194168-7d412dc78f45?w=1200&q=80') center/cover;
-  }
-  blockquote.pull {
-    margin: 2rem 0 0; padding: 1.4rem 1.6rem;
-    background: var(--sage); border-radius: 12px;
-    font-family: "Fraunces", serif; font-style: italic;
-    font-size: 1.15rem; line-height: 1.55; color: var(--ink);
-  }
-  blockquote.pull cite {
-    display: block; margin-top: 0.7rem; font-style: normal;
-    font-family: "Inter", sans-serif;
-    font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600;
-  }
-
-  /* ---------- OPERATORS ---------- */
-  .operators { background: var(--pine-deep); color: #f2f1ea; }
-  .operators h2, .operators h3 { color: #fff; }
-  .operators p { color: #cfd4c6; }
-  .operators .eyebrow { color: var(--sun); }
-  .ops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  @media (max-width: 900px) { .ops-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
-  .tenets { list-style: none; padding: 0; margin: 1.6rem 0 0; }
-  .tenets li {
-    padding: 1.15rem 0; border-top: 1px solid rgba(255,255,255,0.14);
-    display: grid; grid-template-columns: 40px 1fr; gap: 1rem; align-items: baseline;
-  }
-  .tenets li:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
-  .tenets .n { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1.05rem; }
-  .tenets .t { font-weight: 600; color: #fff; font-size: 0.98rem; }
-  .tenets .t small { display: block; font-weight: 400; color: #cfd4c6; margin-top: 0.3rem; font-size: 0.9rem; line-height: 1.55; }
-  .operators .btn.solid { background: var(--sun); color: var(--pine-deep); }
-  .operators .btn.solid:hover { background: #fff; }
-
-  /* ---------- FOOTER ---------- */
-  footer { padding: 4rem 0 2.5rem; background: var(--bg); }
-  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
-  @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
-  footer h4 {
-    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--mute); font-weight: 700; margin: 0 0 1rem;
-  }
-  footer ul { list-style: none; padding: 0; margin: 0; }
-  footer ul li { margin-bottom: 0.55rem; font-size: 0.88rem; }
-  footer ul li a { color: var(--ink-soft); }
-  footer ul li a:hover { color: var(--pine); }
-  .foot-base {
-    border-top: 1px solid var(--line); padding-top: 1.8rem;
-    font-size: 0.76rem; color: var(--mute);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-  }
-  .credits { font-size: 0.62rem; line-height: 1.7; color: var(--mute); margin-top: 1.2rem; }
-</style>
+<title>Sea to Sky Trails: Hiking, Paddling &amp; Lake Guides, Squamish to Pemberton</title>
+<meta name="description" content="40 independent field guides to hikes, lakes, huts and paddles from Squamish and Howe Sound to Whistler, Garibaldi and Pemberton, BC. Official numbers, honest logistics, free offline PDFs.">
+<link rel="canonical" href="https://seatoskytrails.com/">
+<meta name="theme-color" content="#0d1f1c">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+<meta property="og:site_name" content="Sea to Sky Trails">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sea to Sky Trails: Hiking, Paddling &amp; Lake Guides, Squamish to Pemberton">
+<meta property="og:description" content="40 independent field guides to hikes, lakes, huts and paddles from Squamish and Howe Sound to Whistler, Garibaldi and Pemberton, BC. Official numbers, honest logistics, free offline PDFs.">
+<meta property="og:url" content="https://seatoskytrails.com/">
+<meta property="og:image" content="https://seatoskytrails.com/img/trails/black-tusk.jpg">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sea to Sky Trails: Hiking, Paddling &amp; Lake Guides, Squamish to Pemberton">
+<meta name="twitter:description" content="40 independent field guides to hikes, lakes, huts and paddles from Squamish and Howe Sound to Whistler, Garibaldi and Pemberton, BC. Official numbers, honest logistics, free offline PDFs.">
+<meta name="twitter:image" content="https://seatoskytrails.com/img/trails/black-tusk.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Archivo:wdth,wght@62..125,500..900&family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/hub.css?v=2">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Sea to Sky Trails", "url": "https://seatoskytrails.com", "logo": "https://seatoskytrails.com/brand/mark.svg", "email": "seatoskytrails@gmail.com", "areaServed": "Sea to Sky Corridor, British Columbia"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Sea to Sky Trails", "url": "https://seatoskytrails.com", "inLanguage": "en-CA"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Sea to Sky field guides", "mainEntity": {"@type": "ItemList", "numberOfItems": 40, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alice Lake", "url": "https://alicelakesquamish.com/"}, {"@type": "ListItem", "position": 2, "name": "River of Golden Dreams", "url": "https://riverofgoldendreams.ca/"}, {"@type": "ListItem", "position": 3, "name": "Echo Falls & Echo Lake", "url": "https://echolakesquamish.com/"}, {"@type": "ListItem", "position": 4, "name": "Callaghan Lake", "url": "https://callaghanlake.com/"}, {"@type": "ListItem", "position": 5, "name": "Levette Lake", "url": "https://levettelake.com/"}, {"@type": "ListItem", "position": 6, "name": "Lake Lovely Water", "url": "https://lakelovelywater.com/"}, {"@type": "ListItem", "position": 7, "name": "The Squamish Estuary", "url": "https://squamishestuary.ca/"}, {"@type": "ListItem", "position": 8, "name": "Joffre Lakes", "url": "https://joffrelake.com/"}, {"@type": "ListItem", "position": 9, "name": "Cirque Lake", "url": "https://cirquelake.com/"}, {"@type": "ListItem", "position": 10, "name": "Watersprite Lake", "url": "https://waterspritelake.com/"}, {"@type": "ListItem", "position": 11, "name": "Elfin Lakes", "url": "https://elfin-lake.com/"}, {"@type": "ListItem", "position": 12, "name": "Cheakamus Lake", "url": "https://cheakamuslake.com/"}, {"@type": "ListItem", "position": 13, "name": "The Mamquam", "url": "https://mamquam.com/"}, {"@type": "ListItem", "position": 14, "name": "Edith Lake", "url": "https://edithlake.com/"}, {"@type": "ListItem", "position": 15, "name": "Petgill Lake", "url": "https://petgilllake.com/"}, {"@type": "ListItem", "position": 16, "name": "Lucille Lake", "url": "https://lucillelake.com/"}, {"@type": "ListItem", "position": 17, "name": "Duffey Lake", "url": "https://duffeylake.com/"}, {"@type": "ListItem", "position": 18, "name": "Lillooet Lake", "url": "https://lillooetlake.com/"}, {"@type": "ListItem", "position": 19, "name": "Birkenhead Lake", "url": "https://birkenheadlake.com/"}, {"@type": "ListItem", "position": 20, "name": "Panorama Ridge", "url": "https://panoramaridgewhistler.com/"}, {"@type": "ListItem", "position": 21, "name": "Wedgemount Lake", "url": "https://wedgemountlake.com/"}, {"@type": "ListItem", "position": 22, "name": "Russet Lake", "url": "https://russetlake.com/"}, {"@type": "ListItem", "position": 23, "name": "The Train Wreck", "url": "https://trainwreckwhistler.com/"}, {"@type": "ListItem", "position": 24, "name": "Nairn Falls", "url": "https://nairnfalls.com/"}, {"@type": "ListItem", "position": 25, "name": "Sky Pilot", "url": "https://skypilotmountain.com/"}, {"@type": "ListItem", "position": 26, "name": "Mount Garibaldi", "url": "https://mountgaribaldi.com/"}, {"@type": "ListItem", "position": 27, "name": "Brohm Lake", "url": "https://brohmlake.ca/"}, {"@type": "ListItem", "position": 28, "name": "Murrin Park", "url": "https://murrinpark.com/"}, {"@type": "ListItem", "position": 29, "name": "Porteau Cove", "url": "https://porteau-cove.ca/"}, {"@type": "ListItem", "position": 30, "name": "Porteau Cove Provincial Park", "url": "https://porteaucoveprovincialpark.com/"}, {"@type": "ListItem", "position": 31, "name": "Anvil Island & Leading Peak", "url": "https://anvilisland.ca/"}, {"@type": "ListItem", "position": 32, "name": "Stawamus Chief", "url": "https://seatoskytrails.com/trails/stawamus-chief/"}, {"@type": "ListItem", "position": 33, "name": "Shannon Falls", "url": "https://seatoskytrails.com/trails/shannon-falls/"}, {"@type": "ListItem", "position": 34, "name": "Black Tusk", "url": "https://seatoskytrails.com/trails/black-tusk/"}, {"@type": "ListItem", "position": 35, "name": "Garibaldi Lake", "url": "https://seatoskytrails.com/trails/garibaldi-lake/"}, {"@type": "ListItem", "position": 36, "name": "Singing Pass", "url": "https://seatoskytrails.com/trails/singing-pass/"}, {"@type": "ListItem", "position": 37, "name": "Brandywine Falls", "url": "https://seatoskytrails.com/trails/brandywine-falls/"}, {"@type": "ListItem", "position": 38, "name": "Sea to Summit Trail", "url": "https://seatoskytrails.com/trails/sea-to-summit/"}, {"@type": "ListItem", "position": 39, "name": "Smoke Bluffs Park", "url": "https://seatoskytrails.com/trails/smoke-bluffs/"}, {"@type": "ListItem", "position": 40, "name": "Rainbow Lake", "url": "https://seatoskytrails.com/trails/rainbow-lake/"}]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Sea to Sky Trails?", "acceptedAnswer": {"@type": "Answer", "text": "An independent set of field guides to the lakes, hikes and paddles between Howe Sound and Pemberton, with honest logistics: roads, passes, tides, seasons and who can get you there."}}, {"@type": "Question", "name": "What are the best hikes in the Sea to Sky corridor?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the day you want. The Stawamus Chief and Black Tusk are big days, Cheakamus Lake and Shannon Falls are easy outings, and Elfin Lakes and Wedgemount Lake are classic hut trips. Browse the collections to compare."}}, {"@type": "Question", "name": "Where can I paddle a canoe near Squamish and Whistler?", "acceptedAnswer": {"@type": "Answer", "text": "Alice Lake, the Squamish Estuary, Brohm Lake, Lucille Lake, Callaghan Lake and the River of Golden Dreams are among the guides with paddling notes, from beginner-friendly water to trips where a canoe is the only way in."}}, {"@type": "Question", "name": "Do I need a day pass for Garibaldi or Joffre Lakes?", "acceptedAnswer": {"@type": "Answer", "text": "BC Parks has used free day-use passes on busy trails such as Rubble Creek in Garibaldi and Joffre Lakes. Rules and dates change, so always check the current BC Parks page before you go."}}, {"@type": "Question", "name": "When is hiking season in the Sea to Sky?", "acceptedAnswer": {"@type": "Answer", "text": "Low-elevation trails and shoreline paddles run most of the year. Alpine trails are usually snow-free from July to September. Each guide lists its own season."}}, {"@type": "Question", "name": "Are the guides free to read?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The guides are free to read. Some operators support the guides, and sponsored placements are always marked."}}]}</script>
 </head>
 <body>
-
-<nav class="top">
-  <div class="inner">
-    <a href="#" class="mark">
-      <span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>
-      <span>Sea to Sky Trails<small>Coast Mountains · BC</small></span>
-    </a>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#operators">Operators</a>
-      <a href="/advertise/">Advertise</a>
-      <a href="#contact">Contact</a>
-      <a href="#trails" class="cta">Find a trail</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">31 field guides · Howe Sound to Pemberton</span>
-      <h1 style="margin-top:1.1rem;">A field guide to the <em>quiet</em> places.</h1>
-      <p class="deck">Lakes that take a paddle to reach. Trails the locals don&rsquo;t share. The honest logistics, the right operators, and the truth about whether you should actually do it.</p>
-      <div class="btn-row">
-        <a href="#trails" class="btn solid">Browse the guides</a>
-        <a href="#about" class="btn ghost">How it works</a>
-      </div>
-    </div>
-    <div class="hero-photos">
-      <div class="hp big" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg');"><span class="tag">Panorama Ridge</span></div>
-      <div class="hp" style="background-image:url('https://echolakesquamish.com/squamish-river-crossing.jpg');"><span class="tag">Echo Lake crossing</span></div>
-      <div class="hp" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wedgemount_Glacier.jpg/1280px-Wedgemount_Glacier.jpg');"><span class="tag">Wedgemount</span></div>
-    </div>
-  </div>
-</header>
-
-<div class="trust">
-  <div class="inner">
-    <div class="item"><svg viewBox="0 0 24 24"><path d="M20 6 L9 17 L4 12"/></svg>Every guide walked, paddled, or climbed by us</div>
-    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 2 L12 22 M2 12 L22 12"/></svg>Honest logistics — roads, tides, passes</div>
-    <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></svg>Updated through the season</div>
-    <div class="item"><svg viewBox="0 0 24 24"><path d="M12 21 C7 16 3 12.5 3 8.5 C3 5.5 5.5 3 8.5 3 C10 3 11.3 3.8 12 5 C12.7 3.8 14 3 15.5 3 C18.5 3 21 5.5 21 8.5 C21 12.5 17 16 12 21 Z"/></svg>Reader-funded, operator-supported</div>
-  </div>
+<nav class="sts-nav"><div class="in">
+<a class="sts-logo" href="/"><img src="/brand/mark.svg" alt="" width="40" height="40"><span class="w"><small>Sea to Sky</small><b>Trails</b></span></a>
+<button class="burger" aria-label="Menu" onclick="document.querySelector('.sts-links').classList.toggle('open')">☰</button>
+<div class="sts-links">
+<div class="dd"><span>Regions ▾</span><div class="menu"><a href="/squamish/">Squamish</a><a href="/whistler/">Whistler</a><a href="/pemberton/">Pemberton</a><a href="/garibaldi/">Garibaldi</a><a href="/tantalus/">Tantalus</a><a href="/howe-sound/">Howe Sound</a></div></div>
+<div class="dd"><span>Collections ▾</span><div class="menu"><a href="/paddling/">Paddle</a><a href="/swimming-lakes/">Swim</a><a href="/hut-hikes/">Huts</a><a href="/waterfalls/">Falls</a><a href="/big-days/">Big days</a><a href="/easy-hikes/">Easy & family</a><a href="/year-round/">Year-round</a></div></div>
+<a href="/water-sports/">Water sports</a>
+<a href="/advertise/">Advertise</a>
+<a class="btn" href="/#guides">Find a trail</a>
+</div></div></nav>
+<header class="hero" id="top"><div class="slides" id="slides"><div class="slide on" data-src="/img/trails/black-tusk.jpg" style="background-image:url(/img/trails/black-tusk.jpg)"></div><div class="slide" data-src="/img/trails/squamish-estuary.jpg"></div><div class="slide" data-src="/img/trails/stawamus-chief.jpg"></div><div class="slide" data-src="/img/trails/shannon-falls.jpg"></div><div class="slide" data-src="/img/trails/cirque-lake.jpg"></div><div class="slide" data-src="/img/trails/garibaldi-lake.jpg"></div></div>
+<svg class="arcs" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke-width="14"><circle cx="200" cy="200" r="170" stroke="#e9a21c"/><circle cx="200" cy="200" r="150" stroke="#e0571e"/><circle cx="200" cy="200" r="130" stroke="#ff5fa2"/><circle cx="200" cy="200" r="110" stroke="#c42a8a"/></g></svg>
+<div class="wrap">
+<span class="eyebrow" style="color:#fff">40 field guides · Howe Sound to Pemberton</span>
+<h1 style="margin-top:1.2rem">The Sea to Sky, on foot and <em>by paddle.</em></h1>
+<p class="lead">Honest guides to the lakes, hikes and quiet places of the corridor: official numbers, current rules, and a free PDF to take offline.</p>
+<form class="search" onsubmit="event.preventDefault();document.getElementById('guides').scrollIntoView()"><input id="q" type="search" placeholder="Search a lake, trail or town…" aria-label="Search guides"><button class="btn" type="submit">Search</button></form></div>
+<div class="slidebar"><div class="in"><div class="slidecap" id="slidecap"></div><div class="dots" id="dots"><button class="on" aria-label="Show Black Tusk"></button><button class="" aria-label="Show The Squamish Estuary"></button><button class="" aria-label="Show Stawamus Chief"></button><button class="" aria-label="Show Shannon Falls"></button><button class="" aria-label="Show Cirque Lake · Callaghan Valley"></button><button class="" aria-label="Show Garibaldi Lake"></button></div></div></div></header>
+<span class="stripe"></span>
+<div class="facts"><div class="in"><span>Official numbers, sources listed</span><span>Honest about difficulty</span><span>Free offline PDF on every new guide</span><span>Free to read</span></div></div>
+<section><div class="wrap"><div class="head"><span class="eyebrow">Start with a collection</span><h2>What kind of day are you after?</h2><p>Pick a theme and we'll narrow 40 guides down to the ones that fit.</p></div><div class="tiles"><a class="tile" href="/paddling/" style="background-image:url(/img/trails/squamish-estuary-sm.jpg)"><div><b>Paddle</b><span>14 guides</span></div></a><a class="tile" href="/swimming-lakes/" style="background-image:url(/img/trails/alice-lake-sm.jpg)"><div><b>Swim</b><span>10 guides</span></div></a><a class="tile" href="/hut-hikes/" style="background-image:url(/img/trails/elfin-lakes-sm.jpg)"><div><b>Huts</b><span>6 guides</span></div></a><a class="tile" href="/waterfalls/" style="background-image:url(/img/trails/shannon-falls-sm.jpg)"><div><b>Falls</b><span>5 guides</span></div></a><a class="tile" href="/big-days/" style="background-image:url(/img/trails/panorama-ridge-sm.jpg)"><div><b>Big days</b><span>16 guides</span></div></a><a class="tile" href="/easy-hikes/" style="background-image:url(/img/trails/cheakamus-lake-sm.jpg)"><div><b>Easy & family</b><span>19 guides</span></div></a><a class="tile" href="/year-round/" style="background-image:url(/img/trails/train-wreck-sm.jpg)"><div><b>Year-round</b><span>13 guides</span></div></a></div></div></section>
+<section class="tint" id="guides"><div class="wrap">
+<div class="head"><span class="eyebrow">All guides</span><h2>Every paddle &amp; hike in the guide.</h2><p>Each card opens a full field guide: how to get there, what it costs, and the honest truth about whether you should go. New here? Start with the <a href="/water-sports/" style="color:var(--burnt);font-weight:700">water sports guide</a>.</p></div>
+<div class="filters-label">Region</div><div class="filters" id="f-region"><button class="chip on" data-region="All">All</button><button class="chip" data-region="Squamish">Squamish</button><button class="chip" data-region="Whistler">Whistler</button><button class="chip" data-region="Pemberton">Pemberton</button><button class="chip" data-region="Garibaldi">Garibaldi</button><button class="chip" data-region="Tantalus">Tantalus</button><button class="chip" data-region="Howe Sound">Howe Sound</button></div>
+<div class="filters-label">Difficulty</div><div class="filters" id="f-diff"><button class="chip on" data-diff="All">Any</button><button class="chip" data-diff="easy">Easy</button><button class="chip" data-diff="mod">Moderate</button><button class="chip" data-diff="hard">Hard</button></div>
+<div class="count" id="count">40 guides</div>
+<div class="grid" id="grid"><a class="card" href="https://alicelakesquamish.com/" data-region="Squamish" data-diff="easy" data-cols="paddle swim easy year" data-name="alice lake paddle &amp; swim squamish four warm lakes, a sandy swim beach, and the easiest family canoe day on the sea to sky.">
+<div class="ph"><img src="/img/trails/alice-lake-sm.jpg" alt="Alice Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Paddle & Swim</div><h3>Alice Lake</h3><p>Four warm lakes, a sandy swim beach, and the easiest family canoe day on the Sea to Sky.</p>
+<div class="tags"><span>Drive-up</span><span>Jun–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://riverofgoldendreams.ca/" data-region="Whistler" data-diff="mod" data-cols="paddle" data-name="river of golden dreams river paddle whistler a slow downstream drift from alta lake to green lake — the paddle the locals want you to do right.">
+<div class="ph"><img src="/img/trails/river-of-golden-dreams-sm.jpg" alt="River of Golden Dreams, Whistler, BC" loading="lazy" width="760" height="506"><span class="diff mod">Easy–Mod</span></div>
+<div class="bd"><div class="reg">Whistler · River Paddle</div><h3>River of Golden Dreams</h3><p>A slow downstream drift from Alta Lake to Green Lake — the paddle the locals want you to do right.</p>
+<div class="tags"><span>Shuttle</span><span>Jul–Aug</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://echolakesquamish.com/" data-region="Squamish" data-diff="hard" data-cols="paddle waterfall bigday" data-name="echo falls &amp; echo lake paddle + hike squamish cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.">
+<div class="ph"><img src="/img/trails/echo-lake-sm.jpg" alt="Echo Falls &amp; Echo Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Paddle + Hike</div><h3>Echo Falls &amp; Echo Lake</h3><p>Cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.</p>
+<div class="tags"><span>River crossing</span><span>Jun–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://callaghanlake.com/" data-region="Whistler" data-diff="mod" data-cols="paddle" data-name="callaghan lake paddle + hike whistler paddle the length of a high alpine lake, then hike the far shore up to hanging lake.">
+<div class="ph"><img src="/img/trails/callaghan-lake-sm.jpg" alt="Callaghan Lake, Whistler, BC" loading="lazy" width="760" height="506"><span class="diff mod">Moderate</span></div>
+<div class="bd"><div class="reg">Whistler · Paddle + Hike</div><h3>Callaghan Lake</h3><p>Paddle the length of a high alpine lake, then hike the far shore up to Hanging Lake.</p>
+<div class="tags"><span>AWD road</span><span>Jun–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://levettelake.com/" data-region="Tantalus" data-diff="easy" data-cols="paddle swim easy" data-name="levette lake paddle &amp; swim tantalus quiet water in the tantalus foothills: mirror mornings, a 4x4 road, and almost nobody else.">
+<div class="ph"><img src="/img/trails/levette-lake-sm.jpg" alt="Levette Lake, Tantalus, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Tantalus · Paddle & Swim</div><h3>Levette Lake</h3><p>Quiet water in the Tantalus foothills: mirror mornings, a 4x4 road, and almost nobody else.</p>
+<div class="tags"><span>4×4 road</span><span>Jun–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://lakelovelywater.com/" data-region="Tantalus" data-diff="hard" data-cols="hut paddle bigday" data-name="lake lovely water hut + hike tantalus a canoe crossing, a steep climb, and an alpine club hut at the foot of the tantalus range.">
+<div class="ph"><img src="/img/trails/lake-lovely-water-sm.jpg" alt="Lake Lovely Water, Tantalus, BC" loading="lazy" width="760" height="506"><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Tantalus · Hut + Hike</div><h3>Lake Lovely Water</h3><p>A canoe crossing, a steep climb, and an alpine club hut at the foot of the Tantalus Range.</p>
+<div class="tags"><span>River / jet boat</span><span>Late Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://squamishestuary.ca/" data-region="Squamish" data-diff="easy" data-cols="paddle easy year" data-name="the squamish estuary estuary paddle squamish skwelwil&#x27;em: tides, herons and wintering eagles, paddled from the edge of town.">
+<div class="ph"><img src="/img/trails/squamish-estuary-sm.jpg" alt="The Squamish Estuary, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Estuary Paddle</div><h3>The Squamish Estuary</h3><p>Skwelwil&#x27;em: tides, herons and wintering eagles, paddled from the edge of town.</p>
+<div class="tags"><span>In town</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://joffrelake.com/" data-region="Pemberton" data-diff="mod" data-cols="bigday" data-name="joffre lakes alpine hike pemberton three turquoise lakes stacked up a steep valley: what to expect, and how to beat the crowds.">
+<div class="ph"><img src="/img/trails/joffre-lakes-sm.jpg" alt="Joffre Lakes, Pemberton, BC" loading="lazy" width="760" height="506"><span class="diff mod">Moderate</span></div>
+<div class="bd"><div class="reg">Pemberton · Alpine Hike</div><h3>Joffre Lakes</h3><p>Three turquoise lakes stacked up a steep valley: what to expect, and how to beat the crowds.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://cirquelake.com/" data-region="Whistler" data-diff="modhard" data-cols="paddle bigday" data-name="cirque lake paddle + hike whistler a granite bowl above callaghan lake with no trailhead: you paddle to the climb, then climb to the water.">
+<div class="ph"><img src="/img/trails/cirque-lake-sm.jpg" alt="Cirque Lake, Whistler, BC" loading="lazy" width="760" height="506"><span class="diff modhard">Mod–Hard</span></div>
+<div class="bd"><div class="reg">Whistler · Paddle + Hike</div><h3>Cirque Lake</h3><p>A granite bowl above Callaghan Lake with no trailhead: you paddle to the climb, then climb to the water.</p>
+<div class="tags"><span>Canoe required</span><span>Jul–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://waterspritelake.com/" data-region="Squamish" data-diff="hard" data-cols="hut bigday" data-name="watersprite lake hut + hike squamish a turquoise lake in a granite bowl east of squamish, with a club hut and an fsr to survive first.">
+<div class="ph"><img src="/img/trails/watersprite-lake-sm.jpg" alt="Watersprite Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Hut + Hike</div><h3>Watersprite Lake</h3><p>A turquoise lake in a granite bowl east of Squamish, with a club hut and an FSR to survive first.</p>
+<div class="tags"><span>FSR drive</span><span>Jul–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://elfin-lake.com/" data-region="Squamish" data-diff="mod" data-cols="hut year" data-name="elfin lakes hut + hike squamish the diamond head road-grade hike to alpine meadows, twin lakes and a shelter hut.">
+<div class="ph"><img src="/img/trails/elfin-lakes-sm.jpg" alt="Elfin Lakes, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff mod">Moderate</span></div>
+<div class="bd"><div class="reg">Squamish · Hut + Hike</div><h3>Elfin Lakes</h3><p>The Diamond Head road-grade hike to alpine meadows, twin lakes and a shelter hut.</p>
+<div class="tags"><span>22 km</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://cheakamuslake.com/" data-region="Whistler" data-diff="easy" data-cols="easy swim" data-name="cheakamus lake lakeside hike whistler garibaldi&#x27;s gentlest trail: 3.5 km of old-growth forest to a glacier-fed turquoise lake.">
+<div class="ph"><img src="/img/trails/cheakamus-lake-sm.jpg" alt="Cheakamus Lake, Whistler, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Whistler · Lakeside Hike</div><h3>Cheakamus Lake</h3><p>Garibaldi&#x27;s gentlest trail: 3.5 km of old-growth forest to a glacier-fed turquoise lake.</p>
+<div class="tags"><span>Gravel road</span><span>Jun–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://mamquam.com/" data-region="Squamish" data-diff="easy" data-cols="waterfall easy year" data-name="the mamquam river valley squamish the river, the falls and the gravel road that unlocks squamish&#x27;s east-side alpine.">
+<div class="ph"><img src="/img/trails/mamquam-sm.jpg" alt="The Mamquam, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · River Valley</div><h3>The Mamquam</h3><p>The river, the falls and the gravel road that unlocks Squamish&#x27;s east-side alpine.</p>
+<div class="tags"><span>In town</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://edithlake.com/" data-region="Squamish" data-diff="easy" data-cols="easy year" data-name="edith lake pond walk squamish the quiet lake on the four lakes trail: lilies, dragonflies and a loop that suits every age.">
+<div class="ph"><img src="/img/trails/edith-lake-sm.jpg" alt="Edith Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Pond Walk</div><h3>Edith Lake</h3><p>The quiet lake on the Four Lakes Trail: lilies, dragonflies and a loop that suits every age.</p>
+<div class="tags"><span>6 km loop</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://petgilllake.com/" data-region="Squamish" data-diff="mod" data-cols="swim" data-name="petgill lake forest hike squamish a rolling forest hike above howe sound to a quiet swim lake with bluff viewpoints.">
+<div class="ph"><img src="/img/trails/petgill-lake-sm.jpg" alt="Petgill Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff mod">Moderate</span></div>
+<div class="bd"><div class="reg">Squamish · Forest Hike</div><h3>Petgill Lake</h3><p>A rolling forest hike above Howe Sound to a quiet swim lake with bluff viewpoints.</p>
+<div class="tags"><span>~11 km</span><span>May–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://lucillelake.com/" data-region="Squamish" data-diff="easy" data-cols="swim paddle easy" data-name="lucille lake swim &amp; paddle squamish a hidden swim lake with clear water and a sandy beach, a short walk off chance creek.">
+<div class="ph"><img src="/img/trails/lucille-lake-sm.jpg" alt="Lucille Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Swim & Paddle</div><h3>Lucille Lake</h3><p>A hidden swim lake with clear water and a sandy beach, a short walk off Chance Creek.</p>
+<div class="tags"><span>AWD road</span><span>Jun–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://duffeylake.com/" data-region="Pemberton" data-diff="easy" data-cols="paddle easy" data-name="duffey lake roadside paddle pemberton a long glacier-cold lake beside highway 99, built for mirror mornings and roadside launches.">
+<div class="ph"><img src="/img/trails/duffey-lake-sm.jpg" alt="Duffey Lake, Pemberton, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Pemberton · Roadside Paddle</div><h3>Duffey Lake</h3><p>A long glacier-cold lake beside Highway 99, built for mirror mornings and roadside launches.</p>
+<div class="tags"><span>Drive-up</span><span>Jun–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://lillooetlake.com/" data-region="Pemberton" data-diff="modeasy" data-cols="paddle swim" data-name="lillooet lake lake &amp; rec sites pemberton jade water past the end of the pavement, with rustic rec-site camps along the shore.">
+<div class="ph"><img src="/img/trails/lillooet-lake-sm.jpg" alt="Lillooet Lake, Pemberton, BC" loading="lazy" width="760" height="506"><span class="diff modeasy">Easy–Mod</span></div>
+<div class="bd"><div class="reg">Pemberton · Lake & Rec Sites</div><h3>Lillooet Lake</h3><p>Jade water past the end of the pavement, with rustic rec-site camps along the shore.</p>
+<div class="tags"><span>Gravel road</span><span>May–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://birkenheadlake.com/" data-region="Pemberton" data-diff="easy" data-cols="paddle swim easy" data-name="birkenhead lake camp &amp; paddle pemberton an end-of-the-road provincial park lake: cold, clear and ideal for a family paddle.">
+<div class="ph"><img src="/img/trails/birkenhead-lake-sm.jpg" alt="Birkenhead Lake, Pemberton, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Pemberton · Camp & Paddle</div><h3>Birkenhead Lake</h3><p>An end-of-the-road provincial park lake: cold, clear and ideal for a family paddle.</p>
+<div class="tags"><span>Gravel road</span><span>Jun–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://panoramaridgewhistler.com/" data-region="Garibaldi" data-diff="hard" data-cols="bigday" data-name="panorama ridge alpine hike garibaldi the famous 30 km day above garibaldi lake&#x27;s turquoise sweep: logistics, pacing and honest advice.">
+<div class="ph"><img src="/img/trails/panorama-ridge-sm.jpg" alt="Panorama Ridge, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Alpine Hike</div><h3>Panorama Ridge</h3><p>The famous 30 km day above Garibaldi Lake&#x27;s turquoise sweep: logistics, pacing and honest advice.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://wedgemountlake.com/" data-region="Garibaldi" data-diff="hard" data-cols="hut bigday" data-name="wedgemount lake hut + hike garibaldi garibaldi&#x27;s steepest trail: a relentless 1,200 m climb to a glacier-fed lake and a mountain hut.">
+<div class="ph"><img src="/img/trails/wedgemount-lake-sm.jpg" alt="Wedgemount Lake, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Hut + Hike</div><h3>Wedgemount Lake</h3><p>Garibaldi&#x27;s steepest trail: a relentless 1,200 m climb to a glacier-fed lake and a mountain hut.</p>
+<div class="tags"><span>1,200 m gain</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://russetlake.com/" data-region="Garibaldi" data-diff="modhard" data-cols="hut bigday" data-name="russet lake hut + hike garibaldi a rust-tinted lake under fissile peak, reached by lift-assisted or valley-bottom routes.">
+<div class="ph"><img src="/img/trails/russet-lake-sm.jpg" alt="Russet Lake, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="diff modhard">Mod–Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Hut + Hike</div><h3>Russet Lake</h3><p>A rust-tinted lake under Fissile Peak, reached by lift-assisted or valley-bottom routes.</p>
+<div class="tags"><span>Lift or valley</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://trainwreckwhistler.com/" data-region="Whistler" data-diff="easy" data-cols="easy year" data-name="the train wreck forest walk whistler seven graffiti-painted boxcars from a 1956 derailment, scattered through old-growth forest.">
+<div class="ph"><img src="/img/trails/train-wreck-sm.jpg" alt="The Train Wreck, Whistler, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Whistler · Forest Walk</div><h3>The Train Wreck</h3><p>Seven graffiti-painted boxcars from a 1956 derailment, scattered through old-growth forest.</p>
+<div class="tags"><span>Suspension bridge</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://nairnfalls.com/" data-region="Pemberton" data-diff="easy" data-cols="waterfall easy" data-name="nairn falls falls walk pemberton the ten-minute pull-over on highway 99 that everyone drives past, and the campground behind it.">
+<div class="ph"><img src="/img/trails/nairn-falls-sm.jpg" alt="Nairn Falls, Pemberton, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Pemberton · Falls Walk</div><h3>Nairn Falls</h3><p>The ten-minute pull-over on Highway 99 that everyone drives past, and the campground behind it.</p>
+<div class="tags"><span>Drive-up</span><span>May–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://skypilotmountain.com/" data-region="Squamish" data-diff="serious" data-cols="bigday" data-name="sky pilot mountaineering squamish the glaciated skyline peak above the gondola: route notes for the experienced and the honestly curious.">
+<div class="ph"><img src="/img/trails/sky-pilot-sm.jpg" alt="Sky Pilot, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff serious">Serious</span></div>
+<div class="bd"><div class="reg">Squamish · Mountaineering</div><h3>Sky Pilot</h3><p>The glaciated skyline peak above the gondola: route notes for the experienced and the honestly curious.</p>
+<div class="tags"><span>Glacier gear</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://mountgaribaldi.com/" data-region="Squamish" data-diff="look" data-cols="easy year" data-name="mount garibaldi mountain portrait squamish nch&#x27;ḵay̓, the glaciated volcano the park is named for, and five places to see it from.">
+<div class="ph"><img src="/img/trails/mount-garibaldi-sm.jpg" alt="Mount Garibaldi, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff look">Look up</span></div>
+<div class="bd"><div class="reg">Squamish · Mountain Portrait</div><h3>Mount Garibaldi</h3><p>Nch&#x27;ḵay̓, the glaciated volcano the park is named for, and five places to see it from.</p>
+<div class="tags"><span>Five vantages</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://brohmlake.ca/" data-region="Squamish" data-diff="easy" data-cols="swim paddle easy" data-name="brohm lake swim &amp; paddle squamish the highway swim lake: rope swings, rock ledges and a hand-carry launch.">
+<div class="ph"><img src="/img/trails/brohm-lake-sm.jpg" alt="Brohm Lake, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Swim & Paddle</div><h3>Brohm Lake</h3><p>The highway swim lake: rope swings, rock ledges and a hand-carry launch.</p>
+<div class="tags"><span>Drive-up</span><span>May–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://murrinpark.com/" data-region="Squamish" data-diff="easy" data-cols="swim easy" data-name="murrin park swim &amp; climb squamish browning lake, the jurassic ridge loop and the climbing bluffs, right off the sea to sky highway.">
+<div class="ph"><img src="/img/trails/murrin-park-sm.jpg" alt="Murrin Park, Squamish, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Swim & Climb</div><h3>Murrin Park</h3><p>Browning Lake, the Jurassic Ridge loop and the climbing bluffs, right off the Sea to Sky Highway.</p>
+<div class="tags"><span>Drive-up</span><span>May–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://porteau-cove.ca/" data-region="Howe Sound" data-diff="easy" data-cols="paddle easy year" data-name="porteau cove dive &amp; camp howe sound the closest serious saltwater paddling launch to vancouver, with beach camping and a dive reef.">
+<div class="ph"><img src="/img/trails/porteau-cove-sm.jpg" alt="Porteau Cove, Howe Sound, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Howe Sound · Dive & Camp</div><h3>Porteau Cove</h3><p>The closest serious saltwater paddling launch to Vancouver, with beach camping and a dive reef.</p>
+<div class="tags"><span>Drive-up</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://porteaucoveprovincialpark.com/" data-region="Howe Sound" data-diff="easy" data-cols="easy year" data-name="porteau cove provincial park camp &amp; dive howe sound camping, an artificial-reef dive program and a day-use beach on the shore of howe sound.">
+<div class="ph"><img src="/img/trails/porteau-cove-provincial-park-sm.jpg" alt="Porteau Cove Provincial Park, Howe Sound, BC" loading="lazy" width="760" height="506"><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Howe Sound · Camp & Dive</div><h3>Porteau Cove Provincial Park</h3><p>Camping, an artificial-reef dive program and a day-use beach on the shore of Howe Sound.</p>
+<div class="tags"><span>Drive-up</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="https://anvilisland.ca/" data-region="Howe Sound" data-diff="serious" data-cols="bigday" data-name="anvil island &amp; leading peak boat + summit howe sound a steep, exposed summit in the middle of howe sound, reachable only by boat.">
+<div class="ph"><img src="/img/trails/anvil-island-sm.jpg" alt="Anvil Island &amp; Leading Peak, Howe Sound, BC" loading="lazy" width="760" height="506"><span class="diff serious">Serious</span></div>
+<div class="bd"><div class="reg">Howe Sound · Boat + Summit</div><h3>Anvil Island &amp; Leading Peak</h3><p>A steep, exposed summit in the middle of Howe Sound, reachable only by boat.</p>
+<div class="tags"><span>Boat only</span><span>Jun–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/stawamus-chief/" data-region="Squamish" data-diff="hard" data-cols="bigday year" data-name="stawamus chief granite hike squamish three peaks, 1.5–1.8 km each way and 540–630 m of climbing: squamish&#x27;s most famous hike, done properly.">
+<div class="ph"><img src="/img/trails/stawamus-chief-sm.jpg" alt="Stawamus Chief, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Granite Hike</div><h3>Stawamus Chief</h3><p>Three peaks, 1.5–1.8 km each way and 540–630 m of climbing: Squamish&#x27;s most famous hike, done properly.</p>
+<div class="tags"><span>Stairs &amp; chains</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/shannon-falls/" data-region="Squamish" data-diff="easy" data-cols="waterfall easy year" data-name="shannon falls waterfall walk squamish a 335 m waterfall, third highest in british columbia, at the end of a short walk off highway 99.">
+<div class="ph"><img src="/img/trails/shannon-falls-sm.jpg" alt="Shannon Falls, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Waterfall Walk</div><h3>Shannon Falls</h3><p>A 335 m waterfall, third highest in British Columbia, at the end of a short walk off Highway 99.</p>
+<div class="tags"><span>350 m walk</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/black-tusk/" data-region="Garibaldi" data-diff="hard" data-cols="bigday" data-name="black tusk alpine hike garibaldi the volcanic spire above garibaldi lake: a long full-day hike to the base of garibaldi&#x27;s most recognisable landmark.">
+<div class="ph"><img src="/img/trails/black-tusk-sm.jpg" alt="Black Tusk, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Alpine Hike</div><h3>Black Tusk</h3><p>The volcanic spire above Garibaldi Lake: a long full-day hike to the base of Garibaldi&#x27;s most recognisable landmark.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/garibaldi-lake/" data-region="Garibaldi" data-diff="hard" data-cols="bigday swim" data-name="garibaldi lake hike + camp garibaldi the turquoise lake the park is named for: about 9 km and 900 m from rubble creek, with a day pass in summer.">
+<div class="ph"><img src="/img/trails/garibaldi-lake-sm.jpg" alt="Garibaldi Lake, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Hike + Camp</div><h3>Garibaldi Lake</h3><p>The turquoise lake the park is named for: about 9 km and 900 m from Rubble Creek, with a day pass in summer.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/singing-pass/" data-region="Garibaldi" data-diff="hard" data-cols="hut bigday" data-name="singing pass valley hike garibaldi the strenuous valley trail from whistler into garibaldi&#x27;s spearhead country: 11.5 km and about 1,200 m to the pass.">
+<div class="ph"><img src="/img/trails/singing-pass-sm.jpg" alt="Singing Pass, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Valley Hike</div><h3>Singing Pass</h3><p>The strenuous valley trail from Whistler into Garibaldi&#x27;s Spearhead country: 11.5 km and about 1,200 m to the pass.</p>
+<div class="tags"><span>Strenuous</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/brandywine-falls/" data-region="Whistler" data-diff="easy" data-cols="waterfall easy year" data-name="brandywine falls waterfall walk whistler a 70 m waterfall at the end of a 10–20 minute walk, 47 km north of squamish.">
+<div class="ph"><img src="/img/trails/brandywine-falls-sm.jpg" alt="Brandywine Falls, Whistler, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Whistler · Waterfall Walk</div><h3>Brandywine Falls</h3><p>A 70 m waterfall at the end of a 10–20 minute walk, 47 km north of Squamish.</p>
+<div class="tags"><span>10–20 min</span><span>Gate closed off-season</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/sea-to-summit/" data-region="Squamish" data-diff="hard" data-cols="bigday" data-name="sea to summit trail gondola hike squamish hike from sea level to the sea to sky gondola summit: 6.5 km and about 918 m, then ride down.">
+<div class="ph"><img src="/img/trails/sea-to-summit-sm.jpg" alt="Sea to Summit Trail, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Gondola Hike</div><h3>Sea to Summit Trail</h3><p>Hike from sea level to the Sea to Sky Gondola summit: 6.5 km and about 918 m, then ride down.</p>
+<div class="tags"><span>6.5 km</span><span>Apr–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/smoke-bluffs/" data-region="Squamish" data-diff="easy" data-cols="easy year" data-name="smoke bluffs park climb &amp; walk squamish in-town granite: 400+ climbing routes and seven trails minutes from downtown squamish.">
+<div class="ph"><img src="/img/trails/smoke-bluffs-sm.jpg" alt="Smoke Bluffs Park, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy–Mod</span></div>
+<div class="bd"><div class="reg">Squamish · Climb & Walk</div><h3>Smoke Bluffs Park</h3><p>In-town granite: 400+ climbing routes and seven trails minutes from downtown Squamish.</p>
+<div class="tags"><span>Dogs on leash</span><span>Free</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/rainbow-lake/" data-region="Whistler" data-diff="hard" data-cols="bigday" data-name="rainbow lake alpine hike whistler whistler&#x27;s classic full-day climb from rainbow falls: about 16 km return and 850 m of gain, no dogs.">
+<div class="ph"><img src="/img/trails/rainbow-lake-sm.jpg" alt="Rainbow Lake, Whistler, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Whistler · Alpine Hike</div><h3>Rainbow Lake</h3><p>Whistler&#x27;s classic full-day climb from Rainbow Falls: about 16 km return and 850 m of gain, no dogs.</p>
+<div class="tags"><span>6+ hours</span><span>No dogs</span></div><span class="go">Read the field guide →</span></div></a></div></div></section>
+<section><div class="wrap"><div class="head"><span class="eyebrow">New this season</span><h2>New guides, with downloadable PDFs.</h2><p>Built from official sources, with every figure checked and sources listed at the end of each guide.</p></div><div class="grid"><a class="card" href="/trails/stawamus-chief/" data-region="Squamish" data-diff="hard" data-cols="bigday year" data-name="stawamus chief granite hike squamish three peaks, 1.5–1.8 km each way and 540–630 m of climbing: squamish&#x27;s most famous hike, done properly.">
+<div class="ph"><img src="/img/trails/stawamus-chief-sm.jpg" alt="Stawamus Chief, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Granite Hike</div><h3>Stawamus Chief</h3><p>Three peaks, 1.5–1.8 km each way and 540–630 m of climbing: Squamish&#x27;s most famous hike, done properly.</p>
+<div class="tags"><span>Stairs &amp; chains</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/shannon-falls/" data-region="Squamish" data-diff="easy" data-cols="waterfall easy year" data-name="shannon falls waterfall walk squamish a 335 m waterfall, third highest in british columbia, at the end of a short walk off highway 99.">
+<div class="ph"><img src="/img/trails/shannon-falls-sm.jpg" alt="Shannon Falls, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Squamish · Waterfall Walk</div><h3>Shannon Falls</h3><p>A 335 m waterfall, third highest in British Columbia, at the end of a short walk off Highway 99.</p>
+<div class="tags"><span>350 m walk</span><span>Year-round</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/black-tusk/" data-region="Garibaldi" data-diff="hard" data-cols="bigday" data-name="black tusk alpine hike garibaldi the volcanic spire above garibaldi lake: a long full-day hike to the base of garibaldi&#x27;s most recognisable landmark.">
+<div class="ph"><img src="/img/trails/black-tusk-sm.jpg" alt="Black Tusk, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Alpine Hike</div><h3>Black Tusk</h3><p>The volcanic spire above Garibaldi Lake: a long full-day hike to the base of Garibaldi&#x27;s most recognisable landmark.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/garibaldi-lake/" data-region="Garibaldi" data-diff="hard" data-cols="bigday swim" data-name="garibaldi lake hike + camp garibaldi the turquoise lake the park is named for: about 9 km and 900 m from rubble creek, with a day pass in summer.">
+<div class="ph"><img src="/img/trails/garibaldi-lake-sm.jpg" alt="Garibaldi Lake, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Hike + Camp</div><h3>Garibaldi Lake</h3><p>The turquoise lake the park is named for: about 9 km and 900 m from Rubble Creek, with a day pass in summer.</p>
+<div class="tags"><span>Day pass</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/singing-pass/" data-region="Garibaldi" data-diff="hard" data-cols="hut bigday" data-name="singing pass valley hike garibaldi the strenuous valley trail from whistler into garibaldi&#x27;s spearhead country: 11.5 km and about 1,200 m to the pass.">
+<div class="ph"><img src="/img/trails/singing-pass-sm.jpg" alt="Singing Pass, Garibaldi, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Garibaldi · Valley Hike</div><h3>Singing Pass</h3><p>The strenuous valley trail from Whistler into Garibaldi&#x27;s Spearhead country: 11.5 km and about 1,200 m to the pass.</p>
+<div class="tags"><span>Strenuous</span><span>Jul–Sep</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/brandywine-falls/" data-region="Whistler" data-diff="easy" data-cols="waterfall easy year" data-name="brandywine falls waterfall walk whistler a 70 m waterfall at the end of a 10–20 minute walk, 47 km north of squamish.">
+<div class="ph"><img src="/img/trails/brandywine-falls-sm.jpg" alt="Brandywine Falls, Whistler, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy</span></div>
+<div class="bd"><div class="reg">Whistler · Waterfall Walk</div><h3>Brandywine Falls</h3><p>A 70 m waterfall at the end of a 10–20 minute walk, 47 km north of Squamish.</p>
+<div class="tags"><span>10–20 min</span><span>Gate closed off-season</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/sea-to-summit/" data-region="Squamish" data-diff="hard" data-cols="bigday" data-name="sea to summit trail gondola hike squamish hike from sea level to the sea to sky gondola summit: 6.5 km and about 918 m, then ride down.">
+<div class="ph"><img src="/img/trails/sea-to-summit-sm.jpg" alt="Sea to Summit Trail, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Squamish · Gondola Hike</div><h3>Sea to Summit Trail</h3><p>Hike from sea level to the Sea to Sky Gondola summit: 6.5 km and about 918 m, then ride down.</p>
+<div class="tags"><span>6.5 km</span><span>Apr–Oct</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/smoke-bluffs/" data-region="Squamish" data-diff="easy" data-cols="easy year" data-name="smoke bluffs park climb &amp; walk squamish in-town granite: 400+ climbing routes and seven trails minutes from downtown squamish.">
+<div class="ph"><img src="/img/trails/smoke-bluffs-sm.jpg" alt="Smoke Bluffs Park, Squamish, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff easy">Easy–Mod</span></div>
+<div class="bd"><div class="reg">Squamish · Climb & Walk</div><h3>Smoke Bluffs Park</h3><p>In-town granite: 400+ climbing routes and seven trails minutes from downtown Squamish.</p>
+<div class="tags"><span>Dogs on leash</span><span>Free</span></div><span class="go">Read the field guide →</span></div></a><a class="card" href="/trails/rainbow-lake/" data-region="Whistler" data-diff="hard" data-cols="bigday" data-name="rainbow lake alpine hike whistler whistler&#x27;s classic full-day climb from rainbow falls: about 16 km return and 850 m of gain, no dogs.">
+<div class="ph"><img src="/img/trails/rainbow-lake-sm.jpg" alt="Rainbow Lake, Whistler, BC" loading="lazy" width="760" height="506"><span class="tag-new">New</span><span class="diff hard">Hard</span></div>
+<div class="bd"><div class="reg">Whistler · Alpine Hike</div><h3>Rainbow Lake</h3><p>Whistler&#x27;s classic full-day climb from Rainbow Falls: about 16 km return and 850 m of gain, no dogs.</p>
+<div class="tags"><span>6+ hours</span><span>No dogs</span></div><span class="go">Read the field guide →</span></div></a></div></div></section>
+<span class="stripe"></span>
+<section class="dark" id="standards"><div class="wrap"><div class="cols"><div><span class="eyebrow">How we work</span><h2 style="margin:.9rem 0 1.2rem">Guides you can plan a day around.</h2><p>We lead with the things that decide a trip: how you get there, whether you need a pass, what the road and weather do, and who can help. Numbers come from land managers such as BC Parks and from named public sources. Where sources disagree, we show a range and say so.</p><p>Outdoor recreation carries real risk. Our guides are not a substitute for current information from the land manager or for your own judgment. Sponsored placements are always labelled and never change the advice.</p><a class="btn" href="/advertise/">Advertise with us</a></div>
+<ul class="tenets"><li><b>Official first.</b><small>Rules and numbers come from BC Parks and other land managers.</small></li><li><b>Sources named.</b><small>Every new guide lists where its facts came from and when we last checked.</small></li><li><b>No invented reviews.</b><small>We don't publish made-up testimonials or ratings.</small></li><li><b>Safety on the record.</b><small>Operators need insurance, permits and a real safety brief, or we don't list them.</small></li></ul></div></div></section>
+<section id="faq"><div class="narrow"><div class="head"><span class="eyebrow">Questions</span><h2>Planning a Sea to Sky trip</h2></div><div class="faq"><details><summary>What is Sea to Sky Trails?</summary><p>An independent set of field guides to the lakes, hikes and paddles between Howe Sound and Pemberton, with honest logistics: roads, passes, tides, seasons and who can get you there.</p></details><details><summary>What are the best hikes in the Sea to Sky corridor?</summary><p>It depends on the day you want. The Stawamus Chief and Black Tusk are big days, Cheakamus Lake and Shannon Falls are easy outings, and Elfin Lakes and Wedgemount Lake are classic hut trips. Browse the collections to compare.</p></details><details><summary>Where can I paddle a canoe near Squamish and Whistler?</summary><p>Alice Lake, the Squamish Estuary, Brohm Lake, Lucille Lake, Callaghan Lake and the River of Golden Dreams are among the guides with paddling notes, from beginner-friendly water to trips where a canoe is the only way in.</p></details><details><summary>Do I need a day pass for Garibaldi or Joffre Lakes?</summary><p>BC Parks has used free day-use passes on busy trails such as Rubble Creek in Garibaldi and Joffre Lakes. Rules and dates change, so always check the current BC Parks page before you go.</p></details><details><summary>When is hiking season in the Sea to Sky?</summary><p>Low-elevation trails and shoreline paddles run most of the year. Alpine trails are usually snow-free from July to September. Each guide lists its own season.</p></details><details><summary>Are the guides free to read?</summary><p>Yes. The guides are free to read. Some operators support the guides, and sponsored placements are always marked.</p></details></div></div></section>
+<footer class="sts"><div class="wrap">
+<div class="fgrid">
+<div><a class="sts-logo" href="/"><img src="/brand/mark.svg" alt="" width="40" height="40"><span class="w"><small>Sea to Sky</small><b>Trails</b></span></a>
+<p style="margin-top:1rem;max-width:34ch;color:#a9c3bb">Independent field guides to the lakes, hikes and quiet places between Howe Sound and Pemberton. Based in Squamish, British Columbia.</p></div>
+<div><h4>Regions</h4><a href="/squamish/">Squamish</a><a href="/whistler/">Whistler</a><a href="/pemberton/">Pemberton</a><a href="/garibaldi/">Garibaldi</a><a href="/tantalus/">Tantalus</a><a href="/howe-sound/">Howe Sound</a></div>
+<div><h4>Collections</h4><a href="/paddling/">Paddle</a><a href="/swimming-lakes/">Swim</a><a href="/hut-hikes/">Huts</a><a href="/waterfalls/">Falls</a><a href="/big-days/">Big days</a><a href="/easy-hikes/">Easy & family</a><a href="/year-round/">Year-round</a></div>
+<div><h4>Read</h4><a href="/#guides">All guides</a><a href="/water-sports/">Water sports</a><a href="/#standards">How we work</a><a href="/#faq">FAQ</a></div>
+<div><h4>Contact</h4><a href="mailto:seatoskytrails@gmail.com">Pitch a guide</a><a href="mailto:seatoskytrails@gmail.com">Correct a fact</a><a href="/advertise/">Advertise</a><a href="https://squamishcanoerental.com/">Squamish Canoe Rental</a><a href="https://squamishwatertaxi.com/">Squamish Water Taxi</a></div>
 </div>
-
-<!-- ===================== DIRECTORY ===================== -->
-<section id="trails" class="directory">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">The guides</span>
-      <h2>Every paddle &amp; hike in the guide.</h2>
-      <p>Pick a lake or a trail. Each card opens a full field guide &mdash; how to get there, what it costs, and the honest truth about whether you should go. Planning around an activity instead of a place? Start with the <a href="/water-sports/" style="color:var(--pine);font-weight:600;">water sports field guide</a>.</p>
-    </div>
-    <div class="filters">
-      <button class="chip on" data-region="All">All</button>
-      <button class="chip" data-region="Squamish">Squamish</button>
-      <button class="chip" data-region="Whistler">Whistler</button>
-      <button class="chip" data-region="Garibaldi">Garibaldi</button>
-      <button class="chip" data-region="Tantalus">Tantalus</button>
-      <button class="chip" data-region="Pemberton">Pemberton</button>
-      <button class="chip" data-region="Howe Sound">Howe Sound</button>
-    </div>
-    <div class="grid" id="grid">
-      <a class="card" data-region="Squamish" href="https://alicelakesquamish.com/">
-        <div class="thumb photo" role="img" aria-label="Alice Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alice_Lake%2C_British_Columbia_176.jpg/1280px-Alice_Lake%2C_British_Columbia_176.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Paddle & Swim</div>
-          <h3>Alice Lake</h3>
-          <p>Four warm lakes, a sandy swim beach, and the easiest family canoe day on the Sea to Sky.</p>
-          <div class="tags"><span>Drive-up</span><span>Jun–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Whistler" href="https://riverofgoldendreams.ca/">
-        <div class="thumb photo" role="img" aria-label="River of Golden Dreams" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/River_of_Golden_Dreams.jpg/1280px-River_of_Golden_Dreams.jpg')"><span class="badge">Guide live</span><span class="diff mod">Easy–Mod</span></div>
-        <div class="card-body">
-          <div class="region">Whistler &middot; River Paddle</div>
-          <h3>River of Golden Dreams</h3>
-          <p>A slow downstream drift from Alta Lake to Green Lake — the paddle the locals want you to do right.</p>
-          <div class="tags"><span>Shuttle</span><span>Jul–Aug</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://echolakesquamish.com/">
-        <div class="thumb photo" role="img" aria-label="Echo Falls & Echo Lake" style="background-image:url('https://echolakesquamish.com/squamish-river-crossing.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Paddle + Hike</div>
-          <h3>Echo Falls & Echo Lake</h3>
-          <p>Cross the tidal river, climb to a thundering waterfall, and find a quiet alpine lake above it.</p>
-          <div class="tags"><span>River crossing</span><span>Jun–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Whistler" href="https://callaghanlake.com/">
-        <div class="thumb photo" role="img" aria-label="Callaghan Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Andrew_takes_in_the_view_%2849695597381%29.jpg/1280px-Andrew_takes_in_the_view_%2849695597381%29.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
-        <div class="card-body">
-          <div class="region">Whistler &middot; Paddle + Hike</div>
-          <h3>Callaghan Lake</h3>
-          <p>Paddle the length of a high alpine lake, then hike the far shore up to Hanging Lake.</p>
-          <div class="tags"><span>AWD road</span><span>Jun–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Tantalus" href="https://levettelake.com/">
-        <div class="thumb photo" role="img" aria-label="Levette Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Levette_Lk_-_panoramio.jpg/1280px-Levette_Lk_-_panoramio.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Tantalus &middot; Paddle & Swim</div>
-          <h3>Levette Lake</h3>
-          <p>A mirror lake under the Tantalus — clear water, a swim-to island, and a 4×4 road that keeps it quiet.</p>
-          <div class="tags"><span>4×4 road</span><span>Jun–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Tantalus" href="https://lakelovelywater.com/">
-        <div class="thumb photo" role="img" aria-label="Lake Lovely Water" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Mount_Niobe_and_Lake_Lovely_Water.jpg/1280px-Mount_Niobe_and_Lake_Lovely_Water.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Tantalus &middot; Hut + Hike</div>
-          <h3>Lake Lovely Water</h3>
-          <p>A granite cirque you can't drive to — cross the Squamish, climb 1,300 m, and sleep at the alpine hut under Tantalus.</p>
-          <div class="tags"><span>River / jet boat</span><span>Late Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://squamishestuary.ca/">
-        <div class="thumb photo" role="img" aria-label="The Squamish Estuary" style="background-image:url('https://live.staticflickr.com/8032/7917479494_5da8ed9c2b_b.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Estuary Paddle</div>
-          <h3>The Squamish Estuary</h3>
-          <p>Skwelwil'em — a tidal bird refuge right in town, herons and wintering eagles, and the gentlest paddle in the corridor.</p>
-          <div class="tags"><span>In town</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Pemberton" href="https://joffrelake.com/">
-        <div class="thumb photo" role="img" aria-label="Joffre Lakes" style="background-image:url('https://images.pexels.com/photos/17826351/pexels-photo-17826351.jpeg?auto=compress&cs=tinysrgb&w=1600')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
-        <div class="card-body">
-          <div class="region">Pemberton &middot; Alpine Hike</div>
-          <h3>Joffre Lakes</h3>
-          <p>Three turquoise lakes stacked under the Matier Glacier — book the day pass, beat the bus crowds.</p>
-          <div class="tags"><span>Day pass</span><span>Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Whistler" href="https://cirquelake.com/">
-        <div class="thumb photo" role="img" aria-label="Cirque Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg/1280px-Misty_day_in_the_Callaghan_Valley_%2824859909477%29.jpg')"><span class="badge">Guide live</span><span class="diff hard">Mod–Hard</span></div>
-        <div class="card-body">
-          <div class="region">Whistler &middot; Paddle + Hike</div>
-          <h3>Cirque Lake</h3>
-          <p>Paddle across Callaghan Lake, then climb the outflow creek to a granite bowl you'll likely have to yourself.</p>
-          <div class="tags"><span>Canoe required</span><span>Jul–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://waterspritelake.com/">
-        <div class="thumb photo" role="img" aria-label="Watersprite Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mamquam_Mountain%2C_sw.jpg/1280px-Mamquam_Mountain%2C_sw.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Hut + Hike</div>
-          <h3>Watersprite Lake</h3>
-          <p>A turquoise pocket in the granite east of town, with a BCMC hut you have to book months out.</p>
-          <div class="tags"><span>FSR drive</span><span>Jul–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://elfin-lake.com/">
-        <div class="thumb photo" role="img" aria-label="Elfin Lakes" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Elfin_Lakes%2C_Opal_Cone.jpg/1280px-Elfin_Lakes%2C_Opal_Cone.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Hut + Hike</div>
-          <h3>Elfin Lakes</h3>
-          <p>The classic Diamond Head shelter walk — heather meadows in August, ski tracks in February.</p>
-          <div class="tags"><span>22 km</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Whistler" href="https://cheakamuslake.com/">
-        <div class="thumb photo" role="img" aria-label="Cheakamus Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cheakamus_Lake_BC_Canada.jpg/1280px-Cheakamus_Lake_BC_Canada.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Whistler &middot; Lakeside Hike</div>
-          <h3>Cheakamus Lake</h3>
-          <p>Old-growth forest and glacier-green water for barely any climbing — the corridor's easiest big payoff.</p>
-          <div class="tags"><span>Gravel road</span><span>Jun–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://mamquam.com/">
-        <div class="thumb photo" role="img" aria-label="The Mamquam" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mamquam_River.jpg/1280px-Mamquam_River.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; River Valley</div>
-          <h3>The Mamquam</h3>
-          <p>Falls, salmon runs, dike walks, and the gravel road that unlocks the whole east-side alpine.</p>
-          <div class="tags"><span>In town</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://edithlake.com/">
-        <div class="thumb photo" role="img" aria-label="Edith Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Alice_Lake_Provincial_Park_Trail.jpg/1280px-Alice_Lake_Provincial_Park_Trail.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Pond Walk</div>
-          <h3>Edith Lake</h3>
-          <p>The quiet one on the Four Lakes Trail — lily pads and dragonflies while the crowds pack Alice.</p>
-          <div class="tags"><span>6 km loop</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://petgilllake.com/">
-        <div class="thumb photo" role="img" aria-label="Petgill Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Murrin_provincial_park_quercus_point.jpg/1280px-Murrin_provincial_park_quercus_point.jpg')"><span class="badge">Guide live</span><span class="diff mod">Moderate</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Forest Hike</div>
-          <h3>Petgill Lake</h3>
-          <p>Mossy bluffs over Howe Sound and a genuinely warm swim lake at the end — check trailhead status first.</p>
-          <div class="tags"><span>~11 km</span><span>May–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://lucillelake.com/">
-        <div class="thumb photo" role="img" aria-label="Lucille Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg/1280px-Green_woods_near_Brohm_Lake_%28Unsplash%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Swim & Paddle</div>
-          <h3>Lucille Lake</h3>
-          <p>A clear, quiet swim lake a short walk off Chance Creek — if you can find the right pullout.</p>
-          <div class="tags"><span>AWD road</span><span>Jun–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Pemberton" href="https://duffeylake.com/">
-        <div class="thumb photo" role="img" aria-label="Duffey Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Joffre_Peak.jpg/1280px-Joffre_Peak.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Pemberton &middot; Roadside Paddle</div>
-          <h3>Duffey Lake</h3>
-          <p>Mirror water under big glaciated peaks, right off Highway 99 — the pull-over-and-gasp lake.</p>
-          <div class="tags"><span>Drive-up</span><span>Jun–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Pemberton" href="https://lillooetlake.com/">
-        <div class="thumb photo" role="img" aria-label="Lillooet Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Winter_beach_time_%2850825961033%29.jpg/1280px-Winter_beach_time_%2850825961033%29.jpg')"><span class="badge">Guide live</span><span class="diff mod">Easy–Mod</span></div>
-        <div class="card-body">
-          <div class="region">Pemberton &middot; Lake & Rec Sites</div>
-          <h3>Lillooet Lake</h3>
-          <p>Jade water, rustic forestry campsites, and a washboard road that keeps the crowds away.</p>
-          <div class="tags"><span>Gravel road</span><span>May–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Pemberton" href="https://birkenheadlake.com/">
-        <div class="thumb photo" role="img" aria-label="Birkenhead Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Birkenhead_lake.JPG/1280px-Birkenhead_lake.JPG')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Pemberton &middot; Camp & Paddle</div>
-          <h3>Birkenhead Lake</h3>
-          <p>The end-of-the-road provincial park: campground on the water, morning glass, deer in the sites.</p>
-          <div class="tags"><span>Gravel road</span><span>Jun–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Howe Sound" href="https://porteau-cove.ca/">
-        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Howe Sound &middot; Dive & Camp</div>
-          <h3>Porteau Cove</h3>
-          <p>Sunken ships, night dives, and the only oceanside campground on the Sea to Sky.</p>
-          <div class="tags"><span>Drive-up</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Garibaldi" href="https://panoramaridgewhistler.com/">
-        <div class="thumb photo" role="img" aria-label="Panorama Ridge" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Garibaldi_Lake_from_Panorama_Ridge.jpg/1280px-Garibaldi_Lake_from_Panorama_Ridge.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Garibaldi &middot; Alpine Hike</div>
-          <h3>Panorama Ridge</h3>
-          <p>The postcard view over Garibaldi Lake — a 30 km day most people should turn into a camp trip.</p>
-          <div class="tags"><span>Day pass</span><span>Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Garibaldi" href="https://wedgemountlake.com/">
-        <div class="thumb photo" role="img" aria-label="Wedgemount Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Wedgemount_Glacier.jpg/1280px-Wedgemount_Glacier.jpg')"><span class="badge">Guide live</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Garibaldi &middot; Hut + Hike</div>
-          <h3>Wedgemount Lake</h3>
-          <p>The steepest worthwhile trail in the corridor, and a front-row seat to a retreating glacier.</p>
-          <div class="tags"><span>1,200 m gain</span><span>Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Garibaldi" href="https://russetlake.com/">
-        <div class="thumb photo" role="img" aria-label="Russet Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Fissile_Peak.jpg/1280px-Fissile_Peak.jpg')"><span class="badge">Guide live</span><span class="diff hard">Mod–Hard</span></div>
-        <div class="card-body">
-          <div class="region">Garibaldi &middot; Hut + Hike</div>
-          <h3>Russet Lake</h3>
-          <p>A rust-red tarn under Fissile Peak — ride the gondola and walk the Musical Bumps to the Kees and Claire Hut.</p>
-          <div class="tags"><span>Lift or valley</span><span>Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Whistler" href="https://trainwreckwhistler.com/">
-        <div class="thumb photo" role="img" aria-label="The Train Wreck" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg/1280px-Graffiti_on_the_train_wreck%2C_Whistler_%2828607416387%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Whistler &middot; Forest Walk</div>
-          <h3>The Train Wreck</h3>
-          <p>Graffiti boxcars in the moss beside the Cheakamus — the corridor's easiest cool walk.</p>
-          <div class="tags"><span>Suspension bridge</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Pemberton" href="https://nairnfalls.com/">
-        <div class="thumb photo" role="img" aria-label="Nairn Falls" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Autumn_in_Nairn_Falls.jpg/1280px-Autumn_in_Nairn_Falls.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Pemberton &middot; Falls Walk</div>
-          <h3>Nairn Falls</h3>
-          <p>The Green River punches through a granite gorge minutes from Pemberton — the pull-over that's worth it.</p>
-          <div class="tags"><span>Drive-up</span><span>May–Oct</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://skypilotmountain.com/">
-        <div class="thumb photo" role="img" aria-label="Sky Pilot" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Sky_Pilot_Mountain%2C_north.jpg/1280px-Sky_Pilot_Mountain%2C_north.jpg')"><span class="badge">Guide live</span><span class="diff hard">Serious</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Mountaineering</div>
-          <h3>Sky Pilot</h3>
-          <p>The peak on the town's skyline — a gondola-served glacier day that is emphatically not a hike.</p>
-          <div class="tags"><span>Glacier gear</span><span>Jul–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://mountgaribaldi.com/">
-        <div class="thumb photo" role="img" aria-label="Mount Garibaldi" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg/1280px-Mount_Garibaldi_%E2%80%93_Squamish%2C_BC_%E2%80%93_%282018-10-05%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Look up</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Mountain Portrait</div>
-          <h3>Mount Garibaldi</h3>
-          <p>Nch'ḵay̓ — the volcano over Squamish: where to see it, its story, and why most of us never climb it.</p>
-          <div class="tags"><span>Five vantages</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <div class="card" data-region="Squamish">
-        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge soon">Coming</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Swim & Paddle</div>
-          <h3>Cat Lake</h3>
-          <p>An easy north-Squamish oasis: a warm beach, walk-in campsites, and calm water for a board.</p>
-          <div class="tags"><span>Drive-up</span></div>
-          <span class="go muted">In the field &mdash; soon</span>
-        </div>
-      </div>
-      <a class="card" data-region="Squamish" href="https://brohmlake.ca/">
-        <div class="thumb photo" role="img" aria-label="Brohm Lake" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cannonball_%28Unsplash%29.jpg/1280px-Cannonball_%28Unsplash%29.jpg')"><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Swim & Paddle</div>
-          <h3>Brohm Lake</h3>
-          <p>Rope swings, rock ledges, and a trail network right off the Sea to Sky Highway.</p>
-          <div class="tags"><span>Drive-up</span><span>May–Sep</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <a class="card" data-region="Squamish" href="https://murrinpark.com/">
-        <div class="thumb"><svg viewBox="0 0 140 70" aria-hidden="true"><path d="M5 30 L30 14 L48 26 L66 10 L86 24 L104 14 L126 26 L135 22" opacity="0.5"/><ellipse cx="70" cy="50" rx="48" ry="9"/><path d="M30 54 Q70 60 110 54" opacity="0.4"/></svg><span class="badge">Guide live</span><span class="diff easy">Easy</span></div>
-        <div class="card-body">
-          <div class="region">Squamish &middot; Swim</div>
-          <h3>Browning Lake</h3>
-          <p>Warm, roadside, and ringed by a short walking trail in Murrin Provincial Park.</p>
-          <div class="tags"><span>Drive-up</span><span>Year-round</span></div>
-          <span class="go">Read the field guide &rarr;</span>
-        </div>
-      </a>
-      <div class="card" data-region="Howe Sound">
-        <div class="thumb photo" role="img" aria-label="Anvil Island" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Anvil_Island.jpg/1280px-Anvil_Island.jpg')"><span class="badge soon">Coming</span><span class="diff hard">Hard</span></div>
-        <div class="card-body">
-          <div class="region">Howe Sound &middot; Island Hike</div>
-          <h3>Anvil Island</h3>
-          <p>Leading Peak rises straight out of Howe Sound — a steep summit reached by boat only.</p>
-          <div class="tags"><span>Boat access</span></div>
-          <span class="go muted">In the field &mdash; soon</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo" role="img" aria-label="A paddler in a canoe on a calm mountain lake"></div>
-      <div>
-        <span class="eyebrow">The idea</span>
-        <h2 style="margin:1rem 0 1.2rem;">For the trip you can&rsquo;t Google in one tab.</h2>
-        <p>The Sea to Sky Corridor is two hours of highway and a thousand quiet detours. Most of what&rsquo;s good here cannot be found on a single tidy webpage. The trail report is on a forum from 2014. The launch coordinates are buried in a Reddit thread. The tide window is a fact you have to learn three trips in.</p>
-        <p>This guide is the page we wished existed &mdash; written by people who actually go, edited honestly, and quietly supported by the operators we trust to get you there.</p>
-        <blockquote class="pull">
-          &ldquo;The mountains don&rsquo;t care how you arrived &mdash; only that you packed properly and left the place better than you found it.&rdquo;
-          <cite>House style, vol. I</cite>
-        </blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== OPERATORS ===================== -->
-<section id="operators" class="operators">
-  <div class="wrap">
-    <div class="ops-grid">
-      <div>
-        <span class="eyebrow">The operators</span>
-        <h2 style="margin:1rem 0 1.2rem;">The right boat. The right shuttle. The right guide.</h2>
-        <p>Most of the destinations in this guide are not drive-up. We work with a small, vetted bench of Sea to Sky operators &mdash; canoe rentals, water taxis, jet boat shuttles, trailhead drivers &mdash; who can get you there safely and back home for dinner. They pay us only when you book through this page.</p>
-        <p style="margin-top:1rem;">To apply, email <a href="mailto:seatoskytrails@gmail.com?subject=Operator%20listing%20application&body=Hi%20%E2%80%94%20I%27d%20like%20to%20apply%20to%20be%20listed%20as%20a%20Sea%20to%20Sky%20Trails%20operator.%0A%0ABusiness%20name%3A%0AService%20type%20(canoe%20rental%2C%20jet%20boat%2C%20shuttle%2C%20guide%2C%20gear%2C%20etc.)%3A%0AService%20area%3A%0AWebsite%3A%0ALiability%20insurance%20%2B%20permits%20on%20file%3F%3A%0AAnything%20else%20we%20should%20know%3A%0A%0AThanks!" style="color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.4);">seatoskytrails@gmail.com</a> directly with your business name and service type.</p>
-        <p style="margin-top:1.1rem;font-size:0.88rem;">Not an operator, but want to reach this audience anyway? <a href="/advertise/" style="color:#fff;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.4);">See our advertising options &rarr;</a></p>
-      </div>
-      <div>
-        <ul class="tenets">
-          <li><span class="n">i.</span><span class="t">Local first.<small>Operators must live and work in the corridor. No call centres in other provinces.</small></span></li>
-          <li><span class="n">ii.</span><span class="t">Safety on the record.<small>Insurance, permits, and a real safety brief, or we don&rsquo;t list them.</small></span></li>
-          <li><span class="n">iii.</span><span class="t">No paid features dressed as advice.<small>Sponsored slots are clearly marked. The advice in the body of each guide stays our own.</small></span></li>
-          <li><span class="n">iv.</span><span class="t">Free until it works.<small>Operators pay nothing to be listed. We take a small fee only after a booking comes through.</small></span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="mark" style="margin-bottom:1rem;">
-          <span class="peak"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg></span>
-          <span>Sea to Sky Trails<small>Coast Mountains · BC</small></span>
-        </div>
-        <p style="font-size:0.85rem;max-width:34ch;">Published quarterly from the head of Howe Sound. Edited and maintained by an independent team based in Squamish, British Columbia.</p>
-      </div>
-      <div>
-        <h4>Read</h4>
-        <ul>
-          <li><a href="#trails">Field guides</a></li>
-          <li><a href="/water-sports/">Water sports in Squamish</a></li>
-          <li><a href="#about">About the guide</a></li>
-          <li><a href="#operators">Operator standards</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Submit</h4>
-        <ul>
-          <li><a href="mailto:seatoskytrails@gmail.com">Pitch a guide</a></li>
-          <li><a href="mailto:seatoskytrails@gmail.com">Correct a fact</a></li>
-          <li><a href="mailto:seatoskytrails@gmail.com">Apply as operator</a></li>
-          <li><a href="/advertise/">Advertise with us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Elsewhere</h4>
-        <ul>
-          <li><a href="https://squamishcanoerental.com/">Squamish Canoe Rental</a></li>
-          <li><a href="https://squamishwatertaxi.com/">Squamish Water Taxi</a></li>
-          <li><a href="https://squamishwatertaxi.com/tours.html">Boat Tours on Howe Sound</a></li>
-          <li><a href="https://squamishwatertaxi.com/boat-rentals.html">Rent a Boat in Squamish</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-base">
-      <div>Sea to Sky Trails &middot; Volume I, 2026 &middot; Published in Sḵwx̱wú7mesh territory.</div>
-      <div>&copy; 2026 &middot; Reader-funded.</div>
-    </div>
-    <div class="credits">
-      Photography &mdash;
-    Alice Lake by Jennifer C. (CC&nbsp;BY&nbsp;2.0);
-    River of Golden Dreams by LittleT889 (CC&nbsp;BY&nbsp;4.0);
-    Levette Lake by Juraj Tatár (CC&nbsp;BY-SA&nbsp;3.0);
-    Lake Lovely Water by Tim Gage (CC&nbsp;BY-SA&nbsp;2.0);
-    Squamish Estuary by Ruth Hartnup (CC&nbsp;BY&nbsp;2.0);
-    Browning Lake / Murrin Park by Radiowallah (CC&nbsp;BY-SA&nbsp;3.0);
-    Anvil Island by Ruth Hartnup (CC&nbsp;BY&nbsp;2.5);
-    Panorama Ridge &amp; Wedgemount by Madhumanti Mandal (CC&nbsp;BY-SA&nbsp;4.0);
-    Fissile Peak by Tim (CC&nbsp;BY-SA&nbsp;2.0);
-    Sky Pilot &amp; Mamquam Mountain by kcxd (CC&nbsp;BY&nbsp;2.0);
-    Murrin bluffs by AmazingAce123 (CC0);
-    Birkenhead Lake by Orlandkurtenbach (public domain);
-    Brohm Lake by Talia Cohen (CC0);
-    Cheakamus Lake by martin_vmorris (CC&nbsp;BY-SA&nbsp;2.0);
-    Callaghan Valley &amp; Train Wreck by Ruth Hartnup (CC&nbsp;BY&nbsp;2.0);
-    Mamquam River by LittleT889 (CC&nbsp;BY&nbsp;4.0);
-    Mount Garibaldi by Ryan Sharpe (CC&nbsp;BY-SA&nbsp;4.0);
-    Nairn Falls by mpslxz (CC&nbsp;BY-SA&nbsp;4.0);
-    forest near Brohm by Bryce Evans (CC0);
-    Alice Lake trail by Keely Hill (CC&nbsp;BY-SA&nbsp;4.0);
-    Elfin Lakes by Andysonic777 (CC&nbsp;BY&nbsp;3.0);
-    Duffey Lake by Murray Foubister (CC&nbsp;BY-SA&nbsp;2.0);
-    Lillooet Lake by VinceTraveller (CC&nbsp;BY&nbsp;2.0);
-    via Wikimedia Commons &amp; Flickr. Scenic photos via Unsplash.
-    </div>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll(".chip").forEach(function (chip) {
-  chip.addEventListener("click", function () {
-    document.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("on"); });
-    chip.classList.add("on");
-    var region = chip.dataset.region;
-    document.querySelectorAll("#grid .card").forEach(function (card) {
-      card.style.display = (region === "All" || card.dataset.region === region) ? "" : "none";
-    });
-  });
-});
-</script>
-
+<div class="fbase"><div>© 2026 Sea to Sky Trails · Published in Sḵwx̱wú7mesh territory.</div><div>Distances and passes change: always check BC Parks before you go.</div></div>
+<div class="credits">Photography — Black Tusk, Stawamus Chief, Shannon Falls and Singing Pass area by Jeremy Allen / The Full Time Hobby; Brandywine Falls by Kevin He (CC BY-SA 2.0); Sea to Sky Gondola summit by Shafik Diwan (CC BY-SA 4.0); Rainbow Falls by martin bell (CC BY-SA 4.0).  Black Tusk, Stawamus Chief, Shannon Falls, Squamish Estuary, Mamquam and Cirque Lake (Callaghan Valley) by Jeremy Allen / The Full Time Hobby; Porteau Cove by Jeremy Allen. Alice Lake by Jennifer C. (CC BY 2.0); River of Golden Dreams by LittleT889 (CC BY 4.0); Levette Lake by Juraj Tatár (CC BY-SA 3.0); Lake Lovely Water by Tim Gage (CC BY-SA 2.0); Browning Lake / Murrin Park by Radiowallah (CC BY-SA 3.0); Anvil Island by Ruth Hartnup (CC BY 2.5); Panorama Ridge &amp; Wedgemount by Madhumanti Mandal (CC BY-SA 4.0); Fissile Peak by Tim (CC BY-SA 2.0); Sky Pilot &amp; Mamquam Mountain by kcxd (CC BY 2.0); Murrin bluffs by AmazingAce123 (CC0); Birkenhead Lake by Orlandkurtenbach (public domain); Brohm Lake by Talia Cohen (CC0); Cheakamus Lake by martin_vmorris (CC BY-SA 2.0); Callaghan Lake &amp; Train Wreck by Ruth Hartnup (CC BY 2.0); Mount Garibaldi by Ryan Sharpe (CC BY-SA 4.0); Nairn Falls by mpslxz (CC BY-SA 4.0); Elfin Lakes by Andysonic777 (CC BY 3.0); Duffey Lake by Murray Foubister (CC BY-SA 2.0); Lillooet Lake by VinceTraveller (CC BY 2.0); Joffre Lakes and Porteau Cove Provincial Park via Pexels; via Wikimedia Commons &amp; Flickr.</div>
+</div></footer>
+<script data-cfasync="false">document.querySelectorAll('.sts-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.sts-links').classList.remove('open')))</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "161e0e399cea40f89f8b1367a5d9615a"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-</html>
+<script>
+(function(){var st={region:"All",diff:"All",q:""};var cards=[].slice.call(document.querySelectorAll("#grid .card"));
+function apply(){var n=0;cards.forEach(function(c){var d=c.dataset.diff;var okd=st.diff==="All"||d===st.diff||(st.diff==="mod"&&(d==="modeasy"||d==="modhard"))||(st.diff==="hard"&&d==="modhard")||(st.diff==="easy"&&d==="modeasy");var ok=(st.region==="All"||c.dataset.region===st.region)&&okd&&(!st.q||c.dataset.name.indexOf(st.q)>-1);c.style.display=ok?"":"none";if(ok)n++});document.getElementById("count").textContent=n+(n===1?" guide":" guides")}
+document.querySelectorAll("#f-region .chip").forEach(function(b){b.onclick=function(){document.querySelectorAll("#f-region .chip").forEach(function(x){x.classList.remove("on")});b.classList.add("on");st.region=b.dataset.region;apply()}});
+document.querySelectorAll("#f-diff .chip").forEach(function(b){b.onclick=function(){document.querySelectorAll("#f-diff .chip").forEach(function(x){x.classList.remove("on")});b.classList.add("on");st.diff=b.dataset.diff;apply()}});
+var q=document.getElementById("q");q.addEventListener("input",function(){st.q=q.value.trim().toLowerCase();apply()});
+var S=[{"name": "Black Tusk", "reg": "Garibaldi", "url": "/trails/black-tusk/", "cr": "Jeremy Allen"}, {"name": "The Squamish Estuary", "reg": "Squamish", "url": "https://squamishestuary.ca/", "cr": "Jeremy Allen"}, {"name": "Stawamus Chief", "reg": "Squamish", "url": "/trails/stawamus-chief/", "cr": "Jeremy Allen"}, {"name": "Shannon Falls", "reg": "Squamish", "url": "/trails/shannon-falls/", "cr": "Jeremy Allen"}, {"name": "Cirque Lake \u00b7 Callaghan Valley", "reg": "Whistler", "url": "https://cirquelake.com/", "cr": "Jeremy Allen"}, {"name": "Garibaldi Lake", "reg": "Garibaldi", "url": "/trails/garibaldi-lake/", "cr": "Madhumanti Mandal (CC BY-SA 4.0)"}],sl=[].slice.call(document.querySelectorAll("#slides .slide")),dots=[].slice.call(document.querySelectorAll("#dots button")),cap=document.getElementById("slidecap"),i=0,tm=null,hero=document.getElementById("top");
+function show(n){i=(n+sl.length)%sl.length;var s=sl[i];if(!s.style.backgroundImage)s.style.backgroundImage="url("+s.dataset.src+")";sl.forEach(function(e,k){e.classList.toggle("on",k===i)});dots.forEach(function(e,k){e.classList.toggle("on",k===i)});var d=S[i];cap.innerHTML='<a href="'+d.url+'">'+d.name+' →</a> &middot; '+d.reg+' &middot; Photo: '+d.cr;var nx=sl[(i+1)%sl.length];if(!nx.style.backgroundImage){var im=new Image();im.src=nx.dataset.src}}
+function play(){if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;stop();tm=setInterval(function(){show(i+1)},6500)}function stop(){if(tm){clearInterval(tm);tm=null}}
+dots.forEach(function(b,k){b.onclick=function(){show(k);play()}});hero.addEventListener("mouseenter",stop);hero.addEventListener("mouseleave",play);show(0);play();})();
+</script>
+</body></html>
