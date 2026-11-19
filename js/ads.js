@@ -1,0 +1,5 @@
+(function(){var CLIENT="";/* Paste your Google AdSense publisher ID here (ca-pub-XXXXXXXXXXXXXXXX) and each slot's ad unit ID in data-slot to switch on Google ads. */
+var els=[].slice.call(document.querySelectorAll(".adslot"));if(!els.length)return;
+if(CLIENT){var s=document.createElement("script");s.async=true;s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+CLIENT;s.crossOrigin="anonymous";document.head.appendChild(s);
+els.forEach(function(e){var id=e.dataset.slot;if(!id)return;e.innerHTML='<span class="adlabel">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="'+CLIENT+'" data-ad-slot="'+id+'" data-ad-format="auto" data-full-width-responsive="true"></ins>';(window.adsbygoogle=window.adsbygoogle||[]).push({})})}
+else{els.forEach(function(e){e.innerHTML='<span class="adlabel">Advertisement</span><a class="house" href="/advertise/"><b>Your business here</b><span>Reach people planning Sea to Sky trips. Advertise with us →</span></a>'})}})();
